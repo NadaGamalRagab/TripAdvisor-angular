@@ -1,17 +1,17 @@
 <div class="bg-white p-3 category">
   <div>
-    <h6 class="d-inline-block mb-3">
+    <h4 class="d-inline-block mb-3">
       <span>COVID-19 <i class="fas fa-info-circle"></i></span>
-    </h6>
+    </h4>
     <img class="_3mqrboMx float-right" src="https://static.tacdn.com/img2/icons/illustration-handwash.svg" />
 
     <form class="mb-4">
       <div class="custom-checkbox">
         <div class="form-check">
           <label>
-            <input type="checkbox" name="check" />
+            <input type="checkbox" name="check" (input)='checked()' />
             <span class="label-text"><span class="check-label-font">
-                Properties taking safety measures</span></span>
+                {{categories.safety.name}}</span></span>
           </label>
         </div>
       </div>
@@ -19,34 +19,14 @@
   </div>
   <hr />
   <div>
-    <h6 class="d-inline-block mb-3"><span>Deals</span></h6>
-
+    <h4 class="d-inline-block mb-3"><span>Deals</span></h4>
     <form class="mb-4">
-      <div class="custom-checkbox">
-        <div class="form-check">
-          <label>
-            <input type="checkbox" name="check" />
-            <span class="label-text"><span class="check-label-font">
-                Free cancellation <i class="fas fa-info-circle"></i></span></span>
-          </label>
-        </div>
-      </div>
-      <div class="custom-checkbox">
+      <div class="custom-checkbox" *ngFor='let deal of categories.deals'>
         <div class="form-check">
           <label>
             <input type="checkbox" name="check" />
             <span class="label-text"><span class="check-label-font">
-                Reserve now, pay at stay
-                <i class="fas fa-info-circle"></i></span></span>
-          </label>
-        </div>
-      </div>
-      <div class="custom-checkbox">
-        <div class="form-check">
-          <label>
-            <input type="checkbox" name="check" />
-            <span class="label-text"><span class="check-label-font">
-                Properties with special offers</span></span>
+                {{deal.name}} <i class="fas fa-info-circle"></i></span></span>
           </label>
         </div>
       </div>
@@ -55,43 +35,14 @@
   <hr />
 
   <div>
-    <h6 class="d-inline-block mb-3"><span>Popular </span></h6>
+    <h4 class="d-inline-block mb-3"><span>Popular </span></h4>
 
     <form class="mb-4">
-      <div class="custom-checkbox">
+      <div class="custom-checkbox" *ngFor='let popular of categories.popular'>
         <div class="form-check">
           <label>
             <input type="checkbox" name="check" />
-            <span class="label-text"><span class="check-label-font"> Beachfront</span></span>
-          </label>
-        </div>
-      </div>
-      <div class="custom-checkbox">
-        <div class="form-check">
-          <label>
-            <input type="checkbox" name="check" />
-            <span class="label-text"><span>
-                <span class="dot m-0 p-0"></span>
-                <span class="dot m-0 p-0"></span>
-                <span class="dot m-0 p-0"></span>
-                <span class="dot m-0 p-0"></span>
-                <span class="dot m-0 p-0"></span> </span></span>
-          </label>
-        </div>
-      </div>
-      <div class="custom-checkbox">
-        <div class="form-check">
-          <label>
-            <input type="checkbox" name="check" />
-            <span class="label-text"><span class="check-label-font"> 5 stars</span></span>
-          </label>
-        </div>
-      </div>
-      <div class="custom-checkbox">
-        <div class="form-check">
-          <label>
-            <input type="checkbox" name="check" />
-            <span class="label-text"><span class="check-label-font"> Romantic</span></span>
+            <span class="label-text"><span class="check-label-font">{{popular.name}}</span></span>
           </label>
         </div>
       </div>
@@ -100,38 +51,15 @@
   <hr />
 
   <div>
-    <h6 class="d-inline-block mb-3"><span>Property types </span></h6>
+    <h4 class="d-inline-block mb-3"><span>Distance</span></h4><br>
 
+    <mat-slider class='w-75' thumbLabel [displayWith]="distance" tickInterval="1000" min="0.5" max="30"></mat-slider>
     <form class="mb-4">
-      <div class="custom-checkbox">
+      <div class="custom-checkbox" *ngFor='let distance of categories.distance'>
         <div class="form-check">
           <label>
             <input type="checkbox" name="check" />
-            <span class="label-text"><span class="check-label-font"> All-inclusives</span></span>
-          </label>
-        </div>
-      </div>
-      <div class="custom-checkbox">
-        <div class="form-check">
-          <label>
-            <input type="checkbox" name="check" />
-            <span class="label-text"><span class="check-label-font"> Resorts </span></span>
-          </label>
-        </div>
-      </div>
-      <div class="custom-checkbox">
-        <div class="form-check">
-          <label>
-            <input type="checkbox" name="check" />
-            <span class="label-text"><span class="check-label-font"> Hotels</span></span>
-          </label>
-        </div>
-      </div>
-      <div class="custom-checkbox">
-        <div class="form-check">
-          <label>
-            <input type="checkbox" name="check" />
-            <span class="label-text"><span class="check-label-font"> Condos</span></span>
+            <span class="label-text"><span class="check-label-font"> {{distance.name}}</span></span>
           </label>
         </div>
       </div>
@@ -140,38 +68,16 @@
   <hr />
 
   <div>
-    <h6 class="d-inline-block mb-3"><span>Amenities </span></h6>
-
+    <h4 class="d-inline-block mb-3"><span>Price Per Night</span></h4><br>
+    <mat-slider class='w-75' thumbLabel [displayWith]="price" tickInterval="1000" min="100" max="3000">
+    </mat-slider>
+    
     <form class="mb-4">
-      <div class="custom-checkbox">
+      <div class="custom-checkbox" *ngFor='let price of categories.price'>
         <div class="form-check">
           <label>
             <input type="checkbox" name="check" />
-            <span class="label-text"><span class="check-label-font"> Beachfront</span></span>
-          </label>
-        </div>
-      </div>
-      <div class="custom-checkbox">
-        <div class="form-check">
-          <label>
-            <input type="checkbox" name="check" />
-            <span class="label-text"><span class="check-label-font"> Free Wifi </span></span>
-          </label>
-        </div>
-      </div>
-      <div class="custom-checkbox">
-        <div class="form-check">
-          <label>
-            <input type="checkbox" name="check" />
-            <span class="label-text"><span class="check-label-font"> Breakfast included</span></span>
-          </label>
-        </div>
-      </div>
-      <div class="custom-checkbox">
-        <div class="form-check">
-          <label>
-            <input type="checkbox" name="check" />
-            <span class="label-text"><span class="check-label-font"> Pool</span></span>
+            <span class="label-text"><span class="check-label-font"> {{price.name}}</span></span>
           </label>
         </div>
       </div>
@@ -180,38 +86,14 @@
   <hr />
 
   <div>
-    <h6 class="d-inline-block mb-3"><span>Hotel class </span></h6>
+    <h4 class="d-inline-block mb-3"><span>Aminities </span></h4>
 
     <form class="mb-4">
-      <div class="custom-checkbox">
+      <div class="custom-checkbox" *ngFor='let option of categories.aminities'>
         <div class="form-check">
           <label>
             <input type="checkbox" name="check" />
-            <span class="label-text"><span class="check-label-font"> 5 stars</span></span>
-          </label>
-        </div>
-      </div>
-      <div class="custom-checkbox">
-        <div class="form-check">
-          <label>
-            <input type="checkbox" name="check" />
-            <span class="label-text"><span class="check-label-font"> 4 stars </span></span>
-          </label>
-        </div>
-      </div>
-      <div class="custom-checkbox">
-        <div class="form-check">
-          <label>
-            <input type="checkbox" name="check" />
-            <span class="label-text"><span class="check-label-font"> 3 stars</span></span>
-          </label>
-        </div>
-      </div>
-      <div class="custom-checkbox">
-        <div class="form-check">
-          <label>
-            <input type="checkbox" name="check" />
-            <span class="label-text"><span class="check-label-font"> 2 stars</span></span>
+            <span class="label-text"><span class="check-label-font">{{option.name}}</span></span>
           </label>
         </div>
       </div>
@@ -219,39 +101,29 @@
   </div>
   <hr />
   <div>
-    <h6 class="d-inline-block mb-3"><span>Brands </span></h6>
+    <h4 class="d-inline-block mb-3"><span>Hotel Class </span></h4>
 
     <form class="mb-4">
-      <div class="custom-checkbox">
+      <div class="custom-checkbox" *ngFor='let class of categories.hotelClass'>
         <div class="form-check">
           <label>
             <input type="checkbox" name="check" />
-            <span class="label-text"><span class="check-label-font"> Jaz Hotel Group</span></span>
+            <span class="label-text"><span class="check-label-font">{{class.name}}</span></span>
           </label>
         </div>
       </div>
-      <div class="custom-checkbox">
+    </form>
+  </div>
+  <hr />
+  <div>
+    <h4 class="d-inline-block mb-3"><span>Language Spoken</span></h4>
+
+    <form class="mb-4">
+      <div class="custom-checkbox" *ngFor='let lang of categories.languageSpoken'>
         <div class="form-check">
           <label>
             <input type="checkbox" name="check" />
-            <span class="label-text"><span class="check-label-font"> Jaz Hotel Group </span></span>
-          </label>
-        </div>
-      </div>
-      <div class="custom-checkbox">
-        <div class="form-check">
-          <label>
-            <input type="checkbox" name="check" />
-            <span class="label-text"><span class="check-label-font">
-                Steigenberger Hotels And Resorts</span></span>
-          </label>
-        </div>
-      </div>
-      <div class="custom-checkbox">
-        <div class="form-check">
-          <label>
-            <input type="checkbox" name="check" />
-            <span class="label-text"><span class="check-label-font"> Titanic Hotels</span></span>
+            <span class="label-text"><span class="check-label-font">{{lang.name}}</span></span>
           </label>
         </div>
       </div>

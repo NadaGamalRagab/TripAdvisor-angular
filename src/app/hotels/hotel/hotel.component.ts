@@ -63,7 +63,7 @@ export class HotelComponent implements OnInit {
           Math.min(...this.hotel.Pricedeals.map((d) => d.pricePerNight))
       ),
     };
-    console.log(this.theBestDeal.obj[0].name);
+   // console.log(this.theBestDeal.obj[0].name);
     switch (this.theBestDeal.obj[0].name.toLowerCase()) {
       case 'expedia':
         this.theBestDeal.img =

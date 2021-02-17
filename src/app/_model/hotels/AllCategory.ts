@@ -9,5 +9,5 @@ export interface AllCategory{
     price: category[],
     aminities: category[],
     hotelClass: category[],
-    
+    languageSpoken : category[]
 }
