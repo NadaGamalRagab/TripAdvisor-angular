@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Hotel } from 'src/app/_model/hotels/hotel';
 import { HotelService } from 'src/app/_services/hotel.service';
+import { HotelCategoryService } from './../../_services/hotel-category.service';
 
 @Component({
   selector: 'app-hotel',
@@ -14,8 +15,12 @@ export class HotelComponent implements OnInit {
   freeCancellation: boolean = false;
   reserveNow: boolean = false;
   theBestDeal = { obj: {}, img: '' };
-  rate :number = 0;
-  constructor(private hotelService: HotelService) {}
+  rate: number = 0;
+
+  constructor(
+    private hotelService: HotelService,
+    private HotelCategoryService: HotelCategoryService
+  ) {}
 
   ngOnInit(): void {
     this.BestSeller();
@@ -46,11 +51,18 @@ export class HotelComponent implements OnInit {
   }
   Deals(): void {
     for (let deal of this.hotel.deals) {
-      //console.log(deal.toLocaleLowerCase());
-      if (deal.toLocaleLowerCase() == 'free cancellation') {
+      if (
+        this.HotelCategoryService.getDealById(
+          deal
+        )[0].name.toLocaleLowerCase() == 'free cancellation'
+      ) {
         this.freeCancellation = true;
       }
-      if (deal.toLocaleLowerCase() == 'reserve now, pay at stay') {
+      if (
+        this.HotelCategoryService.getDealById(
+          deal
+        )[0].name.toLocaleLowerCase() == 'reserve now, pay at stay'
+      ) {
         this.reserveNow = true;
       }
     }
@@ -63,7 +75,7 @@ export class HotelComponent implements OnInit {
           Math.min(...this.hotel.Pricedeals.map((d) => d.pricePerNight))
       ),
     };
-   // console.log(this.theBestDeal.obj[0].name);
+    // console.log(this.theBestDeal.obj[0].name);
     switch (this.theBestDeal.obj[0].name.toLowerCase()) {
       case 'expedia':
         this.theBestDeal.img =
@@ -83,5 +95,9 @@ export class HotelComponent implements OnInit {
 
   Counter(i) {
     return new Array(i);
+  }
+
+  getAmt(_id) {
+    return this.HotelCategoryService.getAmtById(_id)[0].name;
   }
 }

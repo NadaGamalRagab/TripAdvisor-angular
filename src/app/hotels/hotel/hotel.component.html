@@ -83,10 +83,6 @@
       <div class="col-5 h-100 border-left ">
         <div class="ml-3 mb-2">
           <span class="dot" *ngFor='let dot of Counter(rate)'></span>
-          <!-- <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span> -->
           <a href="#" class="text-dark pl-2">{{hotel.reviews.length}} reviews </a><br>
         </div>
 
@@ -96,11 +92,7 @@
         </div><br>
 
         <div class="ml-3 mr-3" *ngFor='let amt of hotel.amenities.slice(0,3)'>
-          <span><i class="fas fa-check-circle"></i><span> {{amt}}</span></span><br>
-          <!-- <span><i class="fas fa-swimmer"></i><span> Pool</span></span><br>
-          <a href="#" class="text-dark"><img class="_3LqxbtBM"
-              src="https://static.tacdn.com/img2/icons/handwash-icon.svg"><span>
-              Taking safety measures</span></a><br> -->
+          <span><i class="fas fa-check-circle"></i><span> {{getAmt(amt)}}</span></span><br>
         </div>
         <a href={{theBestDeal.obj[0].link}} class="text-dark ml-3 mr-3"><i class="fas fa-globe"></i><span>
             Visit hotel

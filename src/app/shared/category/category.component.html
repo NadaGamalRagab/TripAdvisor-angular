@@ -9,7 +9,8 @@
       <div class="custom-checkbox">
         <div class="form-check">
           <label>
-            <input type="checkbox" name="check" (input)='checked()' />
+            <input type="checkbox" name={{categories.safety.name}} id={{categories.safety._id}}
+              (change)='Dealsfilter($event)' />
             <span class="label-text"><span class="check-label-font">
                 {{categories.safety.name}}</span></span>
           </label>
@@ -24,7 +25,7 @@
       <div class="custom-checkbox" *ngFor='let deal of categories.deals'>
         <div class="form-check">
           <label>
-            <input type="checkbox" name="check" />
+            <input type="checkbox" name={{deal.name}} id={{deal._id}} (change)='filter($event)' />
             <span class="label-text"><span class="check-label-font">
                 {{deal.name}} <i class="fas fa-info-circle"></i></span></span>
           </label>
@@ -41,7 +42,7 @@
       <div class="custom-checkbox" *ngFor='let popular of categories.popular'>
         <div class="form-check">
           <label>
-            <input type="checkbox" name="check" />
+            <input type="checkbox" name={{popular.name}} id={{popular._id}} (change)='filter($event)' />
             <span class="label-text"><span class="check-label-font">{{popular.name}}</span></span>
           </label>
         </div>
@@ -58,7 +59,7 @@
       <div class="custom-checkbox" *ngFor='let distance of categories.distance'>
         <div class="form-check">
           <label>
-            <input type="checkbox" name="check" />
+            <input type="checkbox" name={{distance.name}} id={{distance._id}} />
             <span class="label-text"><span class="check-label-font"> {{distance.name}}</span></span>
           </label>
         </div>
@@ -76,7 +77,7 @@
       <div class="custom-checkbox" *ngFor='let price of categories.price'>
         <div class="form-check">
           <label>
-            <input type="checkbox" name="check" />
+            <input type="checkbox" name={{price.name}} id={{price._id}} />
             <span class="label-text"><span class="check-label-font"> {{price.name}}</span></span>
           </label>
         </div>
@@ -92,7 +93,7 @@
       <div class="custom-checkbox" *ngFor='let option of categories.aminities'>
         <div class="form-check">
           <label>
-            <input type="checkbox" name="check" />
+            <input type="checkbox" name={{option.name}} id={{option._id}} />
             <span class="label-text"><span class="check-label-font">{{option.name}}</span></span>
           </label>
         </div>
@@ -107,7 +108,7 @@
       <div class="custom-checkbox" *ngFor='let class of categories.hotelClass'>
         <div class="form-check">
           <label>
-            <input type="checkbox" name="check" />
+            <input type="checkbox" name={{class.name}} id={{class._id}}/>
             <span class="label-text"><span class="check-label-font">{{class.name}}</span></span>
           </label>
         </div>
@@ -122,7 +123,7 @@
       <div class="custom-checkbox" *ngFor='let lang of categories.languageSpoken'>
         <div class="form-check">
           <label>
-            <input type="checkbox" name="check" />
+            <input type="checkbox" name={{lang.name}} id={{lang._id}} />
             <span class="label-text"><span class="check-label-font">{{lang.name}}</span></span>
           </label>
         </div>
