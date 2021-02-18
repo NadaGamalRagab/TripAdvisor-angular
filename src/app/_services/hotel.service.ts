@@ -138,6 +138,8 @@ export class HotelService {
         'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/dd/06/86/steigenberger-al-dau.jpg?w=400&amp;h=400&amp;s=1',
       ],
       deals: ['2'],
+      popular: ['5', '8'],
+
       amenities: ['14', '15', '13', '18', '19', '20'],
       class: '21',
       distance: {
@@ -223,8 +225,8 @@ export class HotelService {
         'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/dd/06/86/steigenberger-al-dau.jpg?w=400&amp;h=400&amp;s=1',
       ],
       deals: ['2'],
-      amenities: ['14', '16', '17', '13', '20'],
       popular: ['8', '5'],
+      amenities: ['14', '16', '17', '13', '20'],
       class: '22',
       distance: {
         mainStreet: 10,
@@ -296,6 +298,7 @@ export class HotelService {
         'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/dd/06/86/steigenberger-al-dau.jpg?w=400&amp;h=400&amp;s=1',
       ],
       deals: ['3'],
+      popular: ['7', '5'],
       amenities: ['14', '15', '16', '17', '18'],
       class: '23',
       distance: {
@@ -468,7 +471,7 @@ export class HotelService {
       ],
       deals: ['2', '3'],
       amenities: ['13', '14', '15', '16', '17', '18', '19'],
-      popular: ['8', '7'],
+      popular: ['7'],
       class: '24',
       distance: {
         mainStreet: 7,

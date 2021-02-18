@@ -10,7 +10,7 @@
         <div class="form-check">
           <label>
             <input type="checkbox" name={{categories.safety.name}} id={{categories.safety._id}}
-              (change)='safty($event)'/>
+               />
             <span class="label-text"><span class="check-label-font">
                 {{categories.safety.name}}</span></span>
           </label>
@@ -25,7 +25,7 @@
       <div class="custom-checkbox" *ngFor='let deal of categories.deals'>
         <div class="form-check">
           <label>
-            <input type="checkbox" name={{deal.name}} id={{deal._id}} (change)='DealsFilter($event)' />
+            <input type="checkbox" alt='deals' name={{deal.name}} id={{deal._id}} (change)='Filter($event)' />
             <span class="label-text"><span class="check-label-font">
                 {{deal.name}} <i class="fas fa-info-circle"></i></span></span>
           </label>
@@ -42,7 +42,7 @@
       <div class="custom-checkbox" *ngFor='let popular of categories.popular'>
         <div class="form-check">
           <label>
-            <input type="checkbox" name={{popular.name}} id={{popular._id}} (change)='filter($event)' />
+            <input type="checkbox" alt='popular' name={{popular.name}} id={{popular._id}} (change)='Filter($event)' />
             <span class="label-text"><span class="check-label-font">{{popular.name}}</span></span>
           </label>
         </div>
@@ -72,7 +72,7 @@
     <h4 class="d-inline-block mb-3"><span>Price Per Night</span></h4><br>
     <mat-slider class='w-75' thumbLabel [displayWith]="price" tickInterval="1000" min="100" max="3000">
     </mat-slider>
-    
+
     <form class="mb-4">
       <div class="custom-checkbox" *ngFor='let price of categories.price'>
         <div class="form-check">
@@ -108,7 +108,7 @@
       <div class="custom-checkbox" *ngFor='let class of categories.hotelClass'>
         <div class="form-check">
           <label>
-            <input type="checkbox" name={{class.name}} id={{class._id}}/>
+            <input type="checkbox" name={{class.name}} id={{class._id}} />
             <span class="label-text"><span class="check-label-font">{{class.name}}</span></span>
           </label>
         </div>

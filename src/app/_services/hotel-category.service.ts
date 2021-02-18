@@ -15,7 +15,6 @@ export class HotelCategoryService {
     ],
     popular: [
       { _id: '5', name: 'Beachfront' },
-      { _id: '6', name: '5 rate' },
       { _id: '7', name: '5 stars' },
       { _id: '8', name: 'Romantic' },
     ],

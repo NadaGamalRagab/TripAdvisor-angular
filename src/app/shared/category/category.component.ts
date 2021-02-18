@@ -36,9 +36,8 @@ export class CategoryComponent implements OnInit {
     }
     return value;
   }
-  safty(e) {
-  }
-  DealsFilter(event) {
-    this.HotelsFilteringService.DealsFilter(event);
+
+  Filter(event) {
+    this.HotelsFilteringService.Filter(event);
   }
 }

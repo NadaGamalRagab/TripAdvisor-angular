@@ -8,7 +8,9 @@ import { Hotel } from '../_model/hotels/hotel';
 })
 export class HotelsFilteringService {
   hotels: Hotel[];
-  filterdHotels: Hotel[];
+  tempHotels: Hotel[] = [];
+  filterdHotels: Hotel[] = [];
+
   constructor(
     private HotelCategoryService: HotelCategoryService,
     private HotelService: HotelService
@@ -20,7 +22,53 @@ export class HotelsFilteringService {
     this.hotels = this.HotelService.getAllHotels();
   }
 
-  DealsFilter(event) {
-    console.log(event);
+  Filter(event) {
+    let target = event.target.alt;
+    if (event.target.checked) {
+      if (target == 'deals') {
+        this.tempHotels.push(
+          ...this.hotels.filter(
+            (e) =>
+              e.deals.filter((hotel) => hotel == event.target.id) ==
+              event.target.id
+          )
+        );
+      }
+      if (target == 'popular') {
+        this.tempHotels.push(
+          ...this.hotels.filter(
+            (e) =>
+              e.popular.filter((hotel) => hotel == event.target.id) ==
+              event.target.id
+          )
+        );
+      }
+      this.filterdHotels = [...new Set(this.tempHotels)];
+    } else {
+      if (target == 'deals') {
+        this.tempHotels = this.filterdHotels.filter(
+          (e) =>
+            e.deals.filter((hotel) => hotel == event.target.id) == event.target.id
+        );
+      }
+        if (target == 'popular') {
+          this.tempHotels = this.filterdHotels.filter(
+            (e) =>
+              e.popular.filter((hotel) => hotel == event.target.id) ==
+              event.target.id
+          );
+        }
+      //console.log('temp : ', this.tempHotels);
+      this.tempHotels.forEach((t) => {
+        this.filterdHotels.forEach((f) => {
+          if (f._id === t._id) {
+            var index = this.filterdHotels.indexOf(f);
+            this.filterdHotels.splice(index, 1);
+          }
+        });
+      });
+    }
+    console.log(this.filterdHotels);
   }
+
 }
