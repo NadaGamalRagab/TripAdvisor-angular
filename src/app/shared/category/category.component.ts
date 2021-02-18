@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HotelCategoryService } from './../../_services/hotel-category.service';
 import { AllCategory } from './../../_model/hotels/AllCategory';
 import { ThisReceiver } from '@angular/compiler';
+import { HotelService } from 'src/app/_services/hotel.service';
+import { HotelsFilteringService } from './../../_services/hotels-filtering.service';
 
 @Component({
   selector: 'app-category',
@@ -11,8 +13,13 @@ import { ThisReceiver } from '@angular/compiler';
 export class CategoryComponent implements OnInit {
   categories: AllCategory;
   priceCategory: number = 0;
+  selectType: string;
   isChecked = false;
-  constructor(private HotelCategoryService: HotelCategoryService) {}
+  constructor(
+    private HotelCategoryService: HotelCategoryService,
+    private HotelService: HotelService,
+    private HotelsFilteringService: HotelsFilteringService
+  ) {}
 
   ngOnInit(): void {
     this.categories = this.HotelCategoryService.getAllCategories();
@@ -29,11 +36,9 @@ export class CategoryComponent implements OnInit {
     }
     return value;
   }
-
-  Dealsfilter(e) {
-    console.log(e.target.name);
-    console.log(e.target.id);
+  safty(e) {
   }
-
- 
+  DealsFilter(event) {
+    this.HotelsFilteringService.DealsFilter(event);
+  }
 }

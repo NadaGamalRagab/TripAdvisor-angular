@@ -10,7 +10,7 @@
         <div class="form-check">
           <label>
             <input type="checkbox" name={{categories.safety.name}} id={{categories.safety._id}}
-              (change)='Dealsfilter($event)' />
+              (change)='safty($event)'/>
             <span class="label-text"><span class="check-label-font">
                 {{categories.safety.name}}</span></span>
           </label>
@@ -25,7 +25,7 @@
       <div class="custom-checkbox" *ngFor='let deal of categories.deals'>
         <div class="form-check">
           <label>
-            <input type="checkbox" name={{deal.name}} id={{deal._id}} (change)='filter($event)' />
+            <input type="checkbox" name={{deal.name}} id={{deal._id}} (change)='DealsFilter($event)' />
             <span class="label-text"><span class="check-label-font">
                 {{deal.name}} <i class="fas fa-info-circle"></i></span></span>
           </label>

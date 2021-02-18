@@ -65,8 +65,5 @@ export class HotelCategoryService {
   getDealById(_id: string) {
     return this.categoryList.deals.filter((p) => p._id == _id);
   }
-  Popularfilter(e) {}
-  Distancefilter(e) {}
-  Pricefilter(e) {}
-  Aminitiesfilter(e){}
+
 }

@@ -499,9 +499,7 @@ export class HotelService {
       likes: ['252', '4575'],
     },
   ];
-
   constructor() {}
-
   getAllHotels() {
     return this.hotels.slice();
   }
