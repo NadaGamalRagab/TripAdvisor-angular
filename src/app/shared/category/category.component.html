@@ -51,33 +51,14 @@
   <hr />
 
   <div>
-    <h4 class="d-inline-block mb-3"><span>Distance (mi)</span></h4><br>
+    <h4 class="d-inline-block mb-3"><span>Distance </span></h4><br>
 
-    <mat-slider class='w-75' thumbLabel [displayWith]="distance" tickInterval="1000" min="0.5" max="30"></mat-slider>
     <form class="mb-4">
       <div class="custom-checkbox" *ngFor='let distance of categories.distance'>
         <div class="form-check">
           <label>
-            <input type="checkbox" name={{distance.name}} id={{distance._id}} (change)='FilterDistance($event)' />
+            <input type="checkbox" alt='distance' name={{distance.name}} id={{distance._id}} (change)='FilterDistance($event)' />
             <span class="label-text"><span class="check-label-font"> {{distance.name}}</span></span>
-          </label>
-        </div>
-      </div>
-    </form>
-  </div>
-  <hr />
-
-  <div>
-    <h4 class="d-inline-block mb-3"><span>Price Per Night</span></h4><br>
-    <mat-slider class='w-75' thumbLabel [displayWith]="price" tickInterval="1000" min="100" max="3000">
-    </mat-slider>
-
-    <form class="mb-4">
-      <div class="custom-checkbox" *ngFor='let price of categories.price'>
-        <div class="form-check">
-          <label>
-            <input type="checkbox" name={{price.name}} id={{price._id}} (change)='Filter($event)' />
-            <span class="label-text"><span class="check-label-font"> {{price.name}}</span></span>
           </label>
         </div>
       </div>

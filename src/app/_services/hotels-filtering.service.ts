@@ -1,7 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output } from '@angular/core';
 import { HotelCategoryService } from './hotel-category.service';
 import { HotelService } from 'src/app/_services/hotel.service';
 import { Hotel } from '../_model/hotels/hotel';
+import * as EventEmitter from 'events';
+import { Event } from '@angular/router';
+import { AllCategory } from './../_model/hotels/AllCategory';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +14,11 @@ export class HotelsFilteringService {
   tempHotels: Hotel[] = [];
   filterdHotels: Hotel[] = [];
   checkedArray = [];
+  closeToBeach = 3;
+  closeToMainStreet = 5;
+  closeToCityCenter = 10;
+  CloseToPark = 6;
+  Filtering : EventEmitter = new EventEmitter();
   constructor(
     private HotelCategoryService: HotelCategoryService,
     private HotelService: HotelService
@@ -56,10 +64,36 @@ export class HotelsFilteringService {
       );
     });
     this.filterdHotels = [...new Set(this.tempHotels)];
-    console.log(this.filterdHotels);
+    return this.filterdHotels;
   }
 
-  FilterDistance(event, value) {
-    
+  FilterDistance(event) {
+    console.log(this.tempHotels);
+    let distance = event.target.name;
+    if (event.target.checked) {
+      if (distance == 'Close to beach') {
+        this.tempHotels.push(...this.hotels.filter((e) => e.distance.beach <= this.closeToBeach));
+      } else if (distance == 'Close to Main Street') {
+        this.tempHotels.push(
+          ...this.hotels.filter((e) => e.distance.mainStreet <= this.closeToMainStreet)
+        );
+      } else if (distance == 'Close to City Center') {
+        this.tempHotels.push(
+          ...this.hotels.filter((e) => e.distance.cityCenter <= this.closeToCityCenter)
+        );
+      } else if (distance == 'Close to Park') {
+        this.tempHotels.push(...this.hotels.filter((e) => e.distance.park <= this.CloseToPark));
+      }
+      this.filterdHotels = [...new Set(this.tempHotels)];
+      return this.filterdHotels;
+    }
+  }
+
+  returnHotels() {
+    if (this.filterdHotels.length == 0) {
+      return this.hotels;
+    } else {
+      return this.filterdHotels;
+    }
   }
 }

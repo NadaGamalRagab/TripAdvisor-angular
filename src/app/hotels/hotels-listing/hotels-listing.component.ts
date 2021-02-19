@@ -1,23 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { Hotel } from 'src/app/_model/hotels/hotel';
 import { HotelService } from 'src/app/_services/hotel.service';
+import { HotelsFilteringService } from './../../_services/hotels-filtering.service';
 
 @Component({
   selector: 'app-hotels-listing',
   templateUrl: './hotels-listing.component.html',
   styleUrls: ['./hotels-listing.component.scss'],
 })
-export class HotelsListingComponent implements OnInit {
+export class HotelsListingComponent implements OnInit, OnChanges {
   hotels: Hotel[];
   pageNumbers: number[] = [];
   pageSize: number = 6;
   currentPage: number = 0;
 
-  constructor(private hotelService: HotelService) {}
+  constructor(
+    private hotelService: HotelService,
+    private HotelsFilteringService: HotelsFilteringService
+  ) {}
 
   ngOnInit(): void {
+    // this.HotelsFilteringService.Filtering.subscribe(
+    //   (event) => {
+    //     if (event.target.alt == 'distance') {
+    //       this.hotels = this.HotelsFilteringService.FilterDistance(event);
+    //     } else {
+    //       this.hotels = this.HotelsFilteringService.Filter(event);
+    //     }
+    //   },
+    //   (error) => {},
+    //   (copmleted) => {}
+    // );
+    //this.hotels = this.HotelsFilteringService.returnHotels();
     this.hotels = this.hotelService.getAllHotels();
+
   }
+  ngOnChanges(): void {}
 
   calculateNumberOfPages(length) {
     this.pageNumbers = [];

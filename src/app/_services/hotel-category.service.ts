@@ -19,15 +19,10 @@ export class HotelCategoryService {
       { _id: '8', name: 'Romantic' },
     ],
     distance: [
-      { _id: '9', name: 'From beach' },
-      { _id: '10', name: 'From Main Street' },
-      { _id: '11', name: 'From City Center' },
-      { _id: '12', name: 'From Park' },
-    ],
-    price: [
-      { _id: '30', name: 'EGP' },
-      { _id: '31', name: 'USD' },
-      { _id: '32', name: '$' },
+      { _id: '9', name: 'Close to beach' },
+      { _id: '10', name: 'Close to Main Street' },
+      { _id: '11', name: 'Close to City Center' },
+      { _id: '12', name: 'Close to Park' },
     ],
     aminities: [
       { _id: '13', name: 'Free Parking' },
@@ -64,5 +59,4 @@ export class HotelCategoryService {
   getDealById(_id: string) {
     return this.categoryList.deals.filter((p) => p._id == _id);
   }
-
 }

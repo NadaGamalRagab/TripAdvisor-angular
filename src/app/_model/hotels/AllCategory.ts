@@ -6,7 +6,6 @@ export interface AllCategory {
   deals?: category[];
   popular?: category[];
   distance?: category[];
-  price?: category[];
   aminities?: category[];
   hotelClass?: category[];
   languageSpoken?: category[];
