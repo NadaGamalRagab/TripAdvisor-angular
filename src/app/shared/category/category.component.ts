@@ -14,7 +14,7 @@ export class CategoryComponent implements OnInit {
   categories: AllCategory;
   priceCategory: number = 0;
   selectType: string;
-  isChecked = false;
+  value: number;
   constructor(
     private HotelCategoryService: HotelCategoryService,
     private HotelService: HotelService,
@@ -26,7 +26,8 @@ export class CategoryComponent implements OnInit {
   }
 
   distance(value: number) {
-    return value;
+    this.value = value;
+    return Math.round(value);
   }
 
   price(value: number) {
@@ -39,5 +40,8 @@ export class CategoryComponent implements OnInit {
 
   Filter(event) {
     this.HotelsFilteringService.Filter(event);
+  }
+  FilterDistance(event) {
+    
   }
 }
