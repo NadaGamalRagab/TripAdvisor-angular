@@ -1,8 +1,8 @@
 <div class="bg-white p-3 category">
   <div>
-    <h4 class="d-inline-block mb-3">
-      <span>COVID-19 <i class="fas fa-info-circle"></i></span>
-    </h4>
+    <h2 class="d-inline-block mb-3">
+      <h2>COVID-19 <i class="fas fa-info-circle"></i></h2>
+    </h2>
     <img class="_3mqrboMx float-right" src="https://static.tacdn.com/img2/icons/illustration-handwash.svg" />
 
     <form class="mb-4">
@@ -19,7 +19,7 @@
   </div>
   <hr />
   <div>
-    <h4 class="d-inline-block mb-3"><span>Deals</span></h4>
+    <h2 class="d-inline-block mb-3">Deals</h2>
     <form class="mb-4">
       <div class="custom-checkbox" *ngFor='let deal of categories.deals'>
         <div class="form-check">
@@ -35,7 +35,7 @@
   <hr />
 
   <div>
-    <h4 class="d-inline-block mb-3"><span>Popular </span></h4>
+    <h2 class="d-inline-block mb-3">Popular </h2>
 
     <form class="mb-4">
       <div class="custom-checkbox" *ngFor='let popular of categories.popular'>
@@ -51,13 +51,14 @@
   <hr />
 
   <div>
-    <h4 class="d-inline-block mb-3"><span>Distance </span></h4><br>
+    <h2 class="d-inline-block mb-3">Distance </h2><br>
 
     <form class="mb-4">
       <div class="custom-checkbox" *ngFor='let distance of categories.distance'>
         <div class="form-check">
           <label>
-            <input type="checkbox" alt='distance' name={{distance.name}} id={{distance._id}} (change)='FilterDistance($event)' />
+            <input type="checkbox" alt='distance' name={{distance.name}} id={{distance._id}}
+              (change)='FilterDistance($event)' />
             <span class="label-text"><span class="check-label-font"> {{distance.name}}</span></span>
           </label>
         </div>
@@ -68,7 +69,7 @@
 
 
   <div>
-    <h4 class="d-inline-block mb-3"><span>Aminities </span></h4>
+    <h2 class="d-inline-block mb-3">Aminities </h2>
 
     <form class="mb-4">
       <div class="custom-checkbox" *ngFor='let option of categories.aminities'>
@@ -84,7 +85,7 @@
 
   <hr />
   <div>
-    <h4 class="d-inline-block mb-3"><span>Hotel Class </span></h4>
+    <h2 class="d-inline-block mb-3">Hotel Class </h2>
 
     <form class="mb-4">
       <div class="custom-checkbox" *ngFor='let class of categories.hotelClass'>
@@ -99,7 +100,7 @@
   </div>
   <hr />
   <div>
-    <h4 class="d-inline-block mb-3"><span>Language Spoken</span></h4>
+    <h2 class="d-inline-block mb-3">Language Spoken</h2>
 
     <form class="mb-4">
       <div class="custom-checkbox" *ngFor='let lang of categories.languageSpoken'>

@@ -32,10 +32,9 @@ import {SmallCardsComponent } from './restaurants/small-cards/small-cards.compon
     CategoryComponent,
     HotelComponent,
     DetailsComponent,
-    HotelComponentComponent,
     CruisesComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
     RestaurantItemComponent,
     RestaurantListingComponent,
     SmallCardsComponent
