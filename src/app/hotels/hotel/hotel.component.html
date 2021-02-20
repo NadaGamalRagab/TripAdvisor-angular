@@ -1,4 +1,4 @@
-<div class="row bg-white border hotel-div mb-4">
+<div class="row bg-white border hotel-div mb-4 mt-3">
   <div class="col-4 h-100">
     <div class="style-like bg-white mt-3 rounded-circle d-flex justify-content-center align-items-center">
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
@@ -91,13 +91,16 @@
                          <h2>{{hotel.name}}</h2>
                          <div>
                            <span class="font-weight-bold">Price per Night: </span>
-                           <span>{{theBestDeal.obj[0].pricePerNight | number: "1.0"}} $</span>
+                           <span> $ {{theBestDeal.obj[0].pricePerNight}}</span>
                          </div>
                          <div>
+                          <span class="font-weight-bold">Number of Nights : </span>
+                          <span> subtract date</span>
+                        </div>
+                         <div>
                            <span class="font-weight-bold">Aminities: </span>
-                           <!-- <span *ngFor='let amt of hotel.amenities'><ul><li>{{getAmt(amt)}} </li></ul></span> -->
-                           <span *ngFor='let amt of hotel.amenities; let index =i'>{{getAmt(amt)}} <span *ngIf="index 
-                        !== hotel.amenities.length-1">-</span> </span>
+                           <span *ngFor='let amt of hotel.amenities'><ul><li>{{getAmt(amt)}} </li></ul></span>
+                           <!-- <span *ngFor='let amt of hotel.amenities; let index =i'>{{getAmt(amt)}} <span *ngIf="index  !== hotel.amenities.length-1">-</span></span> -->
                          </div>
                          <div>
                            <span class="font-weight-bold">Class: </span>
@@ -105,7 +108,7 @@
                          </div>
                          <div>
                            <span class="font-weight-bold">Distance: </span>
-
+                           <span>{{hotel.distance.beach}}</span>
                          </div>
                        </div>
                      </div>
