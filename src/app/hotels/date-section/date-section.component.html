@@ -18,7 +18,7 @@
 
   <div class="col-9 pl-4">
     <div class="row">
-      <h4>Hurghada Hotels and Places to Stay</h4>
+      <h4>Makassar Hotels and Places to Stay</h4>
     </div><br>
     <div class="row">
       <div class="col-4">
@@ -27,8 +27,8 @@
           <div class="d-flex border bg-white rounded">
             <span class="mr-3 ml-3 align-self-center">
               <mat-form-field>
-                <input [min]="minDate" [max]="maxDate" class="text-dark" (dateInput)="inputEvent($event)"
-                  (dateChange)="changeEvent($event)" matInput [matDatepicker]="checkIn" placeholder="Departure Month">
+                <input class="text-dark" (dateInput)="inputEvent($event)" (dateChange)="changeEvent($event)" matInput
+                  [matDatepicker]="checkIn" placeholder="Departure Month">
                 <mat-datepicker-toggle matSuffix [for]="checkIn"></mat-datepicker-toggle>
                 <mat-datepicker #checkIn></mat-datepicker>
               </mat-form-field>
@@ -51,9 +51,8 @@
                 <div class="d-flex border bg-white rounded pr-5 wrap">
                   <span class="mr-3 ml-3 align-self-center">
                     <mat-form-field>
-                      <input [min]="minDate" [max]="maxDate" class="text-dark" (dateInput)="inputEvent($event)"
-                        (dateChange)="changeEvent($event)" matInput [matDatepicker]="checkOut"
-                        placeholder="Departure Month">
+                      <input class="text-dark" (dateInput)="inputEvent($event)" (dateChange)="changeEvent($event)"
+                        matInput [matDatepicker]="checkOut" placeholder="Departure Month">
                       <mat-datepicker-toggle matSuffix [for]="checkOut"></mat-datepicker-toggle>
                       <mat-datepicker #checkOut></mat-datepicker>
                     </mat-form-field>

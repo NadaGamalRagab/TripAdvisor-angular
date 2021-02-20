@@ -7,9 +7,6 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./date-section.component.scss'],
 })
 export class DateSectionComponent implements OnInit {
-  minDate = new Date(2021, 1, 17);
-  maxDate = new Date(2025, 11, 31);
-
   inputEvent(event) {
     console.log(event.value);
   }

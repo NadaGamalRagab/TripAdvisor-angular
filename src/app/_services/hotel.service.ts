@@ -20,7 +20,10 @@ export class HotelService {
           userId: '5ff8b3fdb09dc1b380045120',
         },
       ],
-      map: 'https://g.page/Iberostar-Club-Palmeraie?share',
+      map: {
+        latitude: 31.664454323417417,
+        longitude: -7.899391237529561,
+      },
       Pricedeals: [
         {
           name: 'Expedia',
@@ -106,7 +109,10 @@ export class HotelService {
           userId: '5ff8b3fdb09dc1b380045120',
         },
       ],
-      map: 'https://goo.gl/maps/UmdsczYDK5okgrkz6',
+      map: {
+        latitude: 31.621289982835364,
+        longitude: -8.004312457272833,
+      },
       Pricedeals: [
         {
           name: 'Expedia',
@@ -193,7 +199,7 @@ export class HotelService {
           userId: '5ff8b3fdb09dc1b380045120',
         },
       ],
-      map: 'https://g.page/Iberostar-Club-Palmeraie?share',
+      map: { latitude: 31.625960920311254, longitude: -8.01423097929648 },
       Pricedeals: [
         {
           name: 'Expedia',
@@ -278,7 +284,7 @@ export class HotelService {
           userId: '5ff8b3fdb09dc1b380045120',
         },
       ],
-      map: 'https://goo.gl/maps/XAWPXVYpEVYS3Xnn9',
+      map: { latitude: 31.6350389619788, longitude: -8.011606795199585 },
       Pricedeals: [
         {
           name: 'Expedia',
@@ -352,7 +358,7 @@ export class HotelService {
           userId: '5ff8b3fdb09dc1b380045120',
         },
       ],
-      map: 'https://g.page/movenpick-marrakesh?share',
+      map: { latitude: 31.62393030258473, longitude: -8.014822106284356 },
       Pricedeals: [
         {
           name: 'Expedia',
@@ -438,7 +444,7 @@ export class HotelService {
           userId: '5ff8b3fdb09dc1b380045120',
         },
       ],
-      map: 'https://goo.gl/maps/EwAFpjZpYo7KbofN8',
+      map: { latitude: 31.61245693907906, longitude: -7.987961082991233 },
       Pricedeals: [
         {
           name: 'Expedia',

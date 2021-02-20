@@ -8,7 +8,7 @@ import { CategoryComponent } from './shared/category/category.component';
 import { HotelComponent } from './hotels/hotel/hotel.component';
 import { DetailsComponent } from './hotels/details/details.component';
 import { FormsModule } from '@angular/forms';
-import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';

@@ -3,12 +3,13 @@ import { Distance } from './distance';
 import { PriceDeals } from './PriceDeals';
 import { Rating } from './rating';
 import { Reviews } from './Reviews';
+import { Map } from './map';
 
 export interface Hotel {
   _id: string;
   name: string;
   booking: Booking[];
-  map: string;
+  map: Map;
   Pricedeals: PriceDeals[];
   rooms: number;
   images: string[];
