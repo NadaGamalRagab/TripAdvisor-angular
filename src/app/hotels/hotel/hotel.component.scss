@@ -3,8 +3,7 @@ $searchHeight : 3.4rem;
 $iFontSize : 1rem;
 $borderColor:#efefef;
 $background: #f2f2f2;
-$checkboxSize : 1rem;
-$hotelsDivheight :25rem;
+$hotelsDivheight :17rem;
 
 body {
   background-color: $background;
@@ -25,16 +24,6 @@ i {
   font-size: $iFontSize;
 }
 
-.search-style {
-  width: $searchWidth;
-  height: $searchHeight;
-
-  input {
-    border-radius: 10px;
-    border-width: 1.9px;
-    border-color: $borderColor;
-  }
-}
 
 a:link a:visited,
 a:hover,
@@ -50,35 +39,8 @@ input[type=checkbox] {
   padding: 0;
 }
 
-.custom-checkbox label {
-  position: relative;
-  cursor: pointer;
-  color: black;
-}
 
-.custom-checkbox input[type="checkbox"]+.label-text:before {
-  content: "\f0c8";
-  font-family: "Font Awesome 5 Pro";
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  width: 1em;
-  display: inline-block;
-  font-size: $checkboxSize;
 
-}
-
-.custom-checkbox input[type="checkbox"]:checked+.label-text:before {
-  content: "\f14a";
-  color: black;
-}
-
-.check-label-font {
-  font-size: normal;
-}
 
 .dot {
   height: 1rem;
@@ -92,14 +54,6 @@ input[type=checkbox] {
   &:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
   }
-}
-
-.category {
-  &:hover {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-      0 6px 20px 0 rgba(0, 0, 0, 0.19)
-  }
-
 }
 
 .button-raduis {
@@ -120,29 +74,30 @@ input[type=checkbox] {
   right: 6px;
   z-index: 3;
   font-size: larger;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2rem;
+  height: 2rem;
   color: rgba(214, 149, 149, 0.295);
-}
-
-.style-slider {
-  z-index: 1;
 }
 
 .heart-color:hover {
   color: rgb(236, 87, 87);
 }
 
+.style-slider {
+  z-index: 1;
+}
+
+
 .badge-style {
   position: absolute;
-  top: 20px;
+  top: 1rem;
   left: 0px;
   z-index: 3;
   cursor: pointer;
 }
 
 .badge-text {
-  font-size: larger;
+  font-size: normal;
 }
 
 #lamp {
@@ -171,13 +126,12 @@ input[type=checkbox] {
 }
 
 @media only screen and (max-width: 900px) {
-
   .col-1-change {
     width: 0%;
     display: none;
   }
 
   body {
-    font-size: 75%;
+    font-size: 50%;
   }
 }
