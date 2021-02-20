@@ -20,20 +20,24 @@ export class HotelsListingComponent implements OnInit, OnChanges {
   ) {}
 
   ngOnInit(): void {
-    // this.HotelsFilteringService.Filtering.subscribe(
-    //   (event) => {
-    //     if (event.target.alt == 'distance') {
-    //       this.hotels = this.HotelsFilteringService.FilterDistance(event);
-    //     } else {
-    //       this.hotels = this.HotelsFilteringService.Filter(event);
-    //     }
-    //   },
-    //   (error) => {},
-    //   (copmleted) => {}
-    // );
-    //this.hotels = this.HotelsFilteringService.returnHotels();
     this.hotels = this.hotelService.getAllHotels();
-
+    this.HotelsFilteringService.Filtering.subscribe(
+      (event) => {
+        console.log(event);
+        if (event.target.alt == 'distance') {
+          this.hotels = this.HotelsFilteringService.FilterDistance(event);
+        } else {
+          this.hotels = this.HotelsFilteringService.Filter(event);
+        }
+        if (this.hotels.length == 0) {
+          this.hotels = this.hotelService.getAllHotels();
+        }
+      },
+      (error) => {
+        console.log(error);
+      },
+      (copmleted) => {}
+    );
   }
   ngOnChanges(): void {}
 

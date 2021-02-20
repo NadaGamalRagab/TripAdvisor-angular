@@ -66,6 +66,7 @@
   </div>
   <hr />
 
+
   <div>
     <h4 class="d-inline-block mb-3"><span>Aminities </span></h4>
 
@@ -80,6 +81,7 @@
       </div>
     </form>
   </div>
+
   <hr />
   <div>
     <h4 class="d-inline-block mb-3"><span>Hotel Class </span></h4>
@@ -103,7 +105,7 @@
       <div class="custom-checkbox" *ngFor='let lang of categories.languageSpoken'>
         <div class="form-check">
           <label>
-            <input type="checkbox" name={{lang.name}} id={{lang._id}}  (change)='Filter($event)' />
+            <input type="checkbox" name={{lang.name}} id={{lang._id}} (change)='Filter($event)' />
             <span class="label-text"><span class="check-label-font">{{lang.name}}</span></span>
           </label>
         </div>

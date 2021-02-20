@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Hotel } from 'src/app/_model/hotels/hotel';
 import { HotelService } from 'src/app/_services/hotel.service';
 import { HotelCategoryService } from './../../_services/hotel-category.service';
@@ -7,7 +8,9 @@ import { HotelCategoryService } from './../../_services/hotel-category.service';
   selector: 'app-hotel',
   templateUrl: './hotel.component.html',
   styleUrls: ['./hotel.component.scss'],
+  providers: [NgbModalConfig, NgbModal],
 })
+  
 export class HotelComponent implements OnInit {
   @Input() hotel: Hotel;
   bestSeller: boolean;
@@ -19,8 +22,13 @@ export class HotelComponent implements OnInit {
 
   constructor(
     private hotelService: HotelService,
-    private HotelCategoryService: HotelCategoryService
-  ) {}
+    private HotelCategoryService: HotelCategoryService,
+    config: NgbModalConfig,
+    private modalService: NgbModal
+  ) {
+    config.backdrop = 'static';
+    config.keyboard = false;
+  }
 
   ngOnInit(): void {
     this.BestSeller();
@@ -99,5 +107,8 @@ export class HotelComponent implements OnInit {
 
   getAmt(_id) {
     return this.HotelCategoryService.getAmtById(_id)[0].name;
+  }
+  open(content) {
+    this.modalService.open(content);
   }
 }

@@ -1,10 +1,10 @@
-import { Injectable, Output } from '@angular/core';
+import { Injectable, Output,EventEmitter } from '@angular/core';
 import { HotelCategoryService } from './hotel-category.service';
 import { HotelService } from 'src/app/_services/hotel.service';
 import { Hotel } from '../_model/hotels/hotel';
-import * as EventEmitter from 'events';
-import { Event } from '@angular/router';
-import { AllCategory } from './../_model/hotels/AllCategory';
+// import * as EventEmitter from 'events';
+// import { Event } from '@angular/router';
+// import { AllCategory } from './../_model/hotels/AllCategory';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +18,7 @@ export class HotelsFilteringService {
   closeToMainStreet = 5;
   closeToCityCenter = 10;
   CloseToPark = 6;
-  Filtering : EventEmitter = new EventEmitter();
+  Filtering = new EventEmitter ()
   constructor(
     private HotelCategoryService: HotelCategoryService,
     private HotelService: HotelService
@@ -34,12 +34,12 @@ export class HotelsFilteringService {
     this.tempHotels = [];
     if (event.target.checked) {
       this.checkedArray.push(event.target.id);
-      console.log(this.checkedArray);
+      //console.log(this.checkedArray);
     } else {
       this.checkedArray = this.checkedArray.filter(
         (p) => p !== event.target.id
       );
-      console.log(this.checkedArray);
+      //console.log(this.checkedArray);
     }
     this.checkedArray.forEach((id) => {
       this.tempHotels.push(
@@ -68,7 +68,7 @@ export class HotelsFilteringService {
   }
 
   FilterDistance(event) {
-    console.log(this.tempHotels);
+    //console.log(this.tempHotels);
     let distance = event.target.name;
     if (event.target.checked) {
       if (distance == 'Close to beach') {
@@ -85,14 +85,6 @@ export class HotelsFilteringService {
         this.tempHotels.push(...this.hotels.filter((e) => e.distance.park <= this.CloseToPark));
       }
       this.filterdHotels = [...new Set(this.tempHotels)];
-      return this.filterdHotels;
-    }
-  }
-
-  returnHotels() {
-    if (this.filterdHotels.length == 0) {
-      return this.hotels;
-    } else {
       return this.filterdHotels;
     }
   }

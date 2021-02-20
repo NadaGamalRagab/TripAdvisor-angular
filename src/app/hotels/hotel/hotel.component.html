@@ -53,10 +53,8 @@
             <div class="d-flex align-items-center justify-content-center flex-column w-100">
               <img src={{theBestDeal.img}} class="img-fluid" width="150px" alt={{theBestDeal.obj[0].name}}>
               <h4><a href={{theBestDeal.obj[0].link}}
-                  class="text-dark"><b>{{theBestDeal.obj[0].pricePerNight | number: "1.0"}}</b></a></h4>
-
-              <button type="button" class="mb-1 btn btn-warning button-raduis text-center w-50">View
-                Deal</button>
+                  class="text-dark"><b>{{theBestDeal.obj[0].pricePerNight | number: "1.0"}} EGP</b></a></h4>
+              <button type="button" class="mb-1 btn btn-warning button-raduis text-center w-50">Book Now</button>
               <span *ngIf='freeCancellation'>
                 <i class="fas fa-check check"></i><span><b> Free
                     cancellation</b></span>
@@ -97,9 +95,10 @@
         <a href={{theBestDeal.obj[0].link}} class="text-dark ml-3 mr-3"><i class="fas fa-globe"></i><span>
             Visit hotel
             website</span></a>
-
       </div>
     </div>
   </div>
-
 </div>
+
+
+<!-- Book Now -->

@@ -26,33 +26,42 @@
           class="btn btn-success shadow-sm w-75 pt-0 pr-0 pb-0 border-bottom-0 border-top-0 border-right-0">
           <div class="d-flex border bg-white rounded">
             <span class="mr-3 ml-3 align-self-center">
-              <i class="far fa-calendar-alt text-dark">
-              </i>
-              <!-- <ngb-datepicker #d [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker> -->
+              <mat-form-field>
+                <input [min]="minDate" [max]="maxDate" class="text-dark" (dateInput)="inputEvent($event)"
+                  (dateChange)="changeEvent($event)" matInput [matDatepicker]="checkIn" placeholder="Departure Month">
+                <mat-datepicker-toggle matSuffix [for]="checkIn"></mat-datepicker-toggle>
+                <mat-datepicker #checkIn></mat-datepicker>
+              </mat-form-field>
             </span>
-            <span>
+            <!-- <span>
               <span class="text-secondary">Check In</span> <br>
               <span class=" text-dark">— / — / —</span>
-            </span>
+            </span> -->
           </div>
         </button>
+
       </div>
 
-
-      <div class="col-4 ">
+      <div class="col-5 ">
         <div class="row">
           <div class="col-10">
             <div class="w-100">
               <button type="button"
-                class="btn btn-danger w-100 shadow-sm pt-0 pr-0 pb-0 border-bottom-0 border-top-0 border-right-0">
+                class="btn btn-danger w-75 shadow-sm pt-0 pr-0 pb-0 border-bottom-0 border-top-0 border-right-0">
                 <div class="d-flex border bg-white rounded pr-5 wrap">
                   <span class="mr-3 ml-3 align-self-center">
-                    <i class="far fa-calendar-alt text-dark"></i>
+                    <mat-form-field>
+                      <input [min]="minDate" [max]="maxDate" class="text-dark" (dateInput)="inputEvent($event)"
+                        (dateChange)="changeEvent($event)" matInput [matDatepicker]="checkOut"
+                        placeholder="Departure Month">
+                      <mat-datepicker-toggle matSuffix [for]="checkOut"></mat-datepicker-toggle>
+                      <mat-datepicker #checkOut></mat-datepicker>
+                    </mat-form-field>
                   </span>
-                  <span>
+                  <!-- <span>
                     <span class="text-secondary">Check Out</span><br>
                     <span class=" text-dark">— / — / —</span>
-                  </span>
+                  </span> -->
                 </div>
               </button>
             </div>
@@ -61,17 +70,7 @@
         </div>
       </div>
 
-      <div class="col-4 ">
-        <button type="button"
-          class="btn btn-warning shadow-sm w-75 pt-0 pr-0 pb-0 border-bottom-0 border-top-0 border-right-0 ">
-          <div class="d-flex border bg-white rounded ">
-            <span>
-              <span class="text-secondary ">Guests</span> <br>
-              <span> 1 room, 2 adults, 3 Children</span>
-            </span>
-          </div>
-        </button>
-      </div>
+
     </div>
   </div>
 </div>
