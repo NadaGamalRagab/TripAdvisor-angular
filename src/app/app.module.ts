@@ -17,10 +17,12 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSliderModule } from '@angular/material/slider';
 import { HotelsFilteringService } from './_services/hotels-filtering.service';
 import { HotelCategoryService } from './_services/hotel-category.service';
+import { CruisesComponent } from './cruises/cruises.component';
+import { HeaderComponent } from './layout/header/header.component';
+import { FooterComponent } from './layout/footer/footer.component';
 import { RestaurantItemComponent } from './restaurants/restaurant-item/restaurant-item.component';
 import { RestaurantListingComponent } from './restaurants/restaurant-listing/restaurant-listing.component';
 import {SmallCardsComponent } from './restaurants/small-cards/small-cards.component';
-
 
 @NgModule({
   declarations: [
@@ -31,6 +33,9 @@ import {SmallCardsComponent } from './restaurants/small-cards/small-cards.compon
     HotelComponent,
     DetailsComponent,
     HotelComponentComponent,
+    CruisesComponent,
+    HeaderComponent,
+    FooterComponent
     RestaurantItemComponent,
     RestaurantListingComponent,
     SmallCardsComponent
