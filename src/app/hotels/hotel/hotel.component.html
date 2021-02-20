@@ -54,7 +54,73 @@
               <img src={{theBestDeal.img}} class="img-fluid" width="150px" alt={{theBestDeal.obj[0].name}}>
               <h4><a href={{theBestDeal.obj[0].link}}
                   class="text-dark"><b>{{theBestDeal.obj[0].pricePerNight | number: "1.0"}} EGP</b></a></h4>
-              <button type="button" class="mb-1 btn btn-warning button-raduis text-center w-50">Book Now</button>
+              <!-- <button type="button" class="mb-1 btn btn-warning button-raduis text-center w-50">Book Now</button> -->
+             
+             
+             <!-- Button trigger modal -->
+             <button type="button" class="mb-1 pr-1 btn btn-warning button-raduis text-center w-50" data-toggle="modal"
+               data-target="#exampleModal">
+               Book Now
+             </button>
+
+             <!-- Modal -->
+             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+               aria-hidden="true">
+               <div class="modal-dialog modal-lg" role="document">
+                 <div class="modal-content">
+                   <!-- <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div> -->
+                   <div class="modal-body">
+                     <div class="row">
+                       <div class="col-md-4">
+                         <div class="position-relative d-flex justify-content-around align-items-center center" style="background-image: 
+                      url('https://maps.google.com/maps/api/staticmap?&amp;channel=ta.desktop.hotels&amp;zoom=11&amp;size=296x136&amp;scale=2&amp;client=gme-tripadvisorinc&amp;format=jpg&amp;sensor=false&amp;language=en_US&amp;center=27.251503,33.818409&amp;maptype=roadmap&amp;&amp;markers=icon:http%3A%2F%2Fc1.tacdn.com%2F%2Fimg2%2Fmaps%2Ficons%2Fcomponent_map_pins_v1%2FH_Pin_xs.png|27.221821,33.837662|27.144381,33.813530|27.106865,33.830547|27.190063,33.827415|27.241428,33.845291|27.258718,33.818047|27.208900,33.845612|27.150608,33.827847|27.204870,33.848091|27.245474,33.843361|27.240282,33.847584|27.098145,33.841885|27.256510,33.811192|27.260212,33.812641|27.070536,33.890629|27.104523,33.823891|27.211605,33.842583|27.258322,33.819424|27.047083,33.888184|27.219650,33.833179&amp;signature=K5EQw4qo8m1UP0G_54GOIvH-xM8=');
+                          background-size:cover;height:8rem ;">
+                           <div>
+                             <button class="btn btn-secondary">
+                               <span>view map</span>
+                             </button>
+                           </div>
+                         </div>
+                       </div>
+                       <div class="col-md-8 pl-2">
+                         <h2>{{hotel.name}}</h2>
+                         <div>
+                           <span class="font-weight-bold">Price per Night: </span>
+                           <span>{{theBestDeal.obj[0].pricePerNight | number: "1.0"}} $</span>
+                         </div>
+                         <div>
+                           <span class="font-weight-bold">Aminities: </span>
+                           <!-- <span *ngFor='let amt of hotel.amenities'><ul><li>{{getAmt(amt)}} </li></ul></span> -->
+                           <span *ngFor='let amt of hotel.amenities; let index =i'>{{getAmt(amt)}} <span *ngIf="index 
+                        !== hotel.amenities.length-1">-</span> </span>
+                         </div>
+                         <div>
+                           <span class="font-weight-bold">Class: </span>
+                           <span>{{hotel.class[0]}}</span>
+                         </div>
+                         <div>
+                           <span class="font-weight-bold">Distance: </span>
+
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                   <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                     <button type="button" class="btn btn-primary">Book</button>
+                   </div>
+                 </div>
+               </div>
+             </div>
+             
+             
+             
+             
               <span *ngIf='freeCancellation'>
                 <i class="fas fa-check check"></i><span><b> Free
                     cancellation</b></span>
