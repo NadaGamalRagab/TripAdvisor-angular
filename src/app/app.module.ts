@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +17,10 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSliderModule } from '@angular/material/slider';
 import { HotelsFilteringService } from './_services/hotels-filtering.service';
 import { HotelCategoryService } from './_services/hotel-category.service';
+import { RestaurantItemComponent } from './restaurants/restaurant-item/restaurant-item.component';
+import { RestaurantListingComponent } from './restaurants/restaurant-listing/restaurant-listing.component';
+import {SmallCardsComponent } from './restaurants/small-cards/small-cards.component';
+
 
 @NgModule({
   declarations: [
@@ -25,6 +30,10 @@ import { HotelCategoryService } from './_services/hotel-category.service';
     CategoryComponent,
     HotelComponent,
     DetailsComponent,
+    HotelComponentComponent,
+    RestaurantItemComponent,
+    RestaurantListingComponent,
+    SmallCardsComponent
   ],
   imports: [
     BrowserModule,
