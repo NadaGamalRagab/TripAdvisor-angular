@@ -23,6 +23,7 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { RestaurantItemComponent } from './restaurants/restaurant-item/restaurant-item.component';
 import { RestaurantListingComponent } from './restaurants/restaurant-listing/restaurant-listing.component';
 import {SmallCardsComponent } from './restaurants/small-cards/small-cards.component';
+import { BoxModelComponent } from './shared/box-model/box-model.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {SmallCardsComponent } from './restaurants/small-cards/small-cards.compon
     FooterComponent,
     RestaurantItemComponent,
     RestaurantListingComponent,
-    SmallCardsComponent
+    SmallCardsComponent,
+    BoxModelComponent
   ],
   imports: [
     BrowserModule,

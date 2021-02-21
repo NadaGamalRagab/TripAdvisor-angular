@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit } from '@angular/core';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Hotel } from 'src/app/_model/hotels/hotel';
 import { HotelService } from 'src/app/_services/hotel.service';
@@ -110,5 +110,9 @@ export class HotelComponent implements OnInit {
   }
   open(content) {
     this.modalService.open(content);
+  }
+
+  BookNow() {
+    this.hotelService.Book_Now.emit(this.hotel);
   }
 }

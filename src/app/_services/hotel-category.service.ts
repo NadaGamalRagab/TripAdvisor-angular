@@ -59,4 +59,11 @@ export class HotelCategoryService {
   getDealById(_id: string) {
     return this.categoryList.deals.filter((p) => p._id == _id);
   }
+  getClassById(_id: string) {
+    return this.categoryList.hotelClass.filter((p) => p._id == _id);
+  }
+
+  getLanguageSpokenById(_id: string) {
+    return this.categoryList.languageSpoken.filter((p) => p._id == _id);
+  }
 }

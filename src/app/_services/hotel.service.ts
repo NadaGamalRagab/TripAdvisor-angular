@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Hotel } from '../_model/hotels/hotel';
 
 @Injectable({
@@ -508,6 +508,8 @@ export class HotelService {
       likes: ['252', '4575'],
     },
   ];
+  Book_Now = new EventEmitter<Hotel>();
+
   constructor() {}
   getAllHotels() {
     return this.hotels.slice();
