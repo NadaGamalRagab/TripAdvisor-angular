@@ -9,6 +9,9 @@ import { HotelService } from 'src/app/_services/hotel.service';
   styleUrls: ['./box-model.component.scss'],
 })
 export class BoxModelComponent implements OnInit {
+  latitude = 31.246522867976886;
+  longitude = 29.967523958514988;
+
   theBestDeal = {
     obj: {},
   };

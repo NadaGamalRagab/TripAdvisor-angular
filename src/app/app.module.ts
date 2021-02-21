@@ -17,13 +17,15 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSliderModule } from '@angular/material/slider';
 import { HotelsFilteringService } from './_services/hotels-filtering.service';
 import { HotelCategoryService } from './_services/hotel-category.service';
-import { CruisesComponent } from './cruises/cruises.component';
+import { CruisesComponent } from './cruise/cruises/cruises.component';
+import {CruiseDealsComponent} from './cruise/cruise-deals/cruise-deals.component'
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { RestaurantItemComponent } from './restaurants/restaurant-item/restaurant-item.component';
 import { RestaurantListingComponent } from './restaurants/restaurant-listing/restaurant-listing.component';
 import {SmallCardsComponent } from './restaurants/small-cards/small-cards.component';
 import { BoxModelComponent } from './shared/box-model/box-model.component';
+import {AgmCoreModule } from '@agm/core'
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { BoxModelComponent } from './shared/box-model/box-model.component';
     HotelComponent,
     DetailsComponent,
     CruisesComponent,
+    CruiseDealsComponent,
     HeaderComponent,
     FooterComponent,
     RestaurantItemComponent,
@@ -51,6 +54,9 @@ import { BoxModelComponent } from './shared/box-model/box-model.component';
     MatInputModule,
     MatNativeDateModule,
     MatSliderModule,
+    AgmCoreModule.forRoot({
+      apiKey :'AIzaSyCUx00mtjJ5MpIINJmBoLm41CYEg4axO4I',
+   })
   ],
   providers: [
     HotelsFilteringService,
