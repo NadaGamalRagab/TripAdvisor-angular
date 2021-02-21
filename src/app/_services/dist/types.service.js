@@ -22,7 +22,7 @@ var TypesService = /** @class */ (function () {
             { id: 9, name: "Farmers Markets" },
         ];
     }
-    TypesService.prototype.getAllshopping = function () {
+    TypesService.prototype.getAlltypes = function () {
         return this.types.slice();
     };
     TypesService = __decorate([

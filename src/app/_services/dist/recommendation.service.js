@@ -21,7 +21,7 @@ var RecommendationService = /** @class */ (function () {
             { id: 8, name: "Adventurous" }
         ];
     }
-    RecommendationService.prototype.getAllshopping = function () {
+    RecommendationService.prototype.getAllrecomend = function () {
         return this.recommendation.slice();
     };
     RecommendationService = __decorate([
