@@ -45,9 +45,9 @@
 
             <div>
               <span class="font-weight-bold">Hotel Style : </span>
-              <spna *ngFor="let style of hotel.style">
+              <span *ngFor="let style of hotel.style">
                 <span>{{style}} - </span>
-              </spna>
+              </span>
             </div>
 
 
@@ -65,14 +65,15 @@
 
             <div>
               <span class="font-weight-bold">Language Spoken : </span>
-              <spna *ngFor="let lang of hotel.languageSpoken ;let index=i">
+              <span *ngFor="let lang of hotel.languageSpoken ;let index=i">
                 <span>{{getLanguageSpoken(lang)}} - </span>
-              </spna>
+              </span>
             </div>
           </div>
 
 
         </div>
+        <app-payment></app-payment>
       </div>
       <div class="modal-footer">
         <button type="button" class="mr-3 float-end btn btn-warning button-raduis text-center" data-toggle="modal"

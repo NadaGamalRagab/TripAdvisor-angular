@@ -27,6 +27,7 @@ import {SmallCardsComponent } from './restaurants/small-cards/small-cards.compon
 import { BoxModelComponent } from './shared/box-model/box-model.component';
 import {AgmCoreModule } from '@agm/core';
 import { BookingComponent } from './shared/booking/booking.component'
+import { PaymentComponent } from './payment/payment.component'
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { BookingComponent } from './shared/booking/booking.component'
     SmallCardsComponent,
     BoxModelComponent,
     BookingComponent
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
