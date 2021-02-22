@@ -11,7 +11,7 @@ import { HotelsFilteringService } from './../../_services/hotels-filtering.servi
 export class HotelsListingComponent implements OnInit, OnChanges {
   hotels: Hotel[];
   pageNumbers: number[] = [];
-  pageSize: number = 6;
+  pageSize: number = 2;
   currentPage: number = 0;
 
   constructor(
@@ -21,6 +21,8 @@ export class HotelsListingComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.hotels = this.hotelService.getAllHotels();
+    console.log(this.hotels.length);
+    this.calculateNumberOfPages(this.hotels.length);
     this.HotelsFilteringService.Filtering.subscribe(
       (event) => {
         console.log(event);

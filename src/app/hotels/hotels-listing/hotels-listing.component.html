@@ -16,14 +16,10 @@
         <app-hotel *ngFor='let hotel of getHotelsSlice()' [hotel]='hotel'></app-hotel>
         
         <div class="bg-white border row mb-4 d-fex justify-content-center align-items-center p-2 ">
-          <ul class="pagination">
-            <li class="page-item"><a class="page-link text-dark" href="#">1</a></li>
-            <li class="page-item"><a class="page-link text-dark" href="#">2</a></li>
-            <li class="page-item"><a class="page-link text-dark" href="#">3</a></li>
-          </ul>
+         
+            <div *ngFor="let page of pageNumbers; let i = index" class="mr-2 btn btn-success" (click)="currentPage=i" [ngClass]="{'active': i==currentPage}" >{{page}}</div>
         </div>
-      
-        </div>
+
       <div class="col-1-change display"></div>
     </div>
 
