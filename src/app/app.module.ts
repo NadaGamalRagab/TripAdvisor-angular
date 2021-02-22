@@ -12,10 +12,11 @@ import { ShoppingTicketComponent } from './shopping/shopping-ticket/shopping-tic
 import { TypesService } from './_services/types.service';
 import { RecommendationService } from './_services/recommendation.service';
 import { ShoppingService } from './_services/shopping.service';
+
 @NgModule({
   declarations: [
     AppComponent,
-   ShoppingComponent,
+    ShoppingComponent,
     HeaderComponent,
     ShoppingItemComponent,
     FooterComponent,
@@ -24,9 +25,10 @@ import { ShoppingService } from './_services/shopping.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+  
   ],
-  providers: [TypesService,RecommendationService,ShoppingService],
+  providers: [TypesService, RecommendationService, ShoppingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

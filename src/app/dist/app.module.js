@@ -20,6 +20,7 @@ var shopping_ticket_component_1 = require("./shopping/shopping-ticket/shopping-t
 var types_service_1 = require("./_services/types.service");
 var recommendation_service_1 = require("./_services/recommendation.service");
 var shopping_service_1 = require("./_services/shopping.service");
+var core_2 = require("@agm/core");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -36,7 +37,10 @@ var AppModule = /** @class */ (function () {
             ],
             imports: [
                 platform_browser_1.BrowserModule,
-                app_routing_module_1.AppRoutingModule
+                app_routing_module_1.AppRoutingModule,
+                core_2.AgmCoreModule.forRoot({
+                    apiKey: 'AIzaSyBa5jhJenT2dnOSnWnOfciLjHQnfhxYba8'
+                })
             ],
             providers: [types_service_1.TypesService, recommendation_service_1.RecommendationService, shopping_service_1.ShoppingService],
             bootstrap: [app_component_1.AppComponent]
