@@ -16,7 +16,6 @@ export class BookingComponent implements OnInit {
   checkOut = new Date();
   subtractDates = 0;
   days = 0;
-
   length = 0;
   price = 0;
   theBestDeal = {
@@ -116,13 +115,11 @@ export class BookingComponent implements OnInit {
 
   ngOnInit(): void {
     this.bestDeal();
-
     this.HotelService.BookNow.subscribe(
       (resp) => {
         this.hotel = resp;
         this.length = this.hotel.booking.length;
         this.bestDeal();
-
         console.log(this.hotel);
       },
       (error) => {},
@@ -131,33 +128,26 @@ export class BookingComponent implements OnInit {
   }
 
   inputEvent(event) {
-
-    if(event.target._elementRef.nativeElement.alt == "checkIn"){
+    if (event.target._elementRef.nativeElement.alt == 'checkIn') {
       console.log(event.value);
       this.checkIn = event.value;
       console.log(this.checkIn);
-    } else if (event.target._elementRef.nativeElement.alt == "checkOut"){
+    } else if (event.target._elementRef.nativeElement.alt == 'checkOut') {
       this.checkOut = event.value;
       console.log(this.checkOut);
+    } else {
+      console.log('neither');
     }
-    else{
-      console.log('neither')
-    }
-    
-    // To calculate the time difference of two dates 
-    this.subtractDates = this.checkOut.getTime() - this.checkIn.getTime(); 
-    // To calculate the no. of days between two dates 
-    this.days = this.subtractDates / (1000 * 3600 * 24); 
+    // To calculate the time difference of two dates
+    this.subtractDates = this.checkOut.getTime() - this.checkIn.getTime();
+    // To calculate the no. of days between two dates
+    this.days = this.subtractDates / (1000 * 3600 * 24);
     console.log(this.days);
-    
   }
-
-  
-//  onPress() {
-//    this.display = !this.display;
-//    console.log(this.display)
-//   }
-
+  //  onPress() {
+  //    this.display = !this.display;
+  //    console.log(this.display)
+  //   }
   bestDeal() {
     this.theBestDeal.obj = {
       ...this.hotel.Pricedeals.filter(
@@ -174,15 +164,22 @@ export class BookingComponent implements OnInit {
      console.log(this.display);
     this.hotel.booking.push(form);
     console.log(this.hotel.booking);
-  }
-  calcDays(form) {
-    this.days = form.checkOut - form.checkIn;
-    console.log(form.checkOut.value);
-    console.log(form.checkIn);
 
-    console.log(this.days);
+    if (this.hotel.rooms < form.rooms ) {
+      alert("Sorry there's No available rooms");
+    } else {
+      this.display = true;
+      console.log(this.display);
+      this.hotel.booking.push(form);
+      console.log(this.hotel.booking);
+      this.hotel.rooms -= form.rooms;
+      console.log(this.hotel.rooms);
+    }
+  }
+  takeroomsNum(rooms) {
+    this.rooms = rooms;
   }
   calcPrice() {
-    return this.theBestDeal.obj[0].pricePerNight;
+    return this.theBestDeal.obj[0].pricePerNight * this.days * this.rooms;
   }
 }

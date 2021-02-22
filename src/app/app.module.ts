@@ -4,6 +4,11 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HotelsListingComponent } from './hotels/hotels-listing/hotels-listing.component';
+import { HomeListingComponent } from './home/home-listing/home-listing.component';
+import { CardComponent } from './home/card/card.component';
+import { ButtonComponent } from './home/button/button.component';
+import { SearchPipe } from './pipes/search.pipe';
+/* import { MDBBootstrapModule } from 'angular-bootstrap-md'; */
 import { DateSectionComponent } from './hotels/date-section/date-section.component';
 import { CategoryComponent } from './shared/category/category.component';
 import { HotelComponent } from './hotels/hotel/hotel.component';
@@ -32,6 +37,11 @@ import { PaymentComponent } from './payment/payment.component'
 @NgModule({
   declarations: [
     AppComponent,
+    HotelsListingComponent,
+    HomeListingComponent,
+    CardComponent,
+    ButtonComponent,
+    SearchPipe,
     HotelsListingComponent,
     DateSectionComponent,
     CategoryComponent,
