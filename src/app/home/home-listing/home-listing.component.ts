@@ -22,7 +22,7 @@ export class HomeListingComponent implements OnInit {
    isToggel=false;
    search:string;
    current:0;
-   size:4;
+   size:2;
    slides: any = [[]];
 
   constructor(private renderer: Renderer2,

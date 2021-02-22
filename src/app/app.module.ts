@@ -37,13 +37,11 @@ import { PaymentComponent } from './payment/payment.component'
 @NgModule({
   declarations: [
     AppComponent,
-    HotelComponentComponent,
     HotelsListingComponent,
     HomeListingComponent,
     CardComponent,
     ButtonComponent,
-    SearchPipe
-    HotelsListingComponent,
+    SearchPipe,
     DateSectionComponent,
     CategoryComponent,
     HotelComponent,
@@ -62,7 +60,7 @@ import { PaymentComponent } from './payment/payment.component'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
     FormsModule,
     NgbModule,
     BrowserAnimationsModule,
