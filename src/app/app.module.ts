@@ -25,7 +25,8 @@ import { RestaurantItemComponent } from './restaurants/restaurant-item/restauran
 import { RestaurantListingComponent } from './restaurants/restaurant-listing/restaurant-listing.component';
 import {SmallCardsComponent } from './restaurants/small-cards/small-cards.component';
 import { BoxModelComponent } from './shared/box-model/box-model.component';
-import {AgmCoreModule } from '@agm/core'
+import {AgmCoreModule } from '@agm/core';
+import { PaymentComponent } from './payment/payment.component'
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {AgmCoreModule } from '@agm/core'
     RestaurantItemComponent,
     RestaurantListingComponent,
     SmallCardsComponent,
-    BoxModelComponent
+    BoxModelComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
