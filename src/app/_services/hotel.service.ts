@@ -17,8 +17,11 @@ export class HotelService {
           children: 4,
           adults: 2,
           price: 15000,
-          userId: '5ff8b3fdb09dc1b380045120',
+          userId: '5ff8b3fdb0s9dc1b380045120',
+          email: 'nadaragab@yahoo.com',
+          phone: 1289113639,
         },
+        
       ],
       map: {
         latitude: 31.664454323417417,
@@ -107,6 +110,8 @@ export class HotelService {
           adults: 2,
           price: 15000,
           userId: '5ff8b3fdb09dc1b380045120',
+          email: 'nadaragab@yahoo.com',
+          phone: 1289113639,
         },
       ],
       map: {
@@ -197,6 +202,8 @@ export class HotelService {
           adults: 2,
           price: 15000,
           userId: '5ff8b3fdb09dc1b380045120',
+          email: 'nadaragab@yahoo.com',
+          phone: 1289113639,
         },
       ],
       map: { latitude: 31.625960920311254, longitude: -8.01423097929648 },
@@ -282,6 +289,8 @@ export class HotelService {
           adults: 2,
           price: 15000,
           userId: '5ff8b3fdb09dc1b380045120',
+          email: 'nadaragab@yahoo.com',
+          phone: 1289113639,
         },
       ],
       map: { latitude: 31.6350389619788, longitude: -8.011606795199585 },
@@ -356,6 +365,8 @@ export class HotelService {
           adults: 2,
           price: 15000,
           userId: '5ff8b3fdb09dc1b380045120',
+          email: 'nadaragab@yahoo.com',
+          phone: 1289113639,
         },
       ],
       map: { latitude: 31.62393030258473, longitude: -8.014822106284356 },
@@ -442,6 +453,8 @@ export class HotelService {
           adults: 2,
           price: 15000,
           userId: '5ff8b3fdb09dc1b380045120',
+          email: 'nadaragab@yahoo.com',
+          phone: 1289113639,
         },
       ],
       map: { latitude: 31.61245693907906, longitude: -7.987961082991233 },
@@ -508,8 +521,8 @@ export class HotelService {
       likes: ['252', '4575'],
     },
   ];
-  Book_Now = new EventEmitter<Hotel>();
-
+  viewDetails = new EventEmitter<Hotel>();
+  BookNow = new EventEmitter<Hotel>();
   constructor() {}
   getAllHotels() {
     return this.hotels.slice();

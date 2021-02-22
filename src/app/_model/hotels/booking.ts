@@ -5,5 +5,7 @@ export interface Booking {
     children: number,
     adults: number,
     price: number,
-    userId: string
+    userId?: string,
+    email: string,
+    phone:number
 }

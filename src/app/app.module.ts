@@ -26,6 +26,7 @@ import { RestaurantListingComponent } from './restaurants/restaurant-listing/res
 import {SmallCardsComponent } from './restaurants/small-cards/small-cards.component';
 import { BoxModelComponent } from './shared/box-model/box-model.component';
 import {AgmCoreModule } from '@agm/core';
+import { BookingComponent } from './shared/booking/booking.component'
 import { PaymentComponent } from './payment/payment.component'
 
 @NgModule({
@@ -44,6 +45,7 @@ import { PaymentComponent } from './payment/payment.component'
     RestaurantListingComponent,
     SmallCardsComponent,
     BoxModelComponent,
+    BookingComponent
     PaymentComponent
   ],
   imports: [
