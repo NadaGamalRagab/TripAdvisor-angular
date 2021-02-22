@@ -1,4 +1,3 @@
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -23,16 +22,16 @@ import { MatSliderModule } from '@angular/material/slider';
 import { HotelsFilteringService } from './_services/hotels-filtering.service';
 import { HotelCategoryService } from './_services/hotel-category.service';
 import { CruisesComponent } from './cruise/cruises/cruises.component';
-import {CruiseDealsComponent} from './cruise/cruise-deals/cruise-deals.component'
+import { CruiseDealsComponent } from './cruise/cruise-deals/cruise-deals.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { RestaurantItemComponent } from './restaurants/restaurant-item/restaurant-item.component';
 import { RestaurantListingComponent } from './restaurants/restaurant-listing/restaurant-listing.component';
-import {SmallCardsComponent } from './restaurants/small-cards/small-cards.component';
+import { SmallCardsComponent } from './restaurants/small-cards/small-cards.component';
 import { BoxModelComponent } from './shared/box-model/box-model.component';
-import {AgmCoreModule } from '@agm/core';
-import { BookingComponent } from './shared/booking/booking.component'
-import { PaymentComponent } from './payment/payment.component'
+import { AgmCoreModule } from '@agm/core';
+import { BookingComponent } from './shared/booking/booking.component';
+import { PaymentComponent } from './payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -55,12 +54,11 @@ import { PaymentComponent } from './payment/payment.component'
     SmallCardsComponent,
     BoxModelComponent,
     BookingComponent,
-    PaymentComponent
+    PaymentComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     FormsModule,
     NgbModule,
     BrowserAnimationsModule,
@@ -69,8 +67,8 @@ import { PaymentComponent } from './payment/payment.component'
     MatNativeDateModule,
     MatSliderModule,
     AgmCoreModule.forRoot({
-      apiKey :'AIzaSyCUx00mtjJ5MpIINJmBoLm41CYEg4axO4I',
-   })
+      apiKey: 'AIzaSyCUx00mtjJ5MpIINJmBoLm41CYEg4axO4I',
+    }),
   ],
   providers: [
     HotelsFilteringService,

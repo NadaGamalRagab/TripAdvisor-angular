@@ -21,8 +21,7 @@ export class HotelsListingComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.hotels = this.hotelService.getAllHotels();
-    this.calculateNumberOfPages(this.hotels.length)
-
+    this.calculateNumberOfPages(this.hotels.length);
     this.HotelsFilteringService.Filtering.subscribe(
       (event) => {
         console.log(event);
