@@ -10,10 +10,32 @@ import { Hotel } from './../../_model/hotels/hotel';
 export class BookingComponent implements OnInit {
   constructor(private HotelService: HotelService) {}
   rooms: number = 0;
+  display = false;
   checkIn = new Date();
   checkOut = new Date();
   subtractDates = 0;
   days = 0;
+  inputEvent(event) {
+
+    if(event.target._elementRef.nativeElement.alt == "checkIn"){
+      console.log(event.value);
+      this.checkIn = event.value;
+      console.log(this.checkIn);
+    } else if (event.target._elementRef.nativeElement.alt == "checkOut"){
+      this.checkOut = event.value;
+      console.log(this.checkOut);
+    }
+    else{
+      console.log('neither')
+    }
+    
+    // To calculate the time difference of two dates 
+    this.subtractDates = this.checkOut.getTime() - this.checkIn.getTime(); 
+    // To calculate the no. of days between two dates 
+    this.days = this.subtractDates / (1000 * 3600 * 24); 
+    console.log(this.days);
+    
+  }
 
   hotel: Hotel = {
     _id: '5ff8f01a394ad263f625f560',
@@ -115,6 +137,11 @@ export class BookingComponent implements OnInit {
       (error) => {},
       (completed) => {}
     );
+  }
+  
+ onPress() {
+   this.display = !this.display;
+   console.log(this.display)
   }
 
 }

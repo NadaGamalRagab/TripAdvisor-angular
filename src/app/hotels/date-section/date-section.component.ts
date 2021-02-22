@@ -16,6 +16,7 @@ export class DateSectionComponent implements OnInit {
   inputEvent(event) {
 
     if(event.target._elementRef.nativeElement.alt == "checkIn"){
+      console.log(event.value);
       this.checkIn = event.value;
       console.log(this.checkIn);
     } else if (event.target._elementRef.nativeElement.alt == "checkOut"){

@@ -1,12 +1,11 @@
 body {
   background-image: linear-gradient(to right, #7B1FA2, #E91E63)
 }
-
+::ng-deep .cdk-overlay-container {z-index:2000; }
 .section {
   position: relative;
   height: 100vh
 }
-
 .section .section-center {
   position: absolute;
   top: 50%;

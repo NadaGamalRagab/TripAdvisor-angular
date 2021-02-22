@@ -1,4 +1,4 @@
-<div *ngIf="!paidFor">
+<!-- <div *ngIf="!paidFor">
 
     <h1>Buy this Couch - ${{ product.price }} OBO</h1>
   
@@ -7,12 +7,11 @@
     <img width="400" [src]="product.img">
   
   </div>
-  
+   -->
   <div *ngIf=paidFor>
-    <h1>Yay, you bought a sweet couch!</h1>
-  
-    <!-- <img src="assets/giphy.gif"> -->
+    <h1>Payment is Seccesful!</h1>
   </div>
+  <div [hidden]="paidFor" ></div>
   
   
-  <div [hidden]="paidFor" #paypal></div>
+  
