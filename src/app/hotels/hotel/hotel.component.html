@@ -44,7 +44,12 @@
 
   <div class="col-8">
     <div class="row p-2">
-      <h3><b><span>{{hotel.name}}</span></b></h3>
+        <h3><b><span>{{hotel.name}}</span></b></h3>
+     
+        <!-- <button type="button" class="float-end mb-1 btn btn-warning button-raduis text-center" data-toggle="modal"
+          data-target="#booking">
+          Book Now
+        </button> -->
     </div>
     <div class="row h-75">
       <div class="col-7 h-100 w-100">
@@ -60,11 +65,12 @@
               <!-- Button trigger modal -->
               <button type="button" class="mb-1 pr-1 btn btn-warning button-raduis text-center w-50" data-toggle="modal"
                 data-target="#exampleModal" (click)='BookNow()'>
-                Book Now
+                View Details
               </button>
-              <!-- Modal -->
-              <app-box-model ></app-box-model>
 
+
+              <!-- Modal -->
+              <app-box-model></app-box-model>
 
 
 

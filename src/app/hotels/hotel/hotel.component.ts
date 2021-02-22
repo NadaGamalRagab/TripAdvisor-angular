@@ -113,6 +113,6 @@ export class HotelComponent implements OnInit {
   }
 
   BookNow() {
-    this.hotelService.Book_Now.emit(this.hotel);
+    this.hotelService.viewDetails.emit(this.hotel);
   }
 }

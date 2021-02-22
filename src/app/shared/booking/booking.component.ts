@@ -1,17 +1,19 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Hotel } from 'src/app/_model/hotels/hotel';
-import { HotelCategoryService } from './../../_services/hotel-category.service';
+import { Component, OnInit } from '@angular/core';
 import { HotelService } from 'src/app/_services/hotel.service';
+import { Hotel } from './../../_model/hotels/hotel';
 
 @Component({
-  selector: 'app-box-model',
-  templateUrl: './box-model.component.html',
-  styleUrls: ['./box-model.component.scss'],
+  selector: 'app-booking',
+  templateUrl: './booking.component.html',
+  styleUrls: ['./booking.component.scss'],
 })
-export class BoxModelComponent implements OnInit {
-  theBestDeal = {
-    obj: {},
-  };
+export class BookingComponent implements OnInit {
+  constructor(private HotelService: HotelService) {}
+  rooms: number = 0;
+  checkIn = new Date();
+  checkOut = new Date();
+  subtractDates = 0;
+  days = 0;
 
   hotel: Hotel = {
     _id: '5ff8f01a394ad263f625f560',
@@ -104,52 +106,15 @@ export class BoxModelComponent implements OnInit {
     likes: ['252', '4575'],
   };
 
-  latitude: number = 0;
-  longitude: number = 0;
-  rooms: number = 0;
-  constructor(
-    private HotelCategoryService: HotelCategoryService,
-    private HotelService: HotelService
-  ) {}
-
   ngOnInit(): void {
-    this.bestDeal();
-
-    this.HotelService.viewDetails.subscribe(
+     this.HotelService.BookNow.subscribe(
       (resp) => {
-        this.hotel = resp;
-        this.bestDeal();
-        this.latitude = this.hotel.map.latitude;
-        this.longitude = this.hotel.map.longitude;
+         this.hotel = resp;
+         console.log(this.hotel);
       },
       (error) => {},
       (completed) => {}
     );
   }
 
-  getAmt(_id) {
-    return this.HotelCategoryService.getAmtById(_id)[0].name;
-  }
-
-  bestDeal() {
-    this.theBestDeal.obj = {
-      ...this.hotel.Pricedeals.filter(
-        (p) =>
-          p.pricePerNight ==
-          Math.min(...this.hotel.Pricedeals.map((d) => d.pricePerNight))
-      ),
-    };
-    // console.log(this.theBestDeal.obj[0].name);
-  }
-
-  getClass() {
-    return this.HotelCategoryService.getClassById(this.hotel.class)[0].name;
-  }
-  getLanguageSpoken(_id) {
-    return this.HotelCategoryService.getLanguageSpokenById(_id)[0].name;
-  }
-  bookNow() {
-    this.HotelService.BookNow.emit(this.hotel);
-  }
 }
-
