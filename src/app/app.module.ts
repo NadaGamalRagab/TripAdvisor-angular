@@ -45,7 +45,7 @@ import { PaymentComponent } from './payment/payment.component'
     RestaurantListingComponent,
     SmallCardsComponent,
     BoxModelComponent,
-    BookingComponent
+    BookingComponent,
     PaymentComponent
   ],
   imports: [

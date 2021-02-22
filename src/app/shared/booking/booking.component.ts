@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HotelService } from 'src/app/_services/hotel.service';
 import { Hotel } from './../../_model/hotels/hotel';
+import { PriceDeals } from './../../_model/hotels/PriceDeals';
 
 @Component({
   selector: 'app-booking',
@@ -14,7 +15,11 @@ export class BookingComponent implements OnInit {
   checkOut = new Date();
   subtractDates = 0;
   days = 0;
-
+  length = 0;
+  price = 0;
+  theBestDeal = {
+    obj: {},
+  };
   hotel: Hotel = {
     _id: '5ff8f01a394ad263f625f560',
     name: 'Iberostar Club Palmeraie Marrakech',
@@ -107,14 +112,44 @@ export class BookingComponent implements OnInit {
   };
 
   ngOnInit(): void {
-     this.HotelService.BookNow.subscribe(
+    this.bestDeal();
+
+    this.HotelService.BookNow.subscribe(
       (resp) => {
-         this.hotel = resp;
-         console.log(this.hotel);
+        this.hotel = resp;
+        this.length = this.hotel.booking.length;
+        this.bestDeal();
+
+        console.log(this.hotel);
       },
       (error) => {},
       (completed) => {}
     );
   }
 
+  bestDeal() {
+    this.theBestDeal.obj = {
+      ...this.hotel.Pricedeals.filter(
+        (p) =>
+          p.pricePerNight ==
+          Math.min(...this.hotel.Pricedeals.map((d) => d.pricePerNight))
+      ),
+    };
+    // console.log(this.theBestDeal.obj[0].name);
+  }
+
+  book(form) {
+    this.hotel.booking.push(form);
+    console.log(this.hotel.booking);
+  }
+  calcDays(form) {
+    this.days = form.checkOut - form.checkIn;
+    console.log(form.checkOut.value);
+    console.log(form.checkIn);
+
+    console.log(this.days);
+  }
+  calcPrice() {
+    return this.theBestDeal.obj[0].pricePerNight;
+  }
 }

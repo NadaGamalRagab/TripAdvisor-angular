@@ -40,7 +40,7 @@ body {
   right: 0;
   bottom: 0;
   top: 0;
-  background: rgba(0, 0, 0, 0.7);
+  //background: rgba(0, 0, 0, 0.7);
   z-index: -1
 }
 
@@ -77,15 +77,15 @@ body {
 }
 
 .booking-form .form-control::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.5)
+  color: rgba(255, 255, 255, 0.845)
 }
 
 .booking-form .form-control:-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.5)
+  color: rgba(255, 255, 255, 0.845)
 }
 
 .booking-form .form-control::placeholder {
-  color: rgba(255, 255, 255, 0.5)
+  color: rgba(255, 255, 255, 0.845)
 }
 
 .booking-form .form-control:focus {
@@ -98,7 +98,7 @@ body {
 }
 
 .booking-form input[type="date"].form-control:invalid {
-  color: rgba(255, 255, 255, 0.5)
+  color: rgba(255, 255, 255, 0.845)
 }
 
 .booking-form input[type="date"].form-control+.form-label {
@@ -113,7 +113,7 @@ body {
 }
 
 .booking-form select.form-control:invalid {
-  color: rgba(255, 255, 255, 0.5)
+  color: rgba(255, 255, 255, 0.845)
 }
 
 .booking-form select.form-control+.select-arrow {
