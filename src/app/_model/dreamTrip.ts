@@ -1,6 +1,6 @@
 export interface DreamTripCards {
     _id?:number;
-    imagesUrls:string;
+    imagesUrls?:string;
     location:string;
 
 }

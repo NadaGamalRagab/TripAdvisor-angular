@@ -3,6 +3,6 @@ import {Country} from './country'
 
 export interface Home{
     _id:number;
-    imagesUrls:string;
+    imagesUrls?:string;
     country:string;
     }

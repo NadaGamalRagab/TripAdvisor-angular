@@ -155,33 +155,42 @@
 
 <!-- Places -->
     <div class="container">
+      <div class="row">
       <div class="col-sm col-xs-12 pt-3">
       <hr>
             <p style="font-weight: bold;font-size: 20px;">You might like these</p>
             
-            <div id="carouselExampleControls" class="carousel slide col-xs-12" data-interval="false" data-ride="carousel" data-pause="hover">
+            <div id="carouselExampleControls" class="carousel slide " data-interval="false" data-ride="carousel" data-pause="hover">
               <div class="carousel-inner" role="listbox">
-                <div id="carouselExampleControls" class="carousel-item active" *ngFor="let item of slides" >
-                  <div class="row row-equal m-t-0 p-4 " >
-                    <div class="col-sm-3 p-4" *ngFor="let card of item">
-                      <app-card [home]="card"></app-card> 
+                <div class="carousel-item active" >
+                  <div class="row row-equal m-t-0 p-4 "  >
+                    <div class="col-sm-3 p-4" *ngFor="let item of cards.slice(0,4)">
+                      <app-card  [home]=" item"></app-card> 
+                    </div>
+                  </div>
+                 
+                </div>
+                
+                <div class="carousel-item"  >
+                  <div class="row row-equal m-t-0 p-4 "  >
+                    <div class="col-sm-3 p-4" *ngFor="let item of cards.slice(5,9)">
+                      <app-card [home]="item"></app-card> 
                     </div>
                   </div>
                  
                 </div>
             
               </div>
+
             <a class="carousel-control-prev" style="width: 60px;"  href="#carouselExampleControls" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" style="background-color: #000000;border-radius: 50%; height: 50px;"aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
               </a>
               <a class="carousel-control-next" style="width:50px;" href="#carouselExampleControls" role="button" data-slide="next">
                 <span class="carousel-control-next-icon" style="background-color: #000000; border-radius: 50%; height: 50px;" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
               </a>
             </div>
           </div>
-          
+        </div>    
     </div>
 
     
@@ -214,7 +223,19 @@
         <div class="col-1"></div>
         <div *ngFor="let item of headlines" class="col-3" >
           <div class="card" style="height:450px">
-            <a href="#"> <img class="card-img-top" height="300px" [src]=item.imagesUrls ></a> 
+            <a href="#">
+              <div class="iconoverimg">
+              <img class="card-img-top" height="300px" [src]=item.imagesUrls >
+              <div
+              class="style-like bg-white mt-3 rounded-circle d-flex justify-content-center align-items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                class="bi bi-suit-heart-fill heart-color" viewBox="0 0 16 16">
+                <path
+                  d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z" />
+              </svg>
+              </div>
+            </div>
+            </a> 
             <div class="card-body ">
               <h4 class="card-title f">From Tripadvisor</h4>
               <a href="" class="f" style="color:#000000"><p class="card-text">{{item.title}}</p></a>
