@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { HotelCategoryService } from './../../_services/hotel-category.service';
+import { HotelCategoryService } from './../../_services/hotels/hotel-category.service';
 import { AllCategory } from './../../_model/hotels/AllCategory';
 import { ThisReceiver } from '@angular/compiler';
-import { HotelService } from 'src/app/_services/hotel.service';
-import { HotelsFilteringService } from './../../_services/hotels-filtering.service';
+import { HotelService } from 'src/app/_services/hotels/hotel.service';
+import { HotelsFilteringService } from './../../_services/hotels/hotels-filtering.service';
 
 @Component({
   selector: 'app-category',

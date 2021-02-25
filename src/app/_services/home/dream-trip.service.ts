@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {DreamTripCards} from '../_model/dreamTrip'
+import {DreamTripCards} from '../../_model/home/dreamTrip'
 
 @Injectable({
   providedIn: 'root'

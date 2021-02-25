@@ -1,10 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef ,NgModule,Renderer2} from '@angular/core';
-import {Home} from "../../_model/home";
-import {HomeService} from "../../_services/home.service";
-import {DreamTripService} from "../../_services/dream-trip.service";
-import {DreamTripCards} from '../../_model/dreamTrip';
-import {MoreExploreService} from "../../_services/more-explore.service";
-import {MoreToExplore} from '../../_model/more-explore'
+import {Home} from "../../_model/home/home";
+import {HomeService} from "../../_services/home/home.service";
+import {DreamTripService} from "../../_services/home/dream-trip.service";
+import {DreamTripCards} from '../../_model/home/dreamTrip';
+import {MoreExploreService} from "../../_services/home/more-explore.service";
+import {MoreToExplore} from '../../_model/home/more-explore'
 
 
 

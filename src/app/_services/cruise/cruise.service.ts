@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Cruise } from '../_model/criuses/cruise';
+import { Cruise } from '../../_model/criuses/cruise';
 
 @Injectable({
   providedIn: 'root'

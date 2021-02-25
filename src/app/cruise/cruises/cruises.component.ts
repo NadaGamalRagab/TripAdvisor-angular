@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // import { Cruise } from '../_model/cruise';
 import { Cruise } from '../../_model/criuses/cruise';
-import { CruiseService } from '../../_services/cruise.service';
+import { CruiseService } from '../../_services/cruise/cruise.service';
 // import { CruiseService } from '../_services/cruise.service';
 // import{CruiseDealsComponent} from '../cruise-deals/cruise-deals.component'
 
