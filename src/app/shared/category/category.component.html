@@ -69,10 +69,10 @@
 
 
   <div>
-    <h2 class="d-inline-block mb-3">Aminities </h2>
+    <h2 class="d-inline-block mb-3">Amenities </h2>
 
     <form class="mb-4">
-      <div class="custom-checkbox" *ngFor='let option of categories.aminities'>
+      <div class="custom-checkbox" *ngFor='let option of categories.amenities'>
         <div class="form-check">
           <label>
             <input type="checkbox" alt='aminities' name={{option.name}} id={{option._id}} (change)='Filter($event)' />

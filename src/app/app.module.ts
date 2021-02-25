@@ -32,6 +32,7 @@ import { BoxModelComponent } from './shared/box-model/box-model.component';
 import { AgmCoreModule } from '@agm/core';
 import { BookingComponent } from './shared/booking/booking.component';
 import { PaymentComponent } from './payment/payment.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { PaymentComponent } from './payment/payment.component';
     MatInputModule,
     MatNativeDateModule,
     MatSliderModule,
+    HttpClientModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCUx00mtjJ5MpIINJmBoLm41CYEg4axO4I',
     }),
@@ -74,6 +76,7 @@ import { PaymentComponent } from './payment/payment.component';
     HotelsFilteringService,
     HotelsListingComponent,
     HotelCategoryService,
+   // { provide: HTTP_INTERCEPTORS, useClass: MyInterceptorService, multi: true }
   ],
   bootstrap: [AppComponent],
 })

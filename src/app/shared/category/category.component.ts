@@ -15,7 +15,7 @@ export class CategoryComponent implements OnInit {
   priceCategory: number = 0;
   selectType: string;
   valuex: number = 0;
-  
+
   constructor(
     private HotelCategoryService: HotelCategoryService,
     private HotelService: HotelService,
@@ -23,11 +23,25 @@ export class CategoryComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.categories = this.HotelCategoryService.getAllCategories();
+    this.HotelCategoryService.getAllCategories().subscribe(
+      (resp) => {
+        Object.values(resp).map((res) => {
+          console.log(res);
+          this.categories = res;
+        });
+        // this.categories = { ...resp };
+        //console.log(this.categories);
+      },
+      (error) => {
+        console.log(error);
+      },
+      () => {}
+    );
+    // this.categories = this.HotelCategoryService.getAllCategories();
   }
 
   price(value: number) {
-    //this.priceCategory = value;
+    this.priceCategory = value;
     if (value >= 1000) {
       return Math.round(value / 1000) + 'k';
     }
@@ -35,6 +49,7 @@ export class CategoryComponent implements OnInit {
   }
 
   Filter(event) {
+    //console.log(event.target.id);
     this.HotelsFilteringService.Filtering.emit(event);
   }
   FilterDistance(event) {

@@ -44,9 +44,9 @@
 
   <div class="col-8">
     <div class="row p-2">
-        <h3><b><span>{{hotel.name}}</span></b></h3>
-     
-        <!-- <button type="button" class="float-end mb-1 btn btn-warning button-raduis text-center" data-toggle="modal"
+      <h3><b><span>{{hotel.name}}</span></b></h3>
+
+      <!-- <button type="button" class="float-end mb-1 btn btn-warning button-raduis text-center" data-toggle="modal"
           data-target="#booking">
           Book Now
         </button> -->
@@ -70,7 +70,7 @@
 
 
               <!-- Modal -->
-              <app-box-model></app-box-model>
+              <app-box-model *ngIf='showState()'></app-box-model>
 
 
 

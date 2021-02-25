@@ -24,7 +24,7 @@ export class BoxModelComponent implements OnInit {
         children: 4,
         adults: 2,
         price: 15000,
-        userId: '5ff8b3fdb09dc1b380045120',
+       userId: '5ff8b3fdb09dc1b380045120',
         email: 'nadaragab@yahoo.com',
         phone: 1289113639,
       },
@@ -143,6 +143,7 @@ export class BoxModelComponent implements OnInit {
   }
 
   getClass() {
+    console.log(this.hotel.class);
     return this.HotelCategoryService.getClassById(this.hotel.class)[0].name;
   }
   getLanguageSpoken(_id) {
@@ -152,4 +153,3 @@ export class BoxModelComponent implements OnInit {
     this.HotelService.BookNow.emit(this.hotel);
   }
 }
-

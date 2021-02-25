@@ -10,7 +10,6 @@ import { HotelCategoryService } from './../../_services/hotel-category.service';
   styleUrls: ['./hotel.component.scss'],
   providers: [NgbModalConfig, NgbModal],
 })
-  
 export class HotelComponent implements OnInit {
   @Input() hotel: Hotel;
   bestSeller: boolean;
@@ -19,6 +18,7 @@ export class HotelComponent implements OnInit {
   reserveNow: boolean = false;
   theBestDeal = { obj: {}, img: '' };
   rate: number = 0;
+  able = false;
 
   constructor(
     private hotelService: HotelService,
@@ -102,10 +102,12 @@ export class HotelComponent implements OnInit {
   }
 
   Counter(i) {
+    console.log(i);
     return new Array(i);
   }
 
   getAmt(_id) {
+    // console.log(this.HotelCategoryService.getAmtById(_id));
     return this.HotelCategoryService.getAmtById(_id)[0].name;
   }
   open(content) {
@@ -113,6 +115,11 @@ export class HotelComponent implements OnInit {
   }
 
   BookNow() {
+    console.log(this.hotel);
     this.hotelService.viewDetails.emit(this.hotel);
+    this.able = true;
+  }
+  showState(){
+    return this.able;
   }
 }

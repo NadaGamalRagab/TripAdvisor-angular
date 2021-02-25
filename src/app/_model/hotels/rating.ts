@@ -1,4 +1,4 @@
 export interface Rating {
-    user: string,
-    rate : number
+  user: string;
+  rate: number;
 }

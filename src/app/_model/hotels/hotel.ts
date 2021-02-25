@@ -4,6 +4,7 @@ import { PriceDeals } from './PriceDeals';
 import { Rating } from './rating';
 import { Reviews } from './Reviews';
 import { Map } from './map';
+import { Description } from './description';
 
 export interface Hotel {
   _id: string;
@@ -23,4 +24,5 @@ export interface Hotel {
   style?: string[];
   languageSpoken: string[];
   likes: string[];
+  descripation?:Description;
 }

@@ -1,4 +1,4 @@
-import { category } from "./category";
+import { category } from './category';
 
 export interface AllCategory {
   _id?: string;
@@ -6,7 +6,7 @@ export interface AllCategory {
   deals?: category[];
   popular?: category[];
   distance?: category[];
-  aminities?: category[];
+  amenities?: category[];
   hotelClass?: category[];
   languageSpoken?: category[];
 }

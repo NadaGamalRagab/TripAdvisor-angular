@@ -2,9 +2,6 @@ import { Injectable, Output,EventEmitter } from '@angular/core';
 import { HotelCategoryService } from './hotel-category.service';
 import { HotelService } from 'src/app/_services/hotel.service';
 import { Hotel } from '../_model/hotels/hotel';
-// import * as EventEmitter from 'events';
-// import { Event } from '@angular/router';
-// import { AllCategory } from './../_model/hotels/AllCategory';
 
 @Injectable({
   providedIn: 'root',
@@ -26,9 +23,9 @@ export class HotelsFilteringService {
     this.getHotels();
   }
 
-  getHotels() {
-    this.hotels = this.HotelService.getAllHotels();
-  }
+   getHotels() {
+  //this.hotels = this.HotelService.getAllHotels();
+   }
 
   Filter(event) {
     this.tempHotels = [];

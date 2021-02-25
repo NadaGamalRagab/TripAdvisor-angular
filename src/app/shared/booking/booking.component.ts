@@ -161,11 +161,11 @@ export class BookingComponent implements OnInit {
 
   book(form) {
     this.display = true;
-     console.log(this.display);
+    console.log(this.display);
     this.hotel.booking.push(form);
     console.log(this.hotel.booking);
 
-    if (this.hotel.rooms < form.rooms ) {
+    if (this.hotel.rooms < form.rooms) {
       alert("Sorry there's No available rooms");
     } else {
       this.display = true;
@@ -176,6 +176,7 @@ export class BookingComponent implements OnInit {
       console.log(this.hotel.rooms);
     }
   }
+
   takeroomsNum(rooms) {
     this.rooms = rooms;
   }
