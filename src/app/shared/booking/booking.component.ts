@@ -161,6 +161,7 @@ export class BookingComponent implements OnInit {
 
   book(form) {
     this.display = true;
+    console.log(`papal ${this.display}`);
     console.log(form);
    // this.hotel.booking.push(form);
     console.log(this.hotel.booking);

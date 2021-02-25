@@ -137,7 +137,7 @@ export class BoxModelComponent implements OnInit {
 
   getAmt(_id) {
     if (this.HotelCategoryService.getAmtById(_id).length > 0) {
-      console.log(this.HotelCategoryService.getAmtById(_id)[0].name);
+      // console.log(this.HotelCategoryService.getAmtById(_id)[0].name);
           return this.HotelCategoryService.getAmtById(_id)[0].name;
     }
   }
