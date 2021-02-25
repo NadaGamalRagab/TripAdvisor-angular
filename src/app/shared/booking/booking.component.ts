@@ -129,12 +129,12 @@ export class BookingComponent implements OnInit {
 
   inputEvent(event) {
     if (event.target._elementRef.nativeElement.alt == 'checkIn') {
-      console.log(event.value);
+      //  console.log(event.value);
       this.checkIn = event.value;
-      console.log(this.checkIn);
+      // console.log(this.checkIn);
     } else if (event.target._elementRef.nativeElement.alt == 'checkOut') {
       this.checkOut = event.value;
-      console.log(this.checkOut);
+      // console.log(this.checkOut);
     } else {
       console.log('neither');
     }
@@ -142,7 +142,7 @@ export class BookingComponent implements OnInit {
     this.subtractDates = this.checkOut.getTime() - this.checkIn.getTime();
     // To calculate the no. of days between two dates
     this.days = this.subtractDates / (1000 * 3600 * 24);
-    console.log(this.days);
+    // console.log(this.days);
   }
   //  onPress() {
   //    this.display = !this.display;
@@ -161,19 +161,19 @@ export class BookingComponent implements OnInit {
 
   book(form) {
     this.display = true;
-    console.log(this.display);
-    this.hotel.booking.push(form);
+    console.log(form);
+   // this.hotel.booking.push(form);
     console.log(this.hotel.booking);
 
     if (this.hotel.rooms < form.rooms) {
       alert("Sorry there's No available rooms");
     } else {
       this.display = true;
-      console.log(this.display);
+      //  console.log(this.display);
       this.hotel.booking.push(form);
-      console.log(this.hotel.booking);
+      // console.log(this.hotel.booking);
       this.hotel.rooms -= form.rooms;
-      console.log(this.hotel.rooms);
+      // console.log(this.hotel.rooms);
     }
   }
 

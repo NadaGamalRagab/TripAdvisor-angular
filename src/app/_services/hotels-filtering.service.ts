@@ -1,4 +1,4 @@
-import { Injectable, Output,EventEmitter } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { HotelCategoryService } from './hotel-category.service';
 import { HotelService } from 'src/app/_services/hotel.service';
 import { Hotel } from '../_model/hotels/hotel';
@@ -15,17 +15,27 @@ export class HotelsFilteringService {
   closeToMainStreet = 5;
   closeToCityCenter = 10;
   CloseToPark = 6;
-  Filtering = new EventEmitter ()
+  Filtering = new EventEmitter();
   constructor(
     private HotelCategoryService: HotelCategoryService,
     private HotelService: HotelService
   ) {
-    this.getHotels();
+    this.HotelService.getAllHotels().subscribe(
+      (resp) => {
+        Object.values(resp).map((res) => {
+          //console.log(res);
+          this.hotels.push(res);
+        });
+        console.log(this.hotels);
+      },
+      (error) => {},
+      () => {}
+    );
   }
 
-   getHotels() {
-  //this.hotels = this.HotelService.getAllHotels();
-   }
+  getHotels() {
+    //this.hotels = this.HotelService.getAllHotels();
+  }
 
   Filter(event) {
     this.tempHotels = [];
@@ -69,17 +79,25 @@ export class HotelsFilteringService {
     let distance = event.target.name;
     if (event.target.checked) {
       if (distance == 'Close to beach') {
-        this.tempHotels.push(...this.hotels.filter((e) => e.distance.beach <= this.closeToBeach));
+        this.tempHotels.push(
+          ...this.hotels.filter((e) => e.distance.beach <= this.closeToBeach)
+        );
       } else if (distance == 'Close to Main Street') {
         this.tempHotels.push(
-          ...this.hotels.filter((e) => e.distance.mainStreet <= this.closeToMainStreet)
+          ...this.hotels.filter(
+            (e) => e.distance.mainStreet <= this.closeToMainStreet
+          )
         );
       } else if (distance == 'Close to City Center') {
         this.tempHotels.push(
-          ...this.hotels.filter((e) => e.distance.cityCenter <= this.closeToCityCenter)
+          ...this.hotels.filter(
+            (e) => e.distance.cityCenter <= this.closeToCityCenter
+          )
         );
       } else if (distance == 'Close to Park') {
-        this.tempHotels.push(...this.hotels.filter((e) => e.distance.park <= this.CloseToPark));
+        this.tempHotels.push(
+          ...this.hotels.filter((e) => e.distance.park <= this.CloseToPark)
+        );
       }
       this.filterdHotels = [...new Set(this.tempHotels)];
       return this.filterdHotels;

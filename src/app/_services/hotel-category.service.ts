@@ -59,7 +59,7 @@ export class HotelCategoryService {
     this.getAllCategories().subscribe(
       (resp) => {
         Object.values(resp).map((res) => {
-          console.log(res);
+          //console.log(res);
           this.categoryList = res;
         });
         // this.categories = { ...resp };
@@ -73,14 +73,14 @@ export class HotelCategoryService {
   }
 
   getAmtById(_id: string) {
-    console.log(_id);
+    //console.log(this.categoryList.amenities.filter((p) => p._id == _id));
     return this.categoryList.amenities.filter((p) => p._id == _id);
   }
   getDealById(_id: string) {
     return this.categoryList.deals.filter((p) => p._id == _id);
   }
   getClassById(_id: string) {
-    console.log(this.categoryList.hotelClass);
+    // console.log(this.categoryList.hotelClass);
     return this.categoryList.hotelClass.filter((p) => p._id == _id);
   }
 

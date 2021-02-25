@@ -1,4 +1,4 @@
 export interface Map {
-    : number;
+  latitude: number;
   longitude: number;
 }

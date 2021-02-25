@@ -8,22 +8,23 @@
           </div>
           <form #bookForm="ngForm">
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-5">
                 <div class="form-group">
                   <mat-form-field class="text-decoration">
-                    <input class="text-decoration" required alt="checkIn" (dateInput)="inputEvent($event)" matInput
-                      [matDatepicker]="checkIn" placeholder="Check In">
+                    <input class="text-decoration pr-3" required alt="checkIn" name="checkIn" ngModel
+                      (dateInput)="inputEvent($event)" matInput [matDatepicker]="checkIn" placeholder="Check In">
                     <mat-datepicker-toggle matSuffix [for]="checkIn" class="text-decoration"></mat-datepicker-toggle>
                     <mat-datepicker #checkIn class="text-decoration"></mat-datepicker>
                   </mat-form-field>
                   <!-- <input class="form-control" type="date" required> <span class="form-label">Check In</span> -->
                 </div>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-2"></div>
+              <div class="col-md-5">
                 <div class="form-group">
                   <mat-form-field class="text-decoration">
-                    <input class="text-decoration pr-3" required alt="checkOut" (dateInput)="inputEvent($event)"
-                      matInput [matDatepicker]="checkOut" placeholder="Check Out">
+                    <input class="text-decoration pr-3" required alt="checkOut" name="checkOut" ngModel
+                      (dateInput)="inputEvent($event)" matInput [matDatepicker]="checkOut" placeholder="Check Out">
                     <mat-datepicker-toggle matSuffix [for]="checkOut" class="text-decoration "></mat-datepicker-toggle>
                     <mat-datepicker #checkOut class="text-decoration "></mat-datepicker>
                   </mat-form-field>

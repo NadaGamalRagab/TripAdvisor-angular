@@ -14,7 +14,7 @@ export class BoxModelComponent implements OnInit {
   };
 
   hotel: Hotel = {
-    _id: '5ff8f01a394ad263f625f560',
+    _id: '6034850820a22f4b8cfc1a06',
     name: 'Iberostar Club Palmeraie Marrakech',
     booking: [
       {
@@ -24,7 +24,7 @@ export class BoxModelComponent implements OnInit {
         children: 4,
         adults: 2,
         price: 15000,
-       userId: '5ff8b3fdb09dc1b380045120',
+        userId: '5ff8b3fdb09dc1b380045120',
         email: 'nadaragab@yahoo.com',
         phone: 1289113639,
       },
@@ -64,9 +64,14 @@ export class BoxModelComponent implements OnInit {
       'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/dd/06/86/steigenberger-al-dau.jpg?w=400&amp;h=400&amp;s=1',
     ],
     deals: ['2', '3'],
-    amenities: ['13', '14', '15', '16', '17', '18', '19', '20'],
+    amenities: [
+      '603085c26ee91f6c2c6ab015',
+      '603085c26ee91f6c2c6ab016',
+      '603085c26ee91f6c2c6ab017',
+      '16603085c26ee91f6c2c6ab01a',
+    ],
     popular: ['8'],
-    class: '21',
+    class: '603085c26ee91f6c2c6ab01d',
     distance: {
       mainStreet: 3,
       beach: 10,
@@ -100,7 +105,10 @@ export class BoxModelComponent implements OnInit {
       },
     ],
     style: ['Family Resort', 'Family'],
-    languageSpoken: ['25', '26', '27', '28', '29'],
+    languageSpoken: [
+      '603085c26ee91f6c2c6ab021',
+      '603085c26ee91f6c2c6ab022',
+    ],
     likes: ['252', '4575'],
   };
 
@@ -128,7 +136,10 @@ export class BoxModelComponent implements OnInit {
   }
 
   getAmt(_id) {
-    return this.HotelCategoryService.getAmtById(_id)[0].name;
+    if (this.HotelCategoryService.getAmtById(_id).length > 0) {
+      console.log(this.HotelCategoryService.getAmtById(_id)[0].name);
+          return this.HotelCategoryService.getAmtById(_id)[0].name;
+    }
   }
 
   bestDeal() {
@@ -143,7 +154,7 @@ export class BoxModelComponent implements OnInit {
   }
 
   getClass() {
-    console.log(this.hotel.class);
+   // console.log(this.hotel.class);
     return this.HotelCategoryService.getClassById(this.hotel.class)[0].name;
   }
   getLanguageSpoken(_id) {

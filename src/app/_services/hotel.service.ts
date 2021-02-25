@@ -540,7 +540,7 @@ export class HotelService {
         //console.log(res);
         this.hotels.push(res);
       });
-      console.log(this.hotels);
+      //  console.log(this.hotels);
     });
   }
   getHotelById(_id: String) {

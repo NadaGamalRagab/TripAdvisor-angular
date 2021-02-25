@@ -24,14 +24,14 @@ export class HotelsListingComponent implements OnInit, OnChanges {
     //this.hotels = this.hotelService.getAllHotels();
     this.hotelService.getAllHotels().subscribe(
       (resp) => {
-        console.log(resp);
+        //console.log(resp);
         //this.hotels = resp;
         //console.log(this.hotels);
         Object.values(resp).map((res) => {
           //console.log(res);
           this.hotels.push(res);
         });
-        console.log(this.hotels);
+        //console.log(this.hotels);
         this.calculateNumberOfPages(this.hotels.length);
       },
       (error) => {},

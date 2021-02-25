@@ -102,7 +102,6 @@ export class HotelComponent implements OnInit {
   }
 
   Counter(i) {
-    console.log(i);
     return new Array(i);
   }
 

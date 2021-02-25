@@ -26,7 +26,7 @@ export class CategoryComponent implements OnInit {
     this.HotelCategoryService.getAllCategories().subscribe(
       (resp) => {
         Object.values(resp).map((res) => {
-          console.log(res);
+        //  console.log(res);
           this.categories = res;
         });
         // this.categories = { ...resp };
