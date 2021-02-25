@@ -19,8 +19,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSliderModule } from '@angular/material/slider';
-import { HotelsFilteringService } from './_services/hotels-filtering.service';
-import { HotelCategoryService } from './_services/hotel-category.service';
+import { HotelsFilteringService } from './_services/hotels/hotels-filtering.service';
+import { HotelCategoryService } from './_services/hotels/hotel-category.service';
 import { CruisesComponent } from './cruise/cruises/cruises.component';
 import { CruiseDealsComponent } from './cruise/cruise-deals/cruise-deals.component';
 import { HeaderComponent } from './layout/header/header.component';
@@ -33,6 +33,10 @@ import { AgmCoreModule } from '@agm/core';
 import { BookingComponent } from './shared/booking/booking.component';
 import { PaymentComponent } from './payment/payment.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ShoppingComponent } from './shopping/shopping/shopping.component';
+import { ShoppingItemComponent } from './shopping/shopping-item/shopping-item.component';
+import { ShoppingTicketComponent } from './shopping/shopping-ticket/shopping-ticket.component';
+import { ShoppingPageComponent } from './shopping/shopping-page/shopping-page.component';
 
 @NgModule({
   declarations: [
@@ -56,9 +60,13 @@ import { HttpClientModule } from '@angular/common/http';
     BoxModelComponent,
     BookingComponent,
     PaymentComponent,
+    ShoppingComponent,
+    ShoppingItemComponent,
+    ShoppingTicketComponent,
+    ShoppingPageComponent,
   ],
   imports: [
-    BrowserModule,
+  BrowserModule,
     AppRoutingModule,
     FormsModule,
     NgbModule,

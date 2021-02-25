@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 // import { type } from 'os';
-import { HotelService } from 'src/app/_services/hotel.service';
+import { HotelService } from 'src/app/_services/hotels/hotel.service';
 
 @Component({
   selector: 'app-date-section',

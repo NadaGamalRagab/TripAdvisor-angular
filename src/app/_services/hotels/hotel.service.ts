@@ -1,5 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { Hotel } from '../_model/hotels/hotel';
+import { Hotel } from '../../_model/hotels/hotel';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({

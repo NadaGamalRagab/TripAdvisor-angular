@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {MoreToExplore} from '../_model/more-explore'
+import {MoreToExplore} from '../../_model/home/more-explore'
 
 @Injectable({
   providedIn: 'root'

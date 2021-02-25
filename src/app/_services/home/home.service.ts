@@ -1,4 +1,4 @@
-import { Home } from './../_model/home';
+import { Home } from '../../_model/home/home'
 import { EventEmitter, Injectable } from '@angular/core';
 
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AllCategory } from './../_model/hotels/AllCategory';
+import { AllCategory } from '../../_model/hotels/AllCategory';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({

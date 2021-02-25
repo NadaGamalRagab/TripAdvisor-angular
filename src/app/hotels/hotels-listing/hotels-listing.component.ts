@@ -1,8 +1,8 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
 import { Hotel } from 'src/app/_model/hotels/hotel';
-import { HotelService } from 'src/app/_services/hotel.service';
+import { HotelService } from 'src/app/_services/hotels/hotel.service';
 import { resolveTypeReferenceDirective } from 'typescript';
-import { HotelsFilteringService } from './../../_services/hotels-filtering.service';
+import { HotelsFilteringService } from './../../_services/hotels/hotels-filtering.service';
 
 @Component({
   selector: 'app-hotels-listing',

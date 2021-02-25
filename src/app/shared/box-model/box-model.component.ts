@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Hotel } from 'src/app/_model/hotels/hotel';
-import { HotelCategoryService } from './../../_services/hotel-category.service';
-import { HotelService } from 'src/app/_services/hotel.service';
+import { HotelCategoryService } from './../../_services/hotels/hotel-category.service';
+import { HotelService } from 'src/app/_services/hotels/hotel.service';
 
 @Component({
   selector: 'app-box-model',

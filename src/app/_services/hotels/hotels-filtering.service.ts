@@ -1,7 +1,7 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
 import { HotelCategoryService } from './hotel-category.service';
-import { HotelService } from 'src/app/_services/hotel.service';
-import { Hotel } from '../_model/hotels/hotel';
+import { HotelService } from 'src/app/_services/hotels/hotel.service';
+import { Hotel } from '../../_model/hotels/hotel';
 
 @Injectable({
   providedIn: 'root',
