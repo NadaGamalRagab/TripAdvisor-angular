@@ -10,34 +10,37 @@ export class ResturantCategoryService {
   categoryList: AllCategory;
   // categoryList: AllCategory = {
     //   _id: '1000',
-    //   Establishment: { _id: '1', name: ' Restaurants' },
+    //   Establishment: [
+    //     { _id: '1', name: ' Restaurants' },
+    //     { _id: '2', name: ' Desert' },
+    //   ],
     //   features: [
-    //     { _id: '2', name: 'Delivery' },
-    //     { _id: '3', name: ' Takeout' },
-    //     { _id: '4', name: 'Table Service' },
+    //     { _id: '3', name: 'Delivery' },
+    //     { _id: '4', name: ' Takeout' },
+    //     { _id: '5', name: 'Table Service' },
     //   ],
     //   meals: [
-    //     { _id: '5', name: 'Lunch' },
-    //     { _id: '6', name: 'Dinner' },
+    //     { _id: '6', name: 'Lunch' },
+    //     { _id: '7', name: 'Dinner' },
     //   ],
-    //    Pricerange: { _id: '7', name: 'Fine Dinning' },
+    //    Pricerange: { _id: '8', name: 'Fine Dinning' },
     //    cuisine: [
-    //     { _id: '8', name: ' Mediterranean' },
-    //     { _id: '9', name: 'Arabic' },
-    //     { _id: '10', name: 'Lebanese' },
+    //     { _id: '9', name: ' Mediterranean' },
+    //     { _id: '10', name: 'Arabic' },
+    //     { _id: '11', name: 'Lebanese' },
     //   ],
     //   dishes: [
-    //     { _id: '11', name: 'Salad' },
-    //     { _id: '12', name: 'Beef' },
-    //     { _id: '13', name: 'fish' },
+    //     { _id: '12', name: 'Salad' },
+    //     { _id: '13', name: 'Beef' },
+    //     { _id: '14', name: 'fish' },
     //   ],
     //   DietaryRestrictions: [
-    //     { _id: '14', name: 'Vegan' },
-    //     { _id: '15', name: 'Halal' },
+    //     { _id: '15', name: 'Vegan' },
+    //     { _id: '16', name: 'Halal' },
     //   ],
     //   goodFor: [
-    //     { _id: '16', name: 'Kids' },
-    //     { _id: '17', name: 'Large Groups' },
+    //     { _id: '17', name: 'Kids' },
+    //     { _id: '18', name: 'Large Groups' },
     //   ],
     // };
 
