@@ -20,13 +20,28 @@ export class CategoryComponent implements OnInit {
     private HotelCategoryService: HotelCategoryService,
     private HotelService: HotelService,
     private HotelsFilteringService: HotelsFilteringService
-  ) {}
+  ) {
+    this.HotelCategoryService.getAllCategories().subscribe(
+      (resp) => {
+        Object.values(resp).map((res) => {
+          //  console.log(res);
+          this.categories = res;
+        });
+        // this.categories = { ...resp };
+        //console.log(this.categories);
+      },
+      (error) => {
+        console.log(error);
+      },
+      () => {}
+    );
+  }
 
   ngOnInit(): void {
     this.HotelCategoryService.getAllCategories().subscribe(
       (resp) => {
         Object.values(resp).map((res) => {
-        //  console.log(res);
+          //  console.log(res);
           this.categories = res;
         });
         // this.categories = { ...resp };
