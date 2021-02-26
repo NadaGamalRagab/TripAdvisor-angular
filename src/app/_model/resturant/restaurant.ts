@@ -3,6 +3,7 @@ import { Rating } from '../hotels/rating';
 import { Contact } from './Contact';
 import { Address } from './Address';
 import { Description } from '../hotels/description';
+
 export interface Restaurant{
 _id:string;
 name:string;
@@ -10,7 +11,7 @@ imageUrls? :string[];
 address : Address ; 
 contact : Contact;
 descripation?:Description;
-Establishment : string;
+Establishment : string[];
 features : string[];
 meals : string[];
 cuisine : string[];
