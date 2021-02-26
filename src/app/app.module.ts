@@ -37,6 +37,7 @@ import { ShoppingComponent } from './shopping/shopping/shopping.component';
 import { ShoppingItemComponent } from './shopping/shopping-item/shopping-item.component';
 import { ShoppingTicketComponent } from './shopping/shopping-ticket/shopping-ticket.component';
 import { ShoppingPageComponent } from './shopping/shopping-page/shopping-page.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { ShoppingPageComponent } from './shopping/shopping-page/shopping-page.co
     ShoppingItemComponent,
     ShoppingTicketComponent,
     ShoppingPageComponent,
+    ProfileComponent,
   ],
   imports: [
   BrowserModule,
