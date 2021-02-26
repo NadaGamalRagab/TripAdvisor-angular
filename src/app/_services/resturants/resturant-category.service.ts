@@ -10,8 +10,8 @@ export class ResturantCategoryService {
   categoryList: AllCategory;
   // categoryList: AllCategory = {
     //   _id: '1000',
-    //   establishmentType: { _id: '1', name: ' Restaurants' },
-    //   restaurantFeatures: [
+    //   Establishment: { _id: '1', name: ' Restaurants' },
+    //   features: [
     //     { _id: '2', name: 'Delivery' },
     //     { _id: '3', name: ' Takeout' },
     //     { _id: '4', name: 'Table Service' },
@@ -20,7 +20,7 @@ export class ResturantCategoryService {
     //     { _id: '5', name: 'Lunch' },
     //     { _id: '6', name: 'Dinner' },
     //   ],
-    //    price: { _id: '7', name: 'Fine Dinning' },
+    //    Pricerange: { _id: '7', name: 'Fine Dinning' },
     //    cuisine: [
     //     { _id: '8', name: ' Mediterranean' },
     //     { _id: '9', name: 'Arabic' },
@@ -31,7 +31,7 @@ export class ResturantCategoryService {
     //     { _id: '12', name: 'Beef' },
     //     { _id: '13', name: 'fish' },
     //   ],
-    //   Restrictions: [
+    //   DietaryRestrictions: [
     //     { _id: '14', name: 'Vegan' },
     //     { _id: '15', name: 'Halal' },
     //   ],
@@ -60,8 +60,25 @@ export class ResturantCategoryService {
     );
   }
 
-  getTypeById(_id: string) {
-    // return this.categoryList.establishmentType.filter((p) => p._id == _id);
+  getFeaturesById(_id: string) {
+    return this.categoryList.features.filter((p) => p._id == _id);
   }
+  getMealsById(_id: string) {
+    return this.categoryList.meals.filter((p) => p._id == _id);
+  }
+  getCuisinesById(_id: string) {
+    return this.categoryList.cuisine.filter((p) => p._id == _id);
+  }
+  getRestrictionsById(_id: string) {
+    return this.categoryList.DietaryRestrictions.filter((p) => p._id == _id);
+  }
+  getGoodforById(_id: string) {
+    return this.categoryList.goodFor.filter((p) => p._id == _id);
+  }
+
+  
+
+
+
   
 }

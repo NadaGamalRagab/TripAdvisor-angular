@@ -25,4 +25,7 @@ export interface Hotel {
   languageSpoken: string[];
   likes: string[];
   descripation?:Description;
+
+
+  
 }
