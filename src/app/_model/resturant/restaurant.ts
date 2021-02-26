@@ -19,7 +19,7 @@ goodFor : string[];
 dishes : string[];
 menu: String[];
 Recommendation: String[],
-Pricerange: String,
+Pricerange: String[],
 reviews: Reviews[];
 rating: Rating[];
 likes: string[];
