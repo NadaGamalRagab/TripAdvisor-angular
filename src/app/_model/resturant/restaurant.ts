@@ -10,7 +10,7 @@ imageUrls? :string[];
 address : Address ; 
 contact : Contact;
 descripation?:Description;
-Establishment : string;
+Establishment : string[];
 features : string[];
 meals : string[];
 cuisine : string[];
