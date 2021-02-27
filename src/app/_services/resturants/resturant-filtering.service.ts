@@ -4,10 +4,10 @@ import { ResturantCategoryService } from './resturant-category.service';
 import { ResturantService } from './resturant.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ResturantFilteringService {
-  resturant: Restaurant[];
+  resturant: Restaurant[] = [];
   tempRest: Restaurant[] = [];
   filterdRest: Restaurant[] = [];
   checkedArray = [];
@@ -15,54 +15,68 @@ export class ResturantFilteringService {
   Filtering = new EventEmitter();
   constructor(
     private ResturantCategoryService: ResturantCategoryService,
-    private ResturantService: ResturantService) {
-      this.ResturantService.getAllResturants().subscribe(
-        (resp) => {
-          Object.values(resp).map((res) => {
-            //console.log(res);
-            this.resturant.push(res);
-          });
-          // console.log(this.resturant);
-        },
-        (error) => {},
-        () => {}
-      )
-     }
-
-     Filter(event) {
-      this.tempRest = [];
-      if (event.target.checked) {
-        this.checkedArray.push(event.target.id);
-        //console.log(this.checkedArray);
-      } else {
-        this.checkedArray = this.checkedArray.filter(
-          (p) => p !== event.target.id
-        );
-        //console.log(this.checkedArray);
-      }
-      // this.checkedArray.forEach((id) => {
-      //   this.tempRest.push(
-      //     //Deals Filtering
-      //     ...this.resturant.filter(
-      //       (e) => e.deals.filter((hotel) => hotel == id) == id
-      //     ),
-      //     // Popular Filtering
-      //     ...this.resturant.filter(
-      //       (e) => e.popular.filter((hotel) => hotel == id) == id
-      //     ),
-      //     // Aminities Filter
-      //     ...this.resturant.filter(
-      //       (e) => e.amenities.filter((hotel) => hotel == id) == id
-      //     ),
-      //     // Class Filtering
-      //     ...this.resturant.filter((e) => e.class == id),
-      //     // Language Filtering
-      //     ...this.resturant.filter(
-      //       (e) => e.languageSpoken.filter((hotel) => hotel == id) == id
-      //     )
-      //   );
-      // });
-      this.filterdRest = [...new Set(this.tempRest)];
-      return this.filterdRest;
+    private ResturantService: ResturantService
+  ) {
+    this.ResturantService.getAllResturants().subscribe(
+      (resp) => {
+        Object.values(resp).map((res) => {
+          //console.log(res);
+          this.resturant.push(res);
+        });
+        // console.log(this.resturant);
+      },
+      (error) => {},
+      () => {}
+    );
+  }
+  Filter(event) {
+    this.tempRest = [];
+    if (event.target.checked) {
+      this.checkedArray.push(event.target.id);
+      // console.log(this.checkedArray);
+    } else {
+      this.checkedArray = this.checkedArray.filter(
+        (p) => p !== event.target.id
+      );
+      //console.log(this.checkedArray);
     }
+    this.checkedArray.forEach((id) => {
+      this.tempRest.push(
+        //Establishment Filtering
+        ...this.resturant.filter(
+          (e) => e.Establishment.filter((res) => res == id) == id
+        ),
+        // features Filtering
+        ...this.resturant.filter(
+          (e) => e.features.filter((res) => res == id) == id
+        ),
+        // meals Filter
+        ...this.resturant.filter(
+          (e) => e.meals.filter((res) => res == id) == id
+        ),
+        // Pricerange Filtering
+        ...this.resturant.filter(
+          (e) => e.Pricerange.filter((res) => res == id) == id
+        ),
+        // cuisine Filtering
+        ...this.resturant.filter(
+          (e) => e.cuisine.filter((res) => (res = id)) == id
+        ),
+        // dishes Filtering
+        ...this.resturant.filter(
+          (e) => e.dishes.filter((res) => (res = id)) == id
+        ),
+        // DietaryRestrictions Filtering
+        ...this.resturant.filter(
+          (e) => e.DietaryRestrictions.filter((res) => res == id) == id
+        ),
+        // goodFor Fil
+        ...this.resturant.filter(
+          (e) => e.goodFor.filter((res) => res == id) == id
+        )
+      );
+    });
+    this.filterdRest = [...new Set(this.tempRest)];
+    return this.filterdRest;
+  }
 }
