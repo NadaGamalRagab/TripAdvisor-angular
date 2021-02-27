@@ -3,6 +3,7 @@ import { AllCategory } from 'src/app/_model/resturant/AllCategory';
 import { ResturantCategoryService } from 'src/app/_services/resturants/resturant-category.service';
 import { ResturantFilteringService } from 'src/app/_services/resturants/resturant-filtering.service';
 import { ResturantService } from 'src/app/_services/resturants/resturant.service';
+import { Restaurant } from 'src/app/_model/resturant/restaurant';
 
 
 
@@ -13,46 +14,63 @@ import { ResturantService } from 'src/app/_services/resturants/resturant.service
 })
 export class RestaurantListingComponent implements OnInit {
 
-  categories: AllCategory;
+  resturant: Restaurant[] = [];
+  pageNumbers: number[] = [];
+  pageSize: number = 1;
+  currentPage: number = 0;
 
  constructor(private ResturantCategoryService: ResturantCategoryService,
   private ResturantService: ResturantService,
-  private ResturantFilteringService: ResturantFilteringService){
+  private ResturantFilteringService: ResturantFilteringService){}
 
-    this.ResturantCategoryService.getAllCategories().subscribe(
+  ngOnInit(): void {
+    //this.hotels = this.hotelService.getAllHotels();
+    this.ResturantService.getAllResturants().subscribe(
       (resp) => {
+        console.log(resp);
         Object.values(resp).map((res) => {
-          //  console.log(res);
-          this.categories = res;
+          console.log(res);
+          this.resturant.push(res);
         });
-        //console.log(this.categories);
+        console.log(this.resturant);
+        this.calculateNumberOfPages(this.resturant.length);
+      },
+      (error) => {},
+      () => {}
+    );
+
+    this.ResturantFilteringService.Filtering.subscribe(
+      (event) => {
+        console.log(event);
+        
       },
       (error) => {
         console.log(error);
       },
-      () => {}
+      (copmleted) => {}
     );
   }
 
- ngOnInit(){
-  this.ResturantCategoryService.getAllCategories().subscribe(
-    (resp) => {
-      Object.values(resp).map((res) => {
-        //  console.log(res);
-        this.categories = res;
-      });
-      //console.log(this.categories);
-    },
-    (error) => {
-      console.log(error);
-    },
-    () => {}
-  );
- }
+  calculateNumberOfPages(length) {
+    this.pageNumbers = [];
+    for (let index = 0; index < length / this.pageSize; index++) {
+      this.pageNumbers.push(index + 1);
+    }
+  }
 
- Filter(event) {
-  //console.log(event.target.id);
-  this.ResturantFilteringService.Filtering.emit(event);
-}
+  getResturantsSlice() {
+    const start = this.currentPage * this.pageSize;
+    return this.resturant.slice(start, start + this.pageSize);
+  }
 
+  onSearchHandler(searchInput) {
+    console.log(searchInput.value);
+    this.resturant = this.ResturantService.searchByName(searchInput.value);
+    if (this.resturant.length <= 6) {
+      this.currentPage = 0;
+    } else {
+      this.currentPage = 0;
+    }
+    // this.calculateNumberOfPages();
+  }
 }

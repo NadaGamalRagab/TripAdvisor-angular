@@ -19,7 +19,7 @@ export class ResturantService {
   }
 
   getAllResturants() {
-    return this.httpClient.get(`${this.baseUrl}resturants`);
+    return this.httpClient.get(`${this.baseUrl}Restaurant`);
   }
 
   getResturantById(_id: String) {
