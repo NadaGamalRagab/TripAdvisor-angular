@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Restaurant } from 'src/app/_model/resturant/restaurant';
 import { ResturantCategoryService } from './resturant-category.service';
 import { ResturantService } from './resturant.service';
@@ -12,6 +12,7 @@ export class ResturantFilteringService {
   filterdRest: Restaurant[] = [];
   checkedArray = [];
 
+  Filtering = new EventEmitter();
   constructor(
     private ResturantCategoryService: ResturantCategoryService,
     private ResturantService: ResturantService) {

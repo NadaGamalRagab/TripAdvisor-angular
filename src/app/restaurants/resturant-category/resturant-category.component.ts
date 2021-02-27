@@ -4,14 +4,12 @@ import { ResturantCategoryService } from 'src/app/_services/resturants/resturant
 import { ResturantFilteringService } from 'src/app/_services/resturants/resturant-filtering.service';
 import { ResturantService } from 'src/app/_services/resturants/resturant.service';
 
-
-
 @Component({
-  selector: 'app-restaurant-listing',
-  templateUrl: './restaurant-listing.component.html',
-  styleUrls: ['./restaurant-listing.component.scss']
+  selector: 'app-resturant-category',
+  templateUrl: './resturant-category.component.html',
+  styleUrls: ['./resturant-category.component.scss']
 })
-export class RestaurantListingComponent implements OnInit {
+export class ResturantCategoryComponent implements OnInit {
 
   categories: AllCategory;
 
@@ -54,5 +52,4 @@ export class RestaurantListingComponent implements OnInit {
   //console.log(event.target.id);
   this.ResturantFilteringService.Filtering.emit(event);
 }
-
 }

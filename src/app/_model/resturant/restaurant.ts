@@ -19,7 +19,7 @@ DietaryRestrictions : string[];
 goodFor : string[];
 dishes : string[];
 menu: String[];
-Recommendation: String[],
+// Recommendation: String[],
 Pricerange: String[],
 reviews: Reviews[];
 rating: Rating[];

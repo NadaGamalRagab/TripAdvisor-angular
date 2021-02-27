@@ -26,8 +26,6 @@ import { CruiseDealsComponent } from './cruise/cruise-deals/cruise-deals.compone
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { RestaurantItemComponent } from './restaurants/restaurant-item/restaurant-item.component';
-import { RestaurantListingComponent } from './restaurants/restaurant-listing/restaurant-listing.component';
-import { SmallCardsComponent } from './restaurants/small-cards/small-cards.component';
 import { BoxModelComponent } from './shared/box-model/box-model.component';
 import { AgmCoreModule } from '@agm/core';
 import { BookingComponent } from './shared/booking/booking.component';
@@ -38,6 +36,10 @@ import { ShoppingItemComponent } from './shopping/shopping-item/shopping-item.co
 import { ShoppingTicketComponent } from './shopping/shopping-ticket/shopping-ticket.component';
 import { ShoppingPageComponent } from './shopping/shopping-page/shopping-page.component';
 import { ProfileComponent } from './profile/profile.component';
+import { RestaurantListingComponent } from './restaurants/restaurant-listing/restaurant-listing.component';
+import { TopRestaurantComponent } from './restaurants/top-restaurant/top-restaurant.component';
+import { ResturantCategoryComponent } from './restaurants/resturant-category/resturant-category.component';
+
 
 @NgModule({
   declarations: [
@@ -57,7 +59,7 @@ import { ProfileComponent } from './profile/profile.component';
     FooterComponent,
     RestaurantItemComponent,
     RestaurantListingComponent,
-    SmallCardsComponent,
+    TopRestaurantComponent,
     BoxModelComponent,
     BookingComponent,
     PaymentComponent,
@@ -66,6 +68,7 @@ import { ProfileComponent } from './profile/profile.component';
     ShoppingTicketComponent,
     ShoppingPageComponent,
     ProfileComponent,
+    ResturantCategoryComponent,
   ],
   imports: [
   BrowserModule,
