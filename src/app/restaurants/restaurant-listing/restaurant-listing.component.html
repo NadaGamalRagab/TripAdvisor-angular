@@ -1,12 +1,12 @@
 <div class="row">
-  <div class="row e-100">
+  <div class="row w-100 m-0">
     <div class="col-12 bg-white">
       <br />
       <h1 class="center">Restaurants in Hurghada</h1>
       <br />
     </div>
   </div>
-  <div class="col-4 mt-5 display">
+  <div class="col-4 mt-3 display">
     <div class="row">
       <div class="col-2"></div>
       <div class="col-10 ">
@@ -15,31 +15,25 @@
     </div>
   </div>
 
-  <div class="col-8 pr-3 pl-3 mt-5">
+  <!-- <div class="col-8 pr-3 pl-3 mt-3">
     <div class="row">
       <div class="col-sm col-xs-12 pt-3">
         <h3>
           Delivery Available
-          <a class="float-right text-body" role="button" style="font-size: 15px"
-            >See all</a
-          >
+         
         </h3>
 
-        <div
-          id="carouselExampleControls"
-          class="carousel slide col-xs-12"
-          data-interval="false"
-          data-ride="carousel"
-          data-pause="hover"
-        >
+        <div id="carouselExampleControls"  class="carousel slide col-xs-12"
+          data-interval="false" data-ride="carousel"  data-pause="hover">
           <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
               <div class="row row-equal m-t-0 p-4">
                 <div class="col-sm-3 p-0">
-                  <app-restaurant-item></app-restaurant-item>
+                  <app-restaurant-item *ngFor=""></app-restaurant-item>
                 </div>
               </div>
             </div>
+
             <div class="carousel-item">
               <div class="row row-equal m-t-0 p-3">
                 <div class="col-sm-3 p-0">
@@ -47,6 +41,7 @@
                 </div>
               </div>
             </div>
+
           </div>
           <a
             class="carousel-control-prev"
@@ -72,12 +67,7 @@
     <div class="row">
       <div class="col-12 col-xs-12 pt-3">
         <h3>
-          Outdoor Seating Available<a
-            class="float-right text-body"
-            role="button"
-            style="font-size: 15px"
-            >See all</a
-          >
+          Outdoor Seating Available
         </h3>
         <div
           id="carouselExampleControls2"
@@ -126,12 +116,7 @@
     <div class="row">
       <div class="col-12 col-sm-12 pt-3">
         <h3>
-          Browse by Food<a
-            class="float-right text-body"
-            role="button"
-            style="font-size: 15px"
-            >See all</a
-          >
+          Browse by Food
         </h3>
         <div
           id="carouselExampleControls3"
@@ -200,12 +185,7 @@
     <div class="row">
       <div class="col-12 col-sm-12 pt-3">
         <h3>
-          Fine Dining<a
-            class="float-right text-body"
-            role="button"
-            style="font-size: 15px"
-            >See all</a
-          >
+          Fine Dining
         </h3>
         <div
           id="carouselExampleControls4"
@@ -287,6 +267,23 @@
 
     <br />
     <app-top-restaurant></app-top-restaurant>
+  </div> -->
+  
+  <div class="col-8 pr-3 pl-3 mt-3">
+    <div class="row">
+      <div class="col-11 col-sm-12 col-xs-12">
+
+        <app-restaurant-item *ngFor='let rest of getResturantsSlice()' [resturant]='rest'></app-restaurant-item>
+        
+        <div class="bg-white border row mb-4 d-fex justify-content-center align-items-center p-2 ">
+          <div *ngFor='let page of pageNumbers; let i = index' class="mr-2 btn-success btn" (click)="currentPage=i"
+            [ngClass]="{'active': i==currentPage}">
+            {{page}}
+          </div>
+        </div>
+      </div>
+
+      <div class="col-1-change display"></div>
+    </div>
   </div>
-  <!--aflt el div col-9 -->
 </div>
