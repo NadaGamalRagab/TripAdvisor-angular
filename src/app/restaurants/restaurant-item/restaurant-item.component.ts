@@ -1,4 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Restaurant } from 'src/app/_model/resturant/restaurant';
+import { ResturantService } from 'src/app/_services/resturants/resturant.service';
+import { ResturantCategoryService } from 'src/app/_services/resturants/resturant-category.service';
+
 
 @Component({
   selector: 'app-restaurant-item',
@@ -6,8 +10,9 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./restaurant-item.component.scss']
 })
 export class RestaurantItemComponent implements OnInit {
-
-  constructor() { }
+  @Input() resturant: Restaurant;
+  constructor(private ResturantService: ResturantService,
+    private ResturantCategoryService: ResturantCategoryService,) { }
 
   ngOnInit(): void {
     
