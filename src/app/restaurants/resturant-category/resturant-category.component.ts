@@ -13,6 +13,7 @@ import { flattenDiagnosticMessageText } from 'typescript';
 export class ResturantCategoryComponent implements OnInit {
 
   categories: AllCategory;
+  slicedCategory : AllCategory;
 
  constructor(private ResturantCategoryService: ResturantCategoryService,
   private ResturantService: ResturantService,
@@ -53,14 +54,31 @@ export class ResturantCategoryComponent implements OnInit {
   //console.log(event.target.id);
   this.ResturantFilteringService.Filtering.emit(event);
 }
-more = false;
-getMore(){
-  this.more = !this.more;
+moreDishes = false;
+moreCuisine = false;
+getMore(e){
+  if(e.target.id == 'cuisine'){
+    this.moreCuisine = !this.moreCuisine;
+  }
+  else if (e.target.id == 'dishes'){
+    this.moreDishes = ! this.moreDishes;
+  }
+  
 }
-sliceLess(){
-this.categories.Establishment.slice(0,3);
+sliceCuisine(){
+    if(this.moreCuisine){
+      return this.categories.cuisine.slice(0,this.categories.cuisine.length);
+     }
+     else{
+      return this.categories.cuisine.slice(0,7);
+     }
 }
-sliceMore(){
-  this.categories.Establishment.slice(0,this.categories.Establishment.length);
+sliceDishes(){
+  if(this.moreDishes){
+    return this.categories.dishes.slice(0,this.categories.dishes.length);
+   }
+   else{
+    return this.categories.dishes.slice(0,7);
+   }
 }
 }

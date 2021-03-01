@@ -21,6 +21,7 @@ export class HomeListingComponent implements OnInit {
    cards:Home[];
    isToggel=false;
    search:string;
+   tags : string;
    current:0;
    size:2;
    slides: any = [[]];
@@ -55,7 +56,7 @@ onSearchHandler(searchInput){
   
   console.log(searchInput.value);
   this.search= searchInput.value;
-    return this.search
+    return this.search;
 }
 
 chunk(arr: any, chunkSize: number) {

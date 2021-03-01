@@ -3,9 +3,7 @@
   <div>
     <h2 class="d-inline-block mb-3">Establishment Type</h2>
     <form class="mb-4">
-      <div *ngIf="!more">
-      <div class="custom-checkbox" *ngFor='let estb of categories.Establishment.slice(0,3)'>
-
+      <div class="custom-checkbox" *ngFor='let estb of categories.Establishment'>
         <div class="form-check">
           <label>
             <input type="checkbox" alt='estb' name={{estb.name}} id={{estb._id}} (change)='Filter($event)' />
@@ -14,22 +12,6 @@
           </label>
         </div>
       </div>
-    </div>
-    <div *ngIf="more">
-      <div class="custom-checkbox" *ngFor='let estb of categories.Establishment.slice(0,categories.Establishment.length)'>
-
-        <div class="form-check">
-          <label>
-            <input type="checkbox" alt='estb' name={{estb.name}} id={{estb._id}} (change)='Filter($event)' />
-            <span class="label-text"><span class="check-label-font">
-                {{estb.name}} </span></span>
-          </label>
-        </div>
-      </div>
-    </div>
-      <a  id="show" role="button" (click)="getMore()"  class="font-weight-bold text-body small dropdown-toggle"
-        >Show {{ more ? "Less" : "More" }}</a
-      >
     </form>
   </div>
   <hr />
@@ -87,7 +69,7 @@
     <h2 class="d-inline-block mb-3">Cuisine </h2>
 
     <form class="mb-4">
-      <div class="custom-checkbox" *ngFor='let cuisine of categories.cuisine'>
+      <div class="custom-checkbox" *ngFor='let cuisine of sliceCuisine()'>
         <div class="form-check">
           <label>
             <input type="checkbox" name={{cuisine.name}} id={{cuisine._id}} (change)='Filter($event)' />
@@ -95,6 +77,8 @@
           </label>
         </div>
       </div>
+      <a  id="cuisine" role="button" (click)="getMore($event)"  class="font-weight-bold text-body small dropdown-toggle"
+        >Show {{ moreCuisine ? "Less" : "More" }}</a>
     </form>
   </div>
   <hr />
@@ -103,7 +87,7 @@
     <h2 class="d-inline-block mb-3">Dishes </h2>
 
     <form class="mb-4">
-      <div class="custom-checkbox" *ngFor='let dish of categories.dishes'>
+      <div class="custom-checkbox" *ngFor='let dish of sliceDishes()'>
         <div class="form-check">
           <label>
             <input type="checkbox" name={{dish.name}} id={{dish._id}} (change)='Filter($event)' />
@@ -111,6 +95,8 @@
           </label>
         </div>
       </div>
+      <a  id="dishes" role="button" (click)="getMore($event)"  class="font-weight-bold text-body small dropdown-toggle"
+        >Show {{ moreCuisine ? "Less" : "More" }}</a>
     </form>
   </div>
 

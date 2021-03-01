@@ -1,12 +1,14 @@
 <!-- Navigation Buttons -->
-  <div class="container">
+  <div class="container mt-5">
      <div class="row">
       <!-- Item button list -->
         <div class="col-12" style="text-align: center;">
            <ul  class="list-inline"> 
   
             <!-- Button 1 -->
-              <li class="list-inline-item"> <a [routerLink]=""> <button type="button" class="btn btn-outline-dark btn1 butt">
+              <li class="list-inline-item mx-2">
+                <a routerLink="home">
+                  <button type="button" class="btn btn-outline-dark btn1 butt">
                   <div style="float: left;" > 
                   Hotels
                   </div>
@@ -21,7 +23,7 @@
               </li>
 
        <!-- Button 2 -->
-               <li  class="list-inline-item"><a [routerLink]=""><button type="button" class="btn btn-outline-dark btn1 butt">
+               <li  class="list-inline-item"><a routerLink="resturants"><button type="button" class="btn btn-outline-dark btn1 butt">
                  <div style="float: left;" > Restaurants</div>  
                   <div style="float: right;" >
                    <svg  viewBox="0 0 24 24" width="1em" height="1em">
@@ -34,7 +36,7 @@
                 </li>
 
        <!-- Button 4 -->
-                <li  class="list-inline-item"> <a href=""><button type="button" class="btn btn-outline-dark btn1 butt">
+                <li  class="list-inline-item"> <a routerLink="cruises"><button type="button" class="btn btn-outline-dark btn1 butt">
                       <div style="float: left;" >
                         Cruises
                       </div> 
@@ -46,7 +48,7 @@
 
         <!-- Button 5 -->
                  <li  class="list-inline-item"> 
-                   <a [routerLink]=""><button type="button" class="btn btn-outline-dark btn1 butt">
+                   <a routerLink="shopping"><button type="button" class="btn btn-outline-dark btn1 butt">
                      <div style="float: left;" >
                       Shopping
                      </div>
@@ -72,9 +74,9 @@
                           </div>
                           </button>
                           <div *ngIf="isToggel==true" id="myDropdown" class="dropdown-contentToggel">
-                              <a class="drop" href="">Best Of 2020</a>
-                              <a class="drop" href="">Media Center</a>
-                              <a class="drop" href="">Help Center</a>
+                              <a class="drop" routerLink>Best Of 2020</a>
+                              <a class="drop" routerLink>Media Center</a>
+                              <a class="drop" routerLink>Help Center</a>
                           </div>
                         </a>
                           </div>
