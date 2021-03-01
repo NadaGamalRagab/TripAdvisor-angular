@@ -22,8 +22,8 @@ export class ResturantDetailsComponent implements OnInit {
       streetname: 'alborg ',
       zipcode: 5252,
       location: {
-        latitude: 31.494495320554304,
-        longitude: 31.826710120557042,
+        latitude: 30.086205173852925,
+        longitude: 31.331928579142655,
       },
     },
     contact: {
@@ -76,8 +76,8 @@ export class ResturantDetailsComponent implements OnInit {
         this.resturant = resp;
         this.latitude = this.resturant.address.location.latitude;
         this.longitude = this.resturant.address.location.longitude;
-        console.log(this.latitude);
-        console.log(this.longitude);
+        console.log(`lat : ${this.latitude}`);
+        console.log(`long : ${this.longitude}`);
       },
       (error) => {},
       (completed) => {}
@@ -85,7 +85,7 @@ export class ResturantDetailsComponent implements OnInit {
   }
 
   getfeatures(id) {
-    console.log(this.ResturantCategoryService.getFeaturesById(id));
+    // console.log(this.ResturantCategoryService.getFeaturesById(id));
     return this.ResturantCategoryService.getFeaturesById(id);
   }
 

@@ -3,7 +3,9 @@
   <div>
     <h2 class="d-inline-block mb-3">Establishment Type</h2>
     <form class="mb-4">
-      <div class="custom-checkbox" *ngFor='let estb of categories.Establishment'>
+      <div *ngIf="!more">
+      <div class="custom-checkbox" *ngFor='let estb of categories.Establishment.slice(0,3)'>
+
         <div class="form-check">
           <label>
             <input type="checkbox" alt='estb' name={{estb.name}} id={{estb._id}} (change)='Filter($event)' />
@@ -12,6 +14,22 @@
           </label>
         </div>
       </div>
+    </div>
+    <div *ngIf="more">
+      <div class="custom-checkbox" *ngFor='let estb of categories.Establishment.slice(0,categories.Establishment.length)'>
+
+        <div class="form-check">
+          <label>
+            <input type="checkbox" alt='estb' name={{estb.name}} id={{estb._id}} (change)='Filter($event)' />
+            <span class="label-text"><span class="check-label-font">
+                {{estb.name}} </span></span>
+          </label>
+        </div>
+      </div>
+    </div>
+      <a  id="show" role="button" (click)="getMore()"  class="font-weight-bold text-body small dropdown-toggle"
+        >Show {{ more ? "Less" : "More" }}</a
+      >
     </form>
   </div>
   <hr />

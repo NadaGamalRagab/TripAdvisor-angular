@@ -3,6 +3,7 @@ import { AllCategory } from 'src/app/_model/resturant/AllCategory';
 import { ResturantCategoryService } from 'src/app/_services/resturants/resturant-category.service';
 import { ResturantFilteringService } from 'src/app/_services/resturants/resturant-filtering.service';
 import { ResturantService } from 'src/app/_services/resturants/resturant.service';
+import { flattenDiagnosticMessageText } from 'typescript';
 
 @Component({
   selector: 'app-resturant-category',
@@ -51,5 +52,15 @@ export class ResturantCategoryComponent implements OnInit {
  Filter(event) {
   //console.log(event.target.id);
   this.ResturantFilteringService.Filtering.emit(event);
+}
+more = false;
+getMore(){
+  this.more = !this.more;
+}
+sliceLess(){
+this.categories.Establishment.slice(0,3);
+}
+sliceMore(){
+  this.categories.Establishment.slice(0,this.categories.Establishment.length);
 }
 }
