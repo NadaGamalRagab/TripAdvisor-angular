@@ -4,6 +4,7 @@ import { Cruise } from '../../_model/criuses/cruise';
 // import { Cruise } from '../_model/cruise';
 // import { CruiseService } from '../_services/cruise.service';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { CruiseService } from 'src/app/_services/cruise/cruise.service';
 
 @Component({
   selector: 'app-cruise-deals',
@@ -12,11 +13,16 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 })
 export class CruiseDealsComponent implements OnInit {
   // cruise : Cruise[] =[];
+  able = false;
+  openModal = false;
   @Input() cruise: Cruise;
 
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal , private cruiseService :CruiseService) {
+    
+   }
 
   ngOnInit(): void {
+    
   }
 
   open(content) {
@@ -27,6 +33,19 @@ export class CruiseDealsComponent implements OnInit {
     //   this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     // })
     ;
+  }
+
+  BookNow() {
+    console.log(this.cruise);
+    this.cruiseService.viewDetails.emit(this.cruise);
+    this.able = true;
+  }
+  showState(){
+    return this.able;
+  }
+  cruiseModal(){
+    // console.log(this.cruise);
+    this.openModal = true;
   }
 
 

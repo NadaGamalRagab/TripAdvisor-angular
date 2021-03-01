@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Cruise } from '../../_model/criuses/cruise';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CruiseService {
-  private cruise: Cruise[] = [
+  cruise: Cruise[] = [
     {
       _id: '1',
       shipName: 'MSC Opera | Balcony',
@@ -13,173 +13,404 @@ export class CruiseService {
       discount: 150,
       sailingDate:'2021-10-24',
       departureMonth: 'Novamber',
+      activities:['Pool','Arts Classes','Dance Classes','Evening DJ' ,'Gym','Fitness Center','Aquapark','Virtual Games','Baby Club '],
+      entertainment:['Live Music','Sky Lounge','Broadway Theater','Carousel Lounge','Comedy Performances'],
+      dining:['Marketplace Buffet','Cocktail Bar','Panorama Restaurant','Aqua Dining Room','Le Bistro Restaurant',"Cagney's Steakhouse"],
+         images: [
+        'https://media-cdn.tripadvisor.com/media/photo-s/15/3b/28/2b/star-breeze-ta-listings.jpg',
+        'https://media-cdn.tripadvisor.com/media/photo-s/15/3b/6a/2d/ta-star-breeze-suite.jpg',
+        'https://media-cdn.tripadvisor.com/media/photo-s/16/51/cb/5d/msc-yacht-club-royal.jpg',
+        'https://media-cdn.tripadvisor.com/media/photo-s/15/3b/6a/00/ta-star-breeze-whirlpool.jpg',
+        'https://media-cdn.tripadvisor.com/media/photo-s/15/3b/6a/05/cc-star-breeze-owners.jpg',
+      ],
       days: 20,
       whereTo: 'Caribbean',
-      travelers: {
+      travelers:[{
         passengers: 120,
         crew: 50
-      },
-      shipInfo: {
+      }],
+      shipInfo: [{
         company_line: 'line 1',
         criuse_ship: 'ship 1',
         launched: '2004'
-      },
-      departsFrom: 'Hurghada',
-      reviews: [{
-        user_id: '1',
-        review: 'good cruise'
       }],
-      rating: [{
-        user_id: '1',
-        rating: 5
-      }]
+      departsFrom: 'Hurghada',
+      reviews: [
+        {
+          user: '5ff8b3fdb09dc1b380045120',
+          review:
+            'It’s a very bad signal, when an hotel group, so much in need of guests, as all are today, and treat this way the very few bookings.',
+        },
+        {
+          user: '5ff8b3fdb09dc1b380045120',
+          review:
+            'A last minute stay here after our holiday with Thomas Cook was cancelled last year. Beautiful hotel. Great food and so much variety to choose from. Staff very friendly and helpful. I would definitely return here!',
+        },
+      ],
+      rating: [
+        {
+          user: '5ff8b3fdb09dc1b380045120',
+          rate: 5,
+        },
+        {
+          user: '5ff8b3fdb09dc1b380045120',
+          rate: 4.5,
+        },
+        {
+          user: '5ff8b3fdb09dc1b380045120',
+          rate: 3,
+        },
+      ],
+      booking: [
+        {
+          checkIn: new Date('2021-08-01T22:00:00.000Z'),
+          checkOut: new Date('2021-08-20T22:00:00.000Z'),
+          rooms: 2,
+          children: 4,
+          adults: 2,
+          price: 15000,
+          userId: '5ff8b3fdb09dc1b380045120',
+          email: 'nadaragab@yahoo.com',
+          phone: 1289113639,
+        },
+      ],
     },
     {
       _id: '2',
-      shipName: 'MSC Opera',
-      price: 7000,
-      // discount: 150,
-      sailingDate: '2021-10-24',
+      shipName: 'MSC Opera | Balcony',
+      price: 2179,
+      discount: 150,
+      sailingDate:'2021-10-24',
       departureMonth: 'Novamber',
-      days: 5,
-      whereTo: 'Hurghada',
-      travelers: {
+      activities:['Pool','Arts Classes','Dance Classes','Evening DJ' ,'Gym','Fitness Center','Aquapark','Virtual Games','Baby Club '],
+      entertainment:['Broadway Theater','Carousel Lounge','Comedy Performances','Live Music','Sky Lounge'],
+      dining:['Marketplace Buffet - Casual','Cocktail Bar','Panorama Restaurant - International','Aqua Main Dining Room - American','Le Bistro French Restaurant - French',"Cagney's Steakhouse - Steakhouse"],
+      images: [
+        'https://media-cdn.tripadvisor.com/media/photo-s/15/3b/28/2b/star-breeze-ta-listings.jpg',
+      ],
+      days: 20,
+      whereTo: 'Dubai',
+      travelers:[{
         passengers: 120,
         crew: 50
-      },
-      shipInfo: {
-        company_line: 'line 2',
-        criuse_ship: 'ship 2',
-        launched: '2004'
-      },
-      departsFrom: 'Santa Maria',
-      reviews: [{
-        user_id: '2',
-        review: 'good cruise'
       }],
-      rating: [{
-        user_id: '2',
-        rating: 5
-      }]
+      shipInfo: [{
+        company_line: 'line 1',
+        criuse_ship: 'ship 1',
+        launched: '2004'
+      }],
+      departsFrom: 'Hurghada',
+      reviews: [
+        {
+          user: '5ff8b3fdb09dc1b380045120',
+          review:
+            'It’s a very bad signal, when an hotel group, so much in need of guests, as all are today, and treat this way the very few bookings.',
+        },
+        {
+          user: '5ff8b3fdb09dc1b380045120',
+          review:
+            'A last minute stay here after our holiday with Thomas Cook was cancelled last year. Beautiful hotel. Great food and so much variety to choose from. Staff very friendly and helpful. I would definitely return here!',
+        },
+      ],
+      rating: [
+        {
+          user: '5ff8b3fdb09dc1b380045120',
+          rate: 5,
+        },
+        {
+          user: '5ff8b3fdb09dc1b380045120',
+          rate: 4.5,
+        },
+        {
+          user: '5ff8b3fdb09dc1b380045120',
+          rate: 3,
+        },
+      ],
+      booking: [
+        {
+          checkIn: new Date('2021-08-01T22:00:00.000Z'),
+          checkOut: new Date('2021-08-20T22:00:00.000Z'),
+          rooms: 2,
+          children: 4,
+          adults: 2,
+          price: 15000,
+          userId: '5ff8b3fdb09dc1b380045120',
+          email: 'nadaragab@yahoo.com',
+          phone: 1289113639,
+        },
+      ],
     },
     {
       _id: '3',
       shipName: 'MSC Opera | Balcony',
-      price: 1120,
-      discount: 80,
-      sailingDate: '2021-10-24',
+      price: 2179,
+      discount: 150,
+      sailingDate:'2021-10-24',
       departureMonth: 'Novamber',
-      days: 12,
-      whereTo: 'Dubai',
-      travelers: {
+      activities:['Pool','Arts Classes','Dance Classes','Evening DJ' ,'Gym','Fitness Center','Aquapark','Virtual Games','Baby Club '],
+      entertainment:['Broadway Theater','Carousel Lounge','Comedy Performances','Live Music','Sky Lounge'],
+      dining:['Marketplace Buffet - Casual','Cocktail Bar','Panorama Restaurant - International','Aqua Main Dining Room - American','Le Bistro French Restaurant - French',"Cagney's Steakhouse - Steakhouse"],
+      images: [
+        'https://media-cdn.tripadvisor.com/media/photo-s/15/3b/28/2b/star-breeze-ta-listings.jpg',
+      ],
+      days: 20,
+      whereTo: 'Hurghada',
+      travelers:[{
         passengers: 120,
         crew: 50
-      },
-      shipInfo: {
-        company_line: 'line 3',
-        criuse_ship: 'ship 3',
-        launched: '2004'
-      },
-      departsFrom: 'Bahamas',
-      reviews: [{
-        user_id: '3',
-        review: 'good cruise'
       }],
-      rating: [{
-        user_id: '3',
-        rating: 5
-      }]
+      shipInfo: [{
+        company_line: 'line 1',
+        criuse_ship: 'ship 1',
+        launched: '2004'
+      }],
+      departsFrom: 'Hurghada',
+      reviews: [
+        {
+          user: '5ff8b3fdb09dc1b380045120',
+          review:
+            'It’s a very bad signal, when an hotel group, so much in need of guests, as all are today, and treat this way the very few bookings.',
+        },
+        {
+          user: '5ff8b3fdb09dc1b380045120',
+          review:
+            'A last minute stay here after our holiday with Thomas Cook was cancelled last year. Beautiful hotel. Great food and so much variety to choose from. Staff very friendly and helpful. I would definitely return here!',
+        },
+      ],
+      rating: [
+        {
+          user: '5ff8b3fdb09dc1b380045120',
+          rate: 5,
+        },
+        {
+          user: '5ff8b3fdb09dc1b380045120',
+          rate: 4.5,
+        },
+        {
+          user: '5ff8b3fdb09dc1b380045120',
+          rate: 3,
+        },
+      ],
+      booking: [
+        {
+          checkIn: new Date('2021-08-01T22:00:00.000Z'),
+          checkOut: new Date('2021-08-20T22:00:00.000Z'),
+          rooms: 2,
+          children: 4,
+          adults: 2,
+          price: 15000,
+          userId: '5ff8b3fdb09dc1b380045120',
+          email: 'nadaragab@yahoo.com',
+          phone: 1289113639,
+        },
+      ],
     },
     {
       _id: '4',
       shipName: 'MSC Opera | Balcony',
       price: 2179,
       discount: 150,
-      sailingDate: '2021-10-24',
+      sailingDate:'2021-10-24',
       departureMonth: 'Novamber',
+      activities:['Pool','Arts Classes','Dance Classes','Evening DJ' ,'Gym','Fitness Center','Aquapark','Virtual Games','Baby Club '],
+      entertainment:['Broadway Theater','Carousel Lounge','Comedy Performances','Live Music','Sky Lounge'],
+      dining:['Marketplace Buffet - Casual','Cocktail Bar','Panorama Restaurant - International','Aqua Main Dining Room - American','Le Bistro French Restaurant - French',"Cagney's Steakhouse - Steakhouse"],
+      images: [
+        'https://media-cdn.tripadvisor.com/media/photo-s/15/3b/28/2b/star-breeze-ta-listings.jpg',
+      ],
       days: 20,
-      whereTo: 'Caribbean',
-      travelers: {
+      whereTo: 'Maldeves',
+      travelers:[{
         passengers: 120,
         crew: 50
-      },
-      shipInfo: {
-        company_line: 'line 4',
-        criuse_ship: 'ship 4',
-        launched: '2004'
-      },
-      departsFrom: 'Hurghada',
-      reviews: [{
-        user_id: '4',
-        review: 'good cruise'
       }],
-      rating: [{
-        user_id: '4',
-        rating: 5
-      }]
+      shipInfo: [{
+        company_line: 'line 1',
+        criuse_ship: 'ship 1',
+        launched: '2004'
+      }],
+      departsFrom: 'Hurghada',
+      reviews: [
+        {
+          user: '5ff8b3fdb09dc1b380045120',
+          review:
+            'It’s a very bad signal, when an hotel group, so much in need of guests, as all are today, and treat this way the very few bookings.',
+        },
+        {
+          user: '5ff8b3fdb09dc1b380045120',
+          review:
+            'A last minute stay here after our holiday with Thomas Cook was cancelled last year. Beautiful hotel. Great food and so much variety to choose from. Staff very friendly and helpful. I would definitely return here!',
+        },
+      ],
+      rating: [
+        {
+          user: '5ff8b3fdb09dc1b380045120',
+          rate: 5,
+        },
+        {
+          user: '5ff8b3fdb09dc1b380045120',
+          rate: 4.5,
+        },
+        {
+          user: '5ff8b3fdb09dc1b380045120',
+          rate: 3,
+        },
+      ],
+      booking: [
+        {
+          checkIn: new Date('2021-08-01T22:00:00.000Z'),
+          checkOut: new Date('2021-08-20T22:00:00.000Z'),
+          rooms: 2,
+          children: 4,
+          adults: 2,
+          price: 15000,
+          userId: '5ff8b3fdb09dc1b380045120',
+          email: 'nadaragab@yahoo.com',
+          phone: 1289113639,
+        },
+      ],
     },
-
     {
       _id: '5',
-      shipName: 'MSC Opera',
-      price: 12000,
+      shipName: 'MSC Opera | Balcony',
+      price: 2179,
       discount: 150,
-      sailingDate: '2021-10-24',
+      sailingDate:'2021-10-24',
       departureMonth: 'Novamber',
-      days: 16,
-      whereTo: 'Athens',
-      travelers: {
+      activities:['Pool','Arts Classes','Dance Classes','Evening DJ' ,'Gym','Fitness Center','Aquapark','Virtual Games','Baby Club '],
+      entertainment:['Broadway Theater','Carousel Lounge','Comedy Performances','Live Music','Sky Lounge'],
+      dining:['Marketplace Buffet - Casual','Cocktail Bar','Panorama Restaurant - International','Aqua Main Dining Room - American','Le Bistro French Restaurant - French',"Cagney's Steakhouse - Steakhouse"],
+      images: [
+        'https://media-cdn.tripadvisor.com/media/photo-s/15/3b/28/2b/star-breeze-ta-listings.jpg',
+      ],
+      days: 20,
+      whereTo: 'Marrakesh',
+      travelers:[{
         passengers: 120,
         crew: 50
-      },
-      shipInfo: {
-        company_line: 'line 5',
-        criuse_ship: 'ship 5',
-        launched: '2004'
-      },
-      departsFrom: 'Casablanca',
-      reviews: [{
-        user_id: '5',
-        review: 'good cruise'
       }],
-      rating: [{
-        user_id: '5',
-        rating: 5
-      }]
+      shipInfo: [{
+        company_line: 'line 1',
+        criuse_ship: 'ship 1',
+        launched: '2004'
+      }],
+      departsFrom: 'Hurghada',
+      reviews: [
+        {
+          user: '5ff8b3fdb09dc1b380045120',
+          review:
+            'It’s a very bad signal, when an hotel group, so much in need of guests, as all are today, and treat this way the very few bookings.',
+        },
+        {
+          user: '5ff8b3fdb09dc1b380045120',
+          review:
+            'A last minute stay here after our holiday with Thomas Cook was cancelled last year. Beautiful hotel. Great food and so much variety to choose from. Staff very friendly and helpful. I would definitely return here!',
+        },
+      ],
+      rating: [
+        {
+          user: '5ff8b3fdb09dc1b380045120',
+          rate: 5,
+        },
+        {
+          user: '5ff8b3fdb09dc1b380045120',
+          rate: 4.5,
+        },
+        {
+          user: '5ff8b3fdb09dc1b380045120',
+          rate: 3,
+        },
+      ],
+      booking: [
+        {
+          checkIn: new Date('2021-08-01T22:00:00.000Z'),
+          checkOut: new Date('2021-08-20T22:00:00.000Z'),
+          rooms: 2,
+          children: 4,
+          adults: 2,
+          price: 15000,
+          userId: '5ff8b3fdb09dc1b380045120',
+          email: 'nadaragab@yahoo.com',
+          phone: 1289113639,
+        },
+      ],
     },
     {
       _id: '6',
       shipName: 'MSC Opera | Balcony',
       price: 2179,
-      // discount: 150,
-      sailingDate: '2021-10-24',
+      discount: 150,
+      sailingDate:'2021-10-24',
       departureMonth: 'Novamber',
+      activities:['Pool','Arts Classes','Dance Classes','Evening DJ' ,'Gym','Fitness Center','Aquapark','Virtual Games','Baby Club '],
+      entertainment:['Broadway Theater','Carousel Lounge','Comedy Performances','Live Music','Sky Lounge'],
+      dining:['Marketplace Buffet - Casual','Cocktail Bar','Panorama Restaurant - International','Aqua Main Dining Room - American','Le Bistro French Restaurant - French',"Cagney's Steakhouse - Steakhouse"],
+      images: [
+        'https://media-cdn.tripadvisor.com/media/photo-s/15/3b/28/2b/star-breeze-ta-listings.jpg',
+      ],
       days: 20,
-      whereTo: 'Abu Dhabi',
-      travelers: {
+      whereTo: 'Istanbul',
+      travelers:[{
         passengers: 120,
         crew: 50
-      },
-      shipInfo: {
-        company_line: 'line 6',
-        criuse_ship: 'ship 6',
-        launched: '2004'
-      },
-      departsFrom: 'Hurghada',
-      reviews: [{
-        user_id: '6',
-        review: 'good cruise'
       }],
-      rating: [{
-        user_id: '6',
-        rating: 5
-      }]
-    }
+      shipInfo: [{
+        company_line: 'line 1',
+        criuse_ship: 'ship 1',
+        launched: '2004'
+      }],
+      departsFrom: 'Hurghada',
+      reviews: [
+        {
+          user: '5ff8b3fdb09dc1b380045120',
+          review:
+            'It’s a very bad signal, when an hotel group, so much in need of guests, as all are today, and treat this way the very few bookings.',
+        },
+        {
+          user: '5ff8b3fdb09dc1b380045120',
+          review:
+            'A last minute stay here after our holiday with Thomas Cook was cancelled last year. Beautiful hotel. Great food and so much variety to choose from. Staff very friendly and helpful. I would definitely return here!',
+        },
+      ],
+      rating: [
+        {
+          user: '5ff8b3fdb09dc1b380045120',
+          rate: 5,
+        },
+        {
+          user: '5ff8b3fdb09dc1b380045120',
+          rate: 4.5,
+        },
+        {
+          user: '5ff8b3fdb09dc1b380045120',
+          rate: 3,
+        },
+      ],
+      booking: [
+        {
+          checkIn: new Date('2021-08-01T22:00:00.000Z'),
+          checkOut: new Date('2021-08-20T22:00:00.000Z'),
+          rooms: 2,
+          children: 4,
+          adults: 2,
+          price: 15000,
+          userId: '5ff8b3fdb09dc1b380045120',
+          email: 'nadaragab@yahoo.com',
+          phone: 1289113639,
+        },
+      ],
+    },
   ]
 
-  constructor() { }
+  // viewDetails = new EventEmitter<Cruise>();
+  BookNow = new EventEmitter<Cruise>();
 
-  getAllCruises(): Cruise[] {
+  constructor() { 
+    // this.getAllCruises()
+  }
+
+  getAllCruises(){
+    console.log(this.cruise)
     return this.cruise.slice();
   }
 
@@ -187,18 +418,8 @@ export class CruiseService {
     return this.cruise.find(c => c._id == id);
   }
 
-  updateCruise(cruise : Cruise) {
-    const index = this.cruise.findIndex(c => c._id == cruise._id );
-    // this.products[index] = { id:product.id, data:product.data, price:product.price, discount:product.discount, category:product.category, imagesUrls:product.imagesUrls, paymentTypes:product.paymentTypes, tags:product.tags }
-}
-
-// deleteProduct(id: number) {
-//     const index = this.products.findIndex(p => p.id == id);
-//     this.products.splice(index, 1);
-// }
-
 searchByName(cruiseName:string){
-   return this.cruise.filter(c => c.shipName == cruiseName);
+   return this.cruise.filter(c => c.shipName[0] == cruiseName);
 }
 
 }

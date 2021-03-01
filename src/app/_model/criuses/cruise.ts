@@ -1,25 +1,29 @@
-import { Ratings } from "./ratings";
-import { Reviews } from "./reviews";
+import { Booking } from "../hotels/booking";
+import { Rating } from "../hotels/rating";
+import { Reviews } from "../hotels/Reviews";
 import { ShipInfo } from "./ship-info";
 import { Travelers } from "./travelers";
 
 
 export interface Cruise {
     _id?: string;
-    // country?: string;
-    // city?: string;
-    shipName?:string ;
+    booking: Booking[];
+    shipName?:string;
     price?: number;
     discount?: number;
     sailingDate?: string;
     departureMonth?: string;
-    days?: number;
+    activities: string[];
+    entertainment: string[];
+    dining: string[];
+    images: string[];
+    days?: number; 
     whereTo?: string;
-    travelers?: Travelers;
-    shipInfo?: ShipInfo;
+    travelers?: Travelers[];
+    shipInfo?: ShipInfo[];
     departsFrom?: string;
-    reviews?: Reviews[];
-    rating?: Ratings[];
+    reviews: Reviews[];
+    rating: Rating[];
    
 
 }
