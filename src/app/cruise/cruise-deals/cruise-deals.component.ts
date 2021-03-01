@@ -3,13 +3,13 @@ import { Component, OnInit } from '@angular/core';
 import { Cruise } from '../../_model/criuses/cruise';
 // import { Cruise } from '../_model/cruise';
 // import { CruiseService } from '../_services/cruise.service';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { CruiseService } from 'src/app/_services/cruise/cruise.service';
 
 @Component({
   selector: 'app-cruise-deals',
   templateUrl: './cruise-deals.component.html',
-  styleUrls: ['./cruise-deals.component.scss']
+  styleUrls: ['./cruise-deals.component.scss'],
 })
 export class CruiseDealsComponent implements OnInit {
   // cruise : Cruise[] =[];
@@ -17,22 +17,20 @@ export class CruiseDealsComponent implements OnInit {
   openModal = false;
   @Input() cruise: Cruise;
 
-  constructor(private modalService: NgbModal , private cruiseService :CruiseService) {
-    
-   }
+  constructor(
+    private modalService: NgbModal,
+    private cruiseService: CruiseService
+  ) {}
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
   open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'})
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
     // .result.then((result) => {
     //   this.closeResult = `Closed with: ${result}`;
     // }, (reason) => {
     //   this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     // })
-    ;
   }
 
   // BookNow() {
@@ -40,13 +38,13 @@ export class CruiseDealsComponent implements OnInit {
   //   this.cruiseService.viewDetails.emit(this.cruise);
   //   this.able = true;
   // }
-  showState(){
+
+
+  showState() {
     return this.able;
   }
-  cruiseModal(){
+  cruiseModal() {
     // console.log(this.cruise);
     this.openModal = true;
   }
-
-
 }
