@@ -43,7 +43,8 @@ import { ResturantCategoryComponent } from './restaurants/resturant-category/res
 import {MatSelectModule} from '@angular/material/select';
 import { CruiseModalComponent } from './cruise/cruise-modal/cruise-modal.component';
 import { CruiseBookingComponent } from './cruise/cruise-booking/cruise-booking.component';
-
+import { CommonModule } from '@angular/common';
+import { ResturantDetailsComponent } from './restaurants/resturant-details/resturant-details.component';
 
 @NgModule({
   declarations: [
@@ -75,9 +76,11 @@ import { CruiseBookingComponent } from './cruise/cruise-booking/cruise-booking.c
     ResturantCategoryComponent,
     CruiseModalComponent,
     CruiseBookingComponent,
+    ResturantDetailsComponent,
   ],
   imports: [
-  BrowserModule,
+    BrowserModule,
+    CommonModule,
     AppRoutingModule,
     FormsModule,
     // ReactiveFormsModule ,
@@ -97,7 +100,7 @@ import { CruiseBookingComponent } from './cruise/cruise-booking/cruise-booking.c
     HotelsFilteringService,
     HotelsListingComponent,
     HotelCategoryService,
-   // { provide: HTTP_INTERCEPTORS, useClass: MyInterceptorService, multi: true }
+    // { provide: HTTP_INTERCEPTORS, useClass: MyInterceptorService, multi: true }
   ],
   bootstrap: [AppComponent],
 })

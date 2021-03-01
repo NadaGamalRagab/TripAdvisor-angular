@@ -46,14 +46,6 @@ export class HotelsListingComponent implements OnInit, OnChanges {
         } else {
           this.hotels = this.HotelsFilteringService.Filter(event);
         }
-        // if (this.hotels.length == 0) {
-        //   this.hotelService.getAllHotels().subscribe((resp) => {
-        //     Object.values(resp).map((res) => {
-        //       console.log(res);
-        //       this.hotels.push(res);
-        //     });
-        //   });
-        // }
       },
       (error) => {
         console.log(error);

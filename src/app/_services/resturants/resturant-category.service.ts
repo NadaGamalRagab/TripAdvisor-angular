@@ -103,9 +103,9 @@ export class ResturantCategoryService {
     this.getAllCategories().subscribe(
       (resp) => {
         Object.values(resp).map((res) => {
-          console.log(res);
+          //console.log(res);
           this.categoryList = res;
-          console.log(this.categoryList);
+          //console.log(this.categoryList);
         });
       },
       (error) => {
@@ -129,5 +129,14 @@ export class ResturantCategoryService {
   }
   getGoodforById(_id: string) {
     return this.categoryList.goodFor.filter((p) => p._id == _id);
+  }
+  getPriceRange(_id: string) {
+    return this.categoryList.Pricerange.filter((p) => p._id == _id);
+  }
+  getEstablishment(_id: string) {
+    return this.categoryList.Establishment.filter((p) => p._id == _id);
+  }
+  getDisheById(_id: string) {
+    return this.categoryList.dishes.filter((p) => p._id == _id);
   }
 }

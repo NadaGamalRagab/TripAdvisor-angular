@@ -65,7 +65,6 @@ export class HotelsFilteringService {
           ...this.hotels.filter(
             (e) => e.amenities.filter((hotel) => hotel == id) == id
           ),
-          // Class Filtering
           ...this.hotels.filter((e) => e.class == id),
           // Language Filtering
           ...this.hotels.filter(

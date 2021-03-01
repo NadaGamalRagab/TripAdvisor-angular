@@ -105,16 +105,12 @@ export class BoxModelComponent implements OnInit {
       },
     ],
     style: ['Family Resort', 'Family'],
-    languageSpoken: [
-      '603085c26ee91f6c2c6ab021',
-      '603085c26ee91f6c2c6ab022',
-    ],
+    languageSpoken: ['603085c26ee91f6c2c6ab021', '603085c26ee91f6c2c6ab022'],
     likes: ['252', '4575'],
   };
 
   latitude: number = 0;
   longitude: number = 0;
-  rooms: number = 0;
   constructor(
     private HotelCategoryService: HotelCategoryService,
     private HotelService: HotelService
@@ -138,7 +134,7 @@ export class BoxModelComponent implements OnInit {
   getAmt(_id) {
     if (this.HotelCategoryService.getAmtById(_id).length > 0) {
       // console.log(this.HotelCategoryService.getAmtById(_id)[0].name);
-          return this.HotelCategoryService.getAmtById(_id)[0].name;
+      return this.HotelCategoryService.getAmtById(_id)[0].name;
     }
   }
 
@@ -154,7 +150,7 @@ export class BoxModelComponent implements OnInit {
   }
 
   getClass() {
-   // console.log(this.hotel.class);
+    // console.log(this.hotel.class);
     return this.HotelCategoryService.getClassById(this.hotel.class)[0].name;
   }
   getLanguageSpoken(_id) {

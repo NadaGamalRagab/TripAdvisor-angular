@@ -1,21 +1,23 @@
-import { Injectable } from '@angular/core';
-import {Restaurant} from '../../_model/resturant/restaurant';
+import { Injectable, EventEmitter } from '@angular/core';
+import { Restaurant } from '../../_model/resturant/restaurant';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ResturantService {
-  resturant :Restaurant[]=[]
+  resturant: Restaurant[] = [];
 
   baseUrl = 'https://sleepy-basin-52383.herokuapp.com/';
+  viewDetails = new EventEmitter<Restaurant>();
 
-  constructor(private httpClient : HttpClient ) {
+  constructor(private httpClient: HttpClient) {
     this.getAllResturants().subscribe((resp) => {
       Object.values(resp).map((res) => {
         this.resturant.push(res);
       });
     });
+    
   }
 
   getAllResturants() {
@@ -31,5 +33,4 @@ export class ResturantService {
       rest.name.toLowerCase().includes(resturantName.toLowerCase())
     );
   }
-
 }
