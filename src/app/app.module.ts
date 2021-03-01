@@ -39,7 +39,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { RestaurantListingComponent } from './restaurants/restaurant-listing/restaurant-listing.component';
 import { TopRestaurantComponent } from './restaurants/top-restaurant/top-restaurant.component';
 import { ResturantCategoryComponent } from './restaurants/resturant-category/resturant-category.component';
-
+import { CommonModule } from '@angular/common';
+import { ResturantDetailsComponent } from './restaurants/resturant-details/resturant-details.component';
 
 @NgModule({
   declarations: [
@@ -69,9 +70,11 @@ import { ResturantCategoryComponent } from './restaurants/resturant-category/res
     ShoppingPageComponent,
     ProfileComponent,
     ResturantCategoryComponent,
+    ResturantDetailsComponent,
   ],
   imports: [
-  BrowserModule,
+    BrowserModule,
+    CommonModule,
     AppRoutingModule,
     FormsModule,
     NgbModule,
@@ -89,7 +92,7 @@ import { ResturantCategoryComponent } from './restaurants/resturant-category/res
     HotelsFilteringService,
     HotelsListingComponent,
     HotelCategoryService,
-   // { provide: HTTP_INTERCEPTORS, useClass: MyInterceptorService, multi: true }
+    // { provide: HTTP_INTERCEPTORS, useClass: MyInterceptorService, multi: true }
   ],
   bootstrap: [AppComponent],
 })

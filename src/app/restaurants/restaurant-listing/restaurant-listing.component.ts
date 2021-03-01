@@ -4,6 +4,7 @@ import { ResturantCategoryService } from 'src/app/_services/resturants/resturant
 import { ResturantFilteringService } from 'src/app/_services/resturants/resturant-filtering.service';
 import { ResturantService } from 'src/app/_services/resturants/resturant.service';
 import { Restaurant } from 'src/app/_model/resturant/restaurant';
+import { category } from 'src/app/_model/resturant/category';
 
 @Component({
   selector: 'app-restaurant-listing',
@@ -12,10 +13,10 @@ import { Restaurant } from 'src/app/_model/resturant/restaurant';
 })
 export class RestaurantListingComponent implements OnInit {
   categories: AllCategory;
-
+  delivResturants;
   resturant: Restaurant[] = [];
   pageNumbers: number[] = [];
-  pageSize: number = 1;
+  pageSize: number = 5;
   currentPage: number = 0;
 
   constructor(
@@ -28,9 +29,9 @@ export class RestaurantListingComponent implements OnInit {
     //this.hotels = this.hotelService.getAllHotels();
     this.ResturantService.getAllResturants().subscribe(
       (resp) => {
-        console.log(resp);
+        // console.log(resp);
         Object.values(resp).map((res) => {
-          console.log(res);
+          // console.log(res);
           this.resturant.push(res);
         });
         console.log(this.resturant);
@@ -42,7 +43,8 @@ export class RestaurantListingComponent implements OnInit {
 
     this.ResturantFilteringService.Filtering.subscribe(
       (resp) => {
-        this.ResturantFilteringService.Filter(resp);
+        this.resturant = this.ResturantFilteringService.Filter(resp);
+        console.log(this.resturant);
       },
       (error) => {},
       (completed) => {}
@@ -62,7 +64,7 @@ export class RestaurantListingComponent implements OnInit {
   }
 
   onSearchHandler(searchInput) {
-    console.log(searchInput.value);
+    //console.log(searchInput.value);
     this.resturant = this.ResturantService.searchByName(searchInput.value);
     if (this.resturant.length <= 6) {
       this.currentPage = 0;

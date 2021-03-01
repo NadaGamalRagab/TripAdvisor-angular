@@ -20,7 +20,6 @@ export class ResturantFilteringService {
     this.ResturantService.getAllResturants().subscribe(
       (resp) => {
         Object.values(resp).map((res) => {
-          //console.log(res);
           this.resturant.push(res);
         });
         // console.log(this.resturant);
@@ -29,6 +28,7 @@ export class ResturantFilteringService {
       () => {}
     );
   }
+
   Filter(event) {
     this.tempRest = [];
     if (event.target.checked) {
@@ -38,45 +38,46 @@ export class ResturantFilteringService {
       this.checkedArray = this.checkedArray.filter(
         (p) => p !== event.target.id
       );
-      //console.log(this.checkedArray);
     }
-    this.checkedArray.forEach((id) => {
-      this.tempRest.push(
-        //Establishment Filtering
-        ...this.resturant.filter(
-          (e) => e.Establishment.filter((res) => res == id) == id
-        ),
-        // features Filtering
-        ...this.resturant.filter(
-          (e) => e.features.filter((res) => res == id) == id
-        ),
-        // meals Filter
-        ...this.resturant.filter(
-          (e) => e.meals.filter((res) => res == id) == id
-        ),
-        // Pricerange Filtering
-        ...this.resturant.filter(
-          (e) => e.Pricerange.filter((res) => res == id) == id
-        ),
-        // cuisine Filtering
-        ...this.resturant.filter(
-          (e) => e.cuisine.filter((res) => (res = id)) == id
-        ),
-        // dishes Filtering
-        ...this.resturant.filter(
-          (e) => e.dishes.filter((res) => (res = id)) == id
-        ),
-        // DietaryRestrictions Filtering
-        ...this.resturant.filter(
-          (e) => e.DietaryRestrictions.filter((res) => res == id) == id
-        ),
-        // goodFor Fil
-        ...this.resturant.filter(
-          (e) => e.goodFor.filter((res) => res == id) == id
-        )
-      );
-    });
-    this.filterdRest = [...new Set(this.tempRest)];
+    if (this.checkedArray.length == 0) {
+      this.filterdRest = this.resturant;
+    } else {
+      this.checkedArray.forEach((id) => {
+        this.tempRest.push(
+          //Establishment Filtering
+          ...this.resturant.filter(
+            (e) => e.Establishment.filter((res) => res == id) == id
+          ),
+          // features Filtering
+          ...this.resturant.filter(
+            (e) => e.features.filter((res) => res == id) == id
+          ),
+          // meals Filter
+          ...this.resturant.filter(
+            (e) => e.meals.filter((res) => res == id) == id
+          ),
+          // Pricerange Filtering
+          ...this.resturant.filter((e) => e.Pricerange == id),
+          // cuisine Filtering
+          ...this.resturant.filter(
+            (e) => e.cuisine.filter((res) => (res = id)) == id
+          ),
+          // dishes Filtering
+          ...this.resturant.filter(
+            (e) => e.dishes.filter((res) => (res = id)) == id
+          ),
+          // DietaryRestrictions Filtering
+          ...this.resturant.filter(
+            (e) => e.DietaryRestrictions.filter((res) => res == id) == id
+          ),
+          // goodFor Fil
+          ...this.resturant.filter(
+            (e) => e.goodFor.filter((res) => res == id) == id
+          )
+        );
+        this.filterdRest = [...new Set(this.tempRest)];
+      });
+    }
     return this.filterdRest;
   }
 }
