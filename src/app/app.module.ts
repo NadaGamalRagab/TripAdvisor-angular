@@ -39,6 +39,10 @@ import { ProfileComponent } from './profile/profile.component';
 import { RestaurantListingComponent } from './restaurants/restaurant-listing/restaurant-listing.component';
 import { TopRestaurantComponent } from './restaurants/top-restaurant/top-restaurant.component';
 import { ResturantCategoryComponent } from './restaurants/resturant-category/resturant-category.component';
+// import { ReactiveFormsModule } from '@angular/forms';
+import {MatSelectModule} from '@angular/material/select';
+import { CruiseModalComponent } from './cruise/cruise-modal/cruise-modal.component';
+import { CruiseBookingComponent } from './cruise/cruise-booking/cruise-booking.component';
 
 
 @NgModule({
@@ -69,11 +73,14 @@ import { ResturantCategoryComponent } from './restaurants/resturant-category/res
     ShoppingPageComponent,
     ProfileComponent,
     ResturantCategoryComponent,
+    CruiseModalComponent,
+    CruiseBookingComponent,
   ],
   imports: [
   BrowserModule,
     AppRoutingModule,
     FormsModule,
+    // ReactiveFormsModule ,
     NgbModule,
     BrowserAnimationsModule,
     MatDatepickerModule,
@@ -84,6 +91,7 @@ import { ResturantCategoryComponent } from './restaurants/resturant-category/res
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCUx00mtjJ5MpIINJmBoLm41CYEg4axO4I',
     }),
+    MatSelectModule
   ],
   providers: [
     HotelsFilteringService,

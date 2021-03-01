@@ -30,6 +30,7 @@
     "bootstrap": "^4.6.0",
     "bootstrap-input-spinner": "^1.17.2",
     "jquery": "^3.5.1",
+    "ng-month-picker": "^1.1.5",
     "popper.js": "^1.16.1",
     "prismjs": "^1.23.0",
     "rxjs": "~6.6.0",

@@ -4,6 +4,8 @@ import { Cruise } from '../../_model/criuses/cruise';
 import { CruiseService } from '../../_services/cruise/cruise.service';
 // import { CruiseService } from '../_services/cruise.service';
 // import{CruiseDealsComponent} from '../cruise-deals/cruise-deals.component'
+import { FormControl } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-cruises',
@@ -11,7 +13,7 @@ import { CruiseService } from '../../_services/cruise/cruise.service';
   styleUrls: ['./cruises.component.scss']
 })
 export class CruisesComponent implements OnInit {
-  cruise : Cruise[] =[];
+  cruise : Cruise[]=[];
   // numberOfCruises : number[] = [];
   pageSize : number = 4;
   minDate = new Date(2021, 1, 17); 
@@ -19,7 +21,8 @@ export class CruisesComponent implements OnInit {
   constructor(private cruiseService:CruiseService) { }
 
   ngOnInit(): void {
-    this.cruise =  this.cruiseService.getAllCruises().slice();
+    this.cruise =  this.cruiseService.getAllCruises();
+    // this.cruise =  this.cruiseService.getAllCruises().slice();
   }
 
   getCruiseSlice() {

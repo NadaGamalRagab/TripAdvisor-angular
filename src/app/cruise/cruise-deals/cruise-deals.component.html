@@ -7,7 +7,7 @@
                   Departs From: {{cruise.departsFrom}}</p>
           </div>
           <div class="col-md-4 text-right">
-              <p class="font-weight-bold mt-2"><del class="del-price text-danger"*ngIf = 'cruise.discount' >EGP {{cruise.discount}}</del></p>
+              <p class="font-weight-bold mt-2"><del class="del-price text-danger"*ngIf = 'cruise.discount' >EGP {{cruise.price}}</del></p>
                <p class="font-weight-bold mt-2 price"> EGP {{cruise.discount? cruise.price-cruise.discount : cruise.price}}</p>
              
                <!-- <button type="btn" class="btn view-cruise border border-dark w-100 mt-4">View
@@ -29,6 +29,17 @@
               </div>
             </ng-template>
             
-            <button class="btn btn-lg btn-outline-primary" (click)="open(content)">View Cruise</button>
+             <!-- Button trigger modal -->
+             <button type="button" class="mb-1 pr-3 btn btn-warning button-raduis text-center" data-toggle="modal"
+             data-target="#exampleModal" (click)='cruiseModal()'>
+             View Details
+           </button>
+
+
+           <!-- Modal -->
+           <!-- <app-box-model *ngIf='showState()'></app-box-model> -->
+           <app-cruise-modal *ngIf = "openModal" [cruise]="cruise"></app-cruise-modal>
+           
+            <!-- <button class="btn btn-lg btn-outline-primary" (click)="open(content)">View Cruise</button> -->
           <!-- <app-modal></app-modal> -->
       </div>

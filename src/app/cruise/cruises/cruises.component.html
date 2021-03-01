@@ -16,13 +16,22 @@
      
    <div class="whereTo-div bg-white border p-2 d-inline-block"> 
 
-    <div ngbDropdown class="d-inline-block">
+    <!-- <div ngbDropdown class="d-inline-block">
       <button class="btn " id="dropdownBasic1" ngbDropdownToggle>
         <i class="fas fa-map-marker-alt pr-2"></i> Where to ?</button>
        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-          <button ngbDropdownItem *ngFor="let item of cruise">{{item.whereTo}}</button>
+          <button ngbDropdownItem *ngFor="let item of cruise;let i = index" id={{i}} >{{item.whereTo}}</button>
       </div>
-    </div>
+    </div> -->
+    <mat-form-field appearance="fill">
+      <mat-label>Where To ?</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let item of cruise;let i = index" [value]="item.whereTo">
+          {{item.whereTo}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
     </div>
 
     
@@ -37,10 +46,10 @@
       <mat-form-field>
         <input [min]="minDate" [max]="maxDate" 
          (dateInput)="inputEvent($event)" (dateChange)="changeEvent($event)" matInput [matDatepicker]="picker" placeholder="Departure Month">
-        <!-- <i class="fas fa-sort-down pl-2 mr-5 sort-icon"></i> -->
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
+        <mat-datepicker #picker ></mat-datepicker>
       </mat-form-field>
+      
     </div>
 
     <button type="button" class="btn btn-dark p-2 search-btn">Search</button>
@@ -48,7 +57,7 @@
   <div class="col-md-2"></div>
 </div>
 
-<div class="container-div container-fluid">
+<div class="container-div container-fluid pl-5">
   <div class="row mt-5">
     <div class="col-md-4">
       <div class="row">
@@ -75,10 +84,9 @@
           />
         </div>
         <div class="col-md-12 text-center">
-          <h3 class="pt-2">Explore Ship‑tinerary™ pages</h3>
+          <h3 class="pt-2">Write cruise reviews</h3>
           <p class="cruise-txt d-inline">
-            Select a ship to see ship details, reviews, photos and itineraries
-          </p>
+            Share your opinion with our travel community</p>
         </div>
       </div>
     </div>
@@ -91,10 +99,9 @@
           />
         </div>
         <div class="col-md-12 text-center">
-          <h3 class="pt-2">Explore Ship‑tinerary™ pages</h3>
+          <h3 class="pt-2">The lowest cruise prices</h3>
           <p class="cruise-txt d-inline">
-            Select a ship to see ship details, reviews, photos and itineraries
-          </p>
+            Search 70,000+ cruise deals from over sixty sites with just one search</p>
         </div>
       </div>
     </div>
@@ -105,9 +112,7 @@
       <h2>Featured cruise deals</h2>
       <div class="row">
           <app-cruise-deals class="w-50 pl-3"
-            *ngFor="let cruise of getCruiseSlice()"
-            [cruise]="cruise"
-          ></app-cruise-deals>
+            *ngFor="let cruise of getCruiseSlice()" [cruise]="cruise" ></app-cruise-deals>
       </div>
     </div>
   </div>
