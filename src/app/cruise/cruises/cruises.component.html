@@ -12,47 +12,31 @@
   <div class="col-2"></div>
   <div class="col-8 border bg-white px-3 py-4">
 
-      <!-- where to dropdown -->
-     
-   <div class="whereTo-div bg-white border p-2 d-inline-block"> 
+    <!-- where to dropdown -->
 
-    <!-- <div ngbDropdown class="d-inline-block">
-      <button class="btn " id="dropdownBasic1" ngbDropdownToggle>
-        <i class="fas fa-map-marker-alt pr-2"></i> Where to ?</button>
-       <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-          <button ngbDropdownItem *ngFor="let item of cruise;let i = index" id={{i}} >{{item.whereTo}}</button>
-      </div>
-    </div> -->
-    <mat-form-field appearance="fill">
-      <mat-label>Where To ?</mat-label>
-      <mat-select>
-        <mat-option *ngFor="let item of cruise;let i = index" [value]="item.whereTo">
-          {{item.whereTo}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+    <div class="whereTo-div bg-white border p-2 d-inline-block">
 
-    </div>
-
-    
-
-    <div class="whereTo-div bg-white border px-2 mx-2 d-inline-block">
-      <!-- <i class="far fa-calendar-alt pr-2"></i> -->
-      <!-- <span>
-        <span>Departure Month</span>
-        <i class="fas fa-sort-down pl-2 mr-5 sort-icon"></i>
-        
-      </span> -->
-      <mat-form-field>
-        <input [min]="minDate" [max]="maxDate" 
-         (dateInput)="inputEvent($event)" (dateChange)="changeEvent($event)" matInput [matDatepicker]="picker" placeholder="Departure Month">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker ></mat-datepicker>
+      <mat-form-field appearance="fill">
+        <mat-label>Where To ?</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let item of whereToArr ;let i = index" [value]="item" (click)="funcTo($event)">
+            {{item}}
+          </mat-option>
+        </mat-select>
       </mat-form-field>
-      
     </div>
+    <div class="whereTo-div bg-white border px-2 mx-2 d-inline-block">
 
-    <button type="button" class="btn btn-dark p-2 search-btn">Search</button>
+      <mat-form-field appearance="fill">
+        <mat-label>Departure Month ?</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let item of depMonthArr ;let i = index" [value]="item" (click)="funcMonth($event)">
+            {{item}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <button type="button" class="btn btn-dark p-2 search-btn" (click)="search()">Search</button>
   </div>
   <div class="col-md-2"></div>
 </div>
@@ -62,10 +46,7 @@
     <div class="col-md-4">
       <div class="row">
         <div class="col-md-12 d-flex justify-content-center">
-          <img
-            class="ship-img"
-            src="https://static.tacdn.com/img2/branding/homepage/messaging/cruise_ship.svg"
-          />
+          <img class="ship-img" src="https://static.tacdn.com/img2/branding/homepage/messaging/cruise_ship.svg" />
         </div>
         <div class="col-md-12 text-center">
           <h3 class="pt-2">Explore Ship‑tinerary™ pages</h3>
@@ -78,10 +59,7 @@
     <div class="col-md-4">
       <div class="row">
         <div class="col-md-12 d-flex justify-content-center">
-          <img
-            class="ship-img"
-            src="https://static.tacdn.com/img2/branding/homepage/messaging/cruise_reviews.svg"
-          />
+          <img class="ship-img" src="https://static.tacdn.com/img2/branding/homepage/messaging/cruise_reviews.svg" />
         </div>
         <div class="col-md-12 text-center">
           <h3 class="pt-2">Write cruise reviews</h3>
@@ -93,10 +71,7 @@
     <div class="col-md-4">
       <div class="row">
         <div class="col-md-12 d-flex justify-content-center">
-          <img
-            class="ship-img"
-            src="https://static.tacdn.com/img2/branding/homepage/messaging/cruise_low_prices.svg"
-          />
+          <img class="ship-img" src="https://static.tacdn.com/img2/branding/homepage/messaging/cruise_low_prices.svg" />
         </div>
         <div class="col-md-12 text-center">
           <h3 class="pt-2">The lowest cruise prices</h3>
@@ -111,13 +86,13 @@
     <div class="col-md-12 mt-3">
       <h2>Featured cruise deals</h2>
       <div class="row">
-          <app-cruise-deals class="w-50 pl-3"
-            *ngFor="let cruise of getCruiseSlice()" [cruise]="cruise" ></app-cruise-deals>
+        <app-cruise-deals class="w-50 pl-3" *ngFor="let cruise of getCruiseSlice()" [cruise]="cruise">
+        </app-cruise-deals>
       </div>
     </div>
   </div>
 
-  <!-- <app-cruise-deals></app-cruise-deals> -->
+
 
   <div class="row">
     <div class="col-md-12 mt-3 ">
@@ -126,88 +101,31 @@
   </div>
 
   <div class="row w-100 mx-auto">
+    <div class="col-md-3 m-0 p-1" data-toggle="modal" data-target="#exampleModal"
+      *ngFor="let cruise of popular.slice(0,4)" (click)="cruiseModal(cruise)">
+      <img class="slider-img" src={{cruise.images[0]}} />
+      <div class="caro-div bg-white w-100 p-2">Cruises to {{cruise.whereTo}}</div>
 
-    <div class="col-md-3 m-0 p-1">
-      <a href="#">
-        <img
-          class="slider-img"
-          src="https://media-cdn.tripadvisor.com/media/photo-s/08/2b/39/1c/traveller-s-choice-award.jpg"
-        />
-        <div class="caro-div bg-white w-100 p-2">Cruises to Caribbean</div>
-      </a>
+      <app-cruise-modal *ngIf="showState()"></app-cruise-modal>
     </div>
 
-    <div class="col-md-3 m-0 p-1">
-      <a href="#">
-        <img
-          class="carousel-imgs"
-          src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/33/f5/65/mexico.jpg?w=500&amp;h=300&amp;s=1"
-        />
-        <div class="caro-div bg-white w-100 p-2">Cruises to Bahamas</div>
-      </a>
-    </div>
-    <div class="col-md-3 m-0 p-1">
-      <a href="#">
-        <img
-          class="carousel-imgs"
-          src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/33/f7/48/nice.jpg?w=500&amp;h=300&amp;s=1"
-        />
-        <div class="caro-div bg-white w-100 p-2">Cruises to Athens</div>
-      </a>
-    </div>
-    <div class="col-md-3 m-0 p-1">
-      <a href="#">
-        <img
-          class="carousel-imgs"
-          src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/33/fa/e6/alaska.jpg?w=500&amp;h=300&amp;s=1"
-        />
-        <div class="caro-div bg-white w-100 p-2">Cruises to Bermuda</div>
-      </a>
-    </div>
+
   </div>
 
   <div class="row w-100 mx-auto">
     <div class="col-md-12">
-      <h2>Cruises to popular destinations</h2>
+      <h2>The Cheapest Cruises Price</h2>
     </div>
   </div>
   <div class="row w-100 mx-auto">
-    <div class="col-md-3 m-0 p-1">
-      <a href="#">
-        <img
-          class="slider-img"
-          src="https://media-cdn.tripadvisor.com/media/photo-s/08/2b/39/1c/traveller-s-choice-award.jpg"
-        />
-        <div class="caro-div bg-white w-100 p-2">Cruises to Dubai</div>
-      </a>
+    <div class="col-md-3 m-0 p-1" data-toggle="modal" data-target="#exampleModal"
+      *ngFor="let cruise of lowPriceCruise.slice(0,4)  " (click)="cruiseModal(cruise)">
+      <img class="slider-img" src={{cruise.images[0]}} />
+      <div class="caro-div bg-white w-100 p-2">Cruises to {{cruise.whereTo}}</div>
+
+      <app-cruise-modal *ngIf="showState()"></app-cruise-modal>
     </div>
-    <div class="col-md-3 m-0 p-1">
-      <a href="#">
-        <img
-          class="carousel-imgs"
-          src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/33/f5/65/mexico.jpg?w=500&amp;h=300&amp;s=1"
-        />
-        <div class="caro-div bg-white w-100 p-2">Cruises to Hurghada</div>
-      </a>
-    </div>
-    <div class="col-md-3 m-0 p-1">
-      <a href="#">
-        <img
-          class="carousel-imgs"
-          src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/33/f7/48/nice.jpg?w=500&amp;h=300&amp;s=1"
-        />
-        <div class="caro-div bg-white w-100 p-2">Cruises to Istanbul</div>
-      </a>
-    </div>
-    <div class="col-md-3 m-0 p-1">
-      <a href="#">
-        <img
-          class="carousel-imgs"
-          src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/33/fa/e6/alaska.jpg?w=500&amp;h=300&amp;s=1"
-        />
-        <div class="caro-div bg-white w-100 p-2">Cruises to Santa Maria</div>
-      </a>
-    </div>
+
   </div>
 
   <div class="row w-100 mx-auto">
@@ -216,41 +134,12 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-3 m-0 p-1">
-      <a href="#">
-        <img
-          class="slider-img"
-          src="https://media-cdn.tripadvisor.com/media/photo-s/08/2b/39/1c/traveller-s-choice-award.jpg"
-        />
-        <div class="caro-div bg-white w-100 p-2">3-5 days</div>
-      </a>
-    </div>
-    <div class="col-md-3 m-0 p-1">
-      <a href="#">
-        <img
-          class="carousel-imgs"
-          src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/33/f5/65/mexico.jpg?w=500&amp;h=300&amp;s=1"
-        />
-        <div class="caro-div bg-white w-100 p-2">6-9 days</div>
-      </a>
-    </div>
-    <div class="col-md-3 m-0 p-1">
-      <a href="#">
-        <img
-          class="carousel-imgs"
-          src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/33/f7/48/nice.jpg?w=500&amp;h=300&amp;s=1"
-        />
-        <div class="caro-div bg-white w-100 p-2">10-14 days</div>
-      </a>
-    </div>
-    <div class="col-md-3 m-0 p-1">
-      <a href="#">
-        <img
-          class="carousel-imgs"
-          src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/33/fa/e6/alaska.jpg?w=500&amp;h=300&amp;s=1"
-        />
-        <div class="caro-div bg-white w-100 p-2">15+ days</div>
-      </a>
+    <div class="col-md-3 m-0 p-1" data-toggle="modal" data-target="#exampleModal"
+      *ngFor="let cruise of minNumbDays.slice(0,4)" (click)="cruiseModal(cruise)">
+      <img class="slider-img" src={{cruise.images[0]}} />
+      <div class="caro-div bg-white w-100 p-2">{{cruise.days}} Days</div>
+
+      <app-cruise-modal *ngIf="showState()"></app-cruise-modal>
     </div>
   </div>
 
@@ -261,11 +150,7 @@
   </div>
 
   <form class="pb-5">
-    <select
-      class="select-cruise mr-2"
-      name="selectCurise"
-      id="selectCurise"
-    >
+    <select class="select-cruise mr-2" name="selectCurise" id="selectCurise">
       <option value="option1">1A Vista Reisen</option>
       <option value="option1">A-ROSA Cruises</option>
       <option value="option1">AIDA</option>
@@ -414,31 +299,6 @@
         for a luxury cruise, consider Crystal, Seabourn, Regent Seven Seas,
         Oceania, Azamara, Viking Oceans and Silversea.
       </p>
-    </div>
-  </div>
-
-  <div class="row py-5 px-2">
-    <div class="col-md-12">
-      <h3>Cruises by style</h3>
-    </div>
-    <div class="row w-100 px-5">
-      <div class="col-md-4 anchor-div">
-        <a href="#">Luxury Cruises</a>
-      </div>
-      <div class="col-md-4 anchor-div">
-        <a href="#">Family Cruises</a>
-      </div>
-      <div class="col-md-4 anchor-div">
-        <a href="#">River Cruises</a>
-      </div>
-    </div>
-    <div class="row w-100 px-5">
-      <div class="col-md-4 anchor-div">
-        <a href="#">Cruise Deals</a>
-      </div>
-      <div class="col-md-4 anchor-div">
-        <a href="#">Last Minute Cruises</a>
-      </div>
     </div>
   </div>
 </div>

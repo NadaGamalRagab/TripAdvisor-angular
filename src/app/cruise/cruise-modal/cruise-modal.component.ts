@@ -5,18 +5,23 @@ import { CruiseService } from 'src/app/_services/cruise/cruise.service';
 @Component({
   selector: 'app-cruise-modal',
   templateUrl: './cruise-modal.component.html',
-  styleUrls: ['./cruise-modal.component.scss']
+  styleUrls: ['./cruise-modal.component.scss'],
 })
 export class CruiseModalComponent implements OnInit {
-  
-  @Input() cruise: Cruise;
-  constructor(private cruiseService: CruiseService ) {
-    
-   }
+  cruise: Cruise;
+  constructor(private cruiseService: CruiseService) {}
 
   ngOnInit(): void {
     console.log(this.cruise);
-  
+    this.cruiseService.BoxModal.subscribe(
+      (resp) => {
+        this.cruise = resp;
+      },
+      (error) => {
+        console.log(error);
+      },
+      (completed) => {}
+    );
   }
   bookNow() {
     this.cruiseService.BookNow.emit(this.cruise);
