@@ -1,6 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
-import {Home} from '../../_model/home'
-import {HomeService} from '../../_services/home.service'
+import {Home} from '../../_model/home/home'
+import {HomeService} from '../../_services/home/home.service'
 
 @Component({
   selector: 'app-card',

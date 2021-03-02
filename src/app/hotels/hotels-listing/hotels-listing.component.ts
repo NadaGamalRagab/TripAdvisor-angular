@@ -1,7 +1,8 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
 import { Hotel } from 'src/app/_model/hotels/hotel';
-import { HotelService } from 'src/app/_services/hotel.service';
-import { HotelsFilteringService } from './../../_services/hotels-filtering.service';
+import { HotelService } from 'src/app/_services/hotels/hotel.service';
+import { resolveTypeReferenceDirective } from 'typescript';
+import { HotelsFilteringService } from './../../_services/hotels/hotels-filtering.service';
 
 @Component({
   selector: 'app-hotels-listing',
@@ -9,7 +10,7 @@ import { HotelsFilteringService } from './../../_services/hotels-filtering.servi
   styleUrls: ['./hotels-listing.component.scss'],
 })
 export class HotelsListingComponent implements OnInit, OnChanges {
-  hotels: Hotel[];
+  hotels: Hotel[] = [];
   pageNumbers: number[] = [];
   pageSize: number = 2;
   currentPage: number = 0;
@@ -20,8 +21,23 @@ export class HotelsListingComponent implements OnInit, OnChanges {
   ) {}
 
   ngOnInit(): void {
-    this.hotels = this.hotelService.getAllHotels();
-    this.calculateNumberOfPages(this.hotels.length);
+    //this.hotels = this.hotelService.getAllHotels();
+    this.hotelService.getAllHotels().subscribe(
+      (resp) => {
+        //console.log(resp);
+        //this.hotels = resp;
+        //console.log(this.hotels);
+        Object.values(resp).map((res) => {
+          //console.log(res);
+          this.hotels.push(res);
+        });
+        //console.log(this.hotels);
+        this.calculateNumberOfPages(this.hotels.length);
+      },
+      (error) => {},
+      () => {}
+    );
+
     this.HotelsFilteringService.Filtering.subscribe(
       (event) => {
         console.log(event);
@@ -30,9 +46,14 @@ export class HotelsListingComponent implements OnInit, OnChanges {
         } else {
           this.hotels = this.HotelsFilteringService.Filter(event);
         }
-        if (this.hotels.length == 0) {
-          this.hotels = this.hotelService.getAllHotels();
-        }
+        // if (this.hotels.length == 0) {
+        //   this.hotelService.getAllHotels().subscribe((resp) => {
+        //     Object.values(resp).map((res) => {
+        //       console.log(res);
+        //       this.hotels.push(res);
+        //     });
+        //   });
+        // }
       },
       (error) => {
         console.log(error);

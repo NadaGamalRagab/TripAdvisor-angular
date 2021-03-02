@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Hotel } from 'src/app/_model/hotels/hotel';
-import { HotelCategoryService } from './../../_services/hotel-category.service';
-import { HotelService } from 'src/app/_services/hotel.service';
+import { HotelCategoryService } from './../../_services/hotels/hotel-category.service';
+import { HotelService } from 'src/app/_services/hotels/hotel.service';
+import { TranslateService } from '@ngx-translate/core';
+import { LocalizationService } from 'src/app/_services/general/localization.service';
 
 @Component({
   selector: 'app-box-model',
@@ -14,7 +16,7 @@ export class BoxModelComponent implements OnInit {
   };
 
   hotel: Hotel = {
-    _id: '5ff8f01a394ad263f625f560',
+    _id: '6034850820a22f4b8cfc1a06',
     name: 'Iberostar Club Palmeraie Marrakech',
     booking: [
       {
@@ -64,9 +66,14 @@ export class BoxModelComponent implements OnInit {
       'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/dd/06/86/steigenberger-al-dau.jpg?w=400&amp;h=400&amp;s=1',
     ],
     deals: ['2', '3'],
-    amenities: ['13', '14', '15', '16', '17', '18', '19', '20'],
+    amenities: [
+      '603085c26ee91f6c2c6ab015',
+      '603085c26ee91f6c2c6ab016',
+      '603085c26ee91f6c2c6ab017',
+      '16603085c26ee91f6c2c6ab01a',
+    ],
     popular: ['8'],
-    class: '21',
+    class: '603085c26ee91f6c2c6ab01d',
     distance: {
       mainStreet: 3,
       beach: 10,
@@ -100,17 +107,17 @@ export class BoxModelComponent implements OnInit {
       },
     ],
     style: ['Family Resort', 'Family'],
-    languageSpoken: ['25', '26', '27', '28', '29'],
+    languageSpoken: ['603085c26ee91f6c2c6ab021', '603085c26ee91f6c2c6ab022'],
     likes: ['252', '4575'],
   };
 
   latitude: number = 0;
   longitude: number = 0;
-  rooms: number = 0;
   constructor(
     private HotelCategoryService: HotelCategoryService,
-    private HotelService: HotelService
-  ) {}
+    private HotelService: HotelService,
+    private localizationService: LocalizationService, public translate: TranslateService
+  ) { }
 
   ngOnInit(): void {
     this.bestDeal();
@@ -122,13 +129,16 @@ export class BoxModelComponent implements OnInit {
         this.latitude = this.hotel.map.latitude;
         this.longitude = this.hotel.map.longitude;
       },
-      (error) => {},
-      (completed) => {}
+      (error) => { },
+      (completed) => { }
     );
   }
 
   getAmt(_id) {
-    return this.HotelCategoryService.getAmtById(_id)[0].name;
+    if (this.HotelCategoryService.getAmtById(_id).length > 0) {
+      // console.log(this.HotelCategoryService.getAmtById(_id)[0].name);
+      return this.HotelCategoryService.getAmtById(_id)[0].name;
+    }
   }
 
   bestDeal() {
@@ -143,6 +153,7 @@ export class BoxModelComponent implements OnInit {
   }
 
   getClass() {
+    // console.log(this.hotel.class);
     return this.HotelCategoryService.getClassById(this.hotel.class)[0].name;
   }
   getLanguageSpoken(_id) {
@@ -152,4 +163,3 @@ export class BoxModelComponent implements OnInit {
     this.HotelService.BookNow.emit(this.hotel);
   }
 }
-

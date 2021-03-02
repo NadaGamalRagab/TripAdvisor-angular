@@ -1,8 +1,10 @@
 import { Component, EventEmitter, Input, OnInit } from '@angular/core';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateService } from '@ngx-translate/core';
 import { Hotel } from 'src/app/_model/hotels/hotel';
-import { HotelService } from 'src/app/_services/hotel.service';
-import { HotelCategoryService } from './../../_services/hotel-category.service';
+import { LocalizationService } from 'src/app/_services/general/localization.service';
+import { HotelService } from 'src/app/_services/hotels/hotel.service';
+import { HotelCategoryService } from './../../_services/hotels/hotel-category.service';
 
 @Component({
   selector: 'app-hotel',
@@ -10,7 +12,6 @@ import { HotelCategoryService } from './../../_services/hotel-category.service';
   styleUrls: ['./hotel.component.scss'],
   providers: [NgbModalConfig, NgbModal],
 })
-  
 export class HotelComponent implements OnInit {
   @Input() hotel: Hotel;
   bestSeller: boolean;
@@ -19,12 +20,15 @@ export class HotelComponent implements OnInit {
   reserveNow: boolean = false;
   theBestDeal = { obj: {}, img: '' };
   rate: number = 0;
+  able = false;
 
   constructor(
     private hotelService: HotelService,
     private HotelCategoryService: HotelCategoryService,
     config: NgbModalConfig,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private localizationService: LocalizationService,
+    public translate: TranslateService,
   ) {
     config.backdrop = 'static';
     config.keyboard = false;
@@ -106,6 +110,7 @@ export class HotelComponent implements OnInit {
   }
 
   getAmt(_id) {
+    // console.log(this.HotelCategoryService.getAmtById(_id));
     return this.HotelCategoryService.getAmtById(_id)[0].name;
   }
   open(content) {
@@ -113,6 +118,11 @@ export class HotelComponent implements OnInit {
   }
 
   BookNow() {
+    console.log(this.hotel);
     this.hotelService.viewDetails.emit(this.hotel);
+    this.able = true;
+  }
+  showState() {
+    return this.able;
   }
 }

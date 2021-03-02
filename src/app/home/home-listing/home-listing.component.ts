@@ -1,10 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef ,NgModule,Renderer2} from '@angular/core';
-import {Home} from "../../_model/home";
-import {HomeService} from "../../_services/home.service";
-import {DreamTripService} from "../../_services/dream-trip.service";
-import {DreamTripCards} from '../../_model/dreamTrip';
-import {MoreExploreService} from "../../_services/more-explore.service";
-import {MoreToExplore} from '../../_model/more-explore'
+import {Home} from "../../_model/home/home";
+import {HomeService} from "../../_services/home/home.service";
+import {DreamTripService} from "../../_services/home/dream-trip.service";
+import {DreamTripCards} from '../../_model/home/dreamTrip';
+import {MoreExploreService} from "../../_services/home/more-explore.service";
+import {MoreToExplore} from '../../_model/home/more-explore'
 
 
 
@@ -20,7 +20,7 @@ export class HomeListingComponent implements OnInit {
    headlines : MoreToExplore[];
    cards:Home[];
    isToggel=false;
-   search:string;
+   search:string[] =[];
    current:0;
    size:2;
    slides: any = [[]];
@@ -51,12 +51,32 @@ export class HomeListingComponent implements OnInit {
   
 }  */
 
-onSearchHandler(searchInput){
-  
-  console.log(searchInput.value);
-  this.search= searchInput.value;
-    return this.search
-}
+// onSearchHandler(searchInput){
+//   console.log(searchInput.value);
+//   this.search.push(searchInput.value);
+//   console.log(this.search)
+//     return this.search;
+// }
+
+timeout: any = null;
+
+ onKeySearch(event: any) {
+    clearTimeout(this.timeout);
+    var $this = this;
+    this.timeout = setTimeout(function () {
+      if (event.keyCode == 13) {
+        $this.executeListing(event.target.value);
+      }
+    }, 1);
+  }
+
+ executeListing(value: string) {
+    // alert(value);
+    console.log(value)
+    if (value !== ''){
+      this.search.push(value);
+    }
+  }
 
 chunk(arr: any, chunkSize: number) {
   let R = [];
