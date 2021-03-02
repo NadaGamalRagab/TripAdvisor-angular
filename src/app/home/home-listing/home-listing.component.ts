@@ -20,8 +20,7 @@ export class HomeListingComponent implements OnInit {
    headlines : MoreToExplore[];
    cards:Home[];
    isToggel=false;
-   search:string;
-   tags : string;
+   search:string[] =[];
    current:0;
    size:2;
    slides: any = [[]];
@@ -52,12 +51,32 @@ export class HomeListingComponent implements OnInit {
   
 }  */
 
-onSearchHandler(searchInput){
-  
-  console.log(searchInput.value);
-  this.search= searchInput.value;
-    return this.search;
-}
+// onSearchHandler(searchInput){
+//   console.log(searchInput.value);
+//   this.search.push(searchInput.value);
+//   console.log(this.search)
+//     return this.search;
+// }
+
+timeout: any = null;
+
+ onKeySearch(event: any) {
+    clearTimeout(this.timeout);
+    var $this = this;
+    this.timeout = setTimeout(function () {
+      if (event.keyCode == 13) {
+        $this.executeListing(event.target.value);
+      }
+    }, 1);
+  }
+
+ executeListing(value: string) {
+    // alert(value);
+    console.log(value)
+    if (value !== ''){
+      this.search.push(value);
+    }
+  }
 
 chunk(arr: any, chunkSize: number) {
   let R = [];

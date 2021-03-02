@@ -45,6 +45,7 @@ import { CruiseModalComponent } from './cruise/cruise-modal/cruise-modal.compone
 import { CruiseBookingComponent } from './cruise/cruise-booking/cruise-booking.component';
 import { CommonModule } from '@angular/common';
 import { ResturantDetailsComponent } from './restaurants/resturant-details/resturant-details.component';
+import { SingupComponent } from './profile/singup/singup.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { ResturantDetailsComponent } from './restaurants/resturant-details/restu
     CruiseModalComponent,
     CruiseBookingComponent,
     ResturantDetailsComponent,
+    SingupComponent,
   ],
   imports: [
     BrowserModule,

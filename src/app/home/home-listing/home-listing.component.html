@@ -1,5 +1,5 @@
 <!-- Navigation Buttons -->
-  <div class="container mt-5">
+  <div class="container mt-5 w-100">
      <div class="row">
       <!-- Item button list -->
         <div class="col-12" style="text-align: center;">
@@ -98,25 +98,75 @@
       </div>
       <div class="cont6">
         <form class="form1" name="myForm">
-        <input  ng-model="q" (input)="onSearchHandler(searchInput)" #searchInput class="input1" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required="" name="q" placeholder="Where to?" title="Search" aria-label="Search" value=""
+        <input  ng-model="q" (keyup)="onKeySearch($event)" #searchInput class="input1" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required="" name="q" placeholder="Where to?" title="Search" aria-label="Search" value=""
            aria-label="Search">
         <button  type="submit" formaction="/Search" class="search1" title="Search" aria-label="Search" tabindex="-1"><svg viewBox="0 0 24 24" width="1em" height="1em" class="searchIcon ">
             <path d="M22 20.514l-5.517-5.519a8.023 8.023 0 001.674-4.904c0-4.455-3.624-8.079-8.079-8.079C5.624 2.012 2 5.636 2 10.091s3.624 8.079 8.079 8.079a8.03 8.03 0 004.933-1.695l5.512 5.514L22 20.514zm-11.921-4.431c-3.305 0-5.993-2.688-5.993-5.992s2.688-5.992 5.993-5.992a6 6 0 015.992 5.992 6 6 0 01-5.992 5.992z"></path>
             </svg>
         </button>
           <!-- search div -->
-      <div *ngIf="this.search?.length>0 || searchInput.touched" class="searchCont" data-test-attribute="typeahead-results">
+      <!-- <div *ngIf="this.search?.length>0 || searchInput.touched" class="searchCont" data-test-attribute="typeahead-results">
         <hr class="hSperator">
         <a class="searchLink" >
         <div class="searchSt ">
         <svg viewBox="0 0 24 24" width="24px" height="24px">
         <path d="M22 20.514l-5.517-5.519a8.023 8.023 0 001.674-4.904c0-4.455-3.624-8.079-8.079-8.079C5.624 2.012 2 5.636 2 10.091s3.624 8.079 8.079 8.079a8.03 8.03 0 004.933-1.695l5.512 5.514L22 20.514zm-11.921-4.431c-3.305 0-5.993-2.688-5.993-5.992s2.688-5.992 5.993-5.992a6 6 0 015.992 5.992 6 6 0 01-5.992 5.992z"></path></svg></div><div class="searchTxt">
-        <div class="txt">{{this.search}}</div></div></a><hr class="hSperator"><a class="searchLink" href="/Search?q=hotels&amp;searchSessionId=4DDB76B5083493BEDBFD92A2AA4C4D8C1612375333612ssid&amp;searchNearby=&amp;latitude=&amp;longitude=&amp;geo=1">
+        <div class="txt">{{searchInput.value}}</div></div></a><hr class="hSperator"><a class="searchLink" href="/Search?q=hotels&amp;searchSessionId=4DDB76B5083493BEDBFD92A2AA4C4D8C1612375333612ssid&amp;searchNearby=&amp;latitude=&amp;longitude=&amp;geo=1">
         <div class="searchSt "><svg viewBox="0 0 24 24" width="24px" height="24px" class="_2HBN-k68 "><path d="M22 20.514l-5.517-5.519a8.023 8.023 0 001.674-4.904c0-4.455-3.624-8.079-8.079-8.079C5.624 2.012 2 5.636 2 10.091s3.624 8.079 8.079 8.079a8.03 8.03 0 004.933-1.695l5.512 5.514L22 20.514zm-11.921-4.431c-3.305 0-5.993-2.688-5.993-5.992s2.688-5.992 5.993-5.992a6 6 0 015.992 5.992 6 6 0 01-5.992 5.992z"></path></svg>
-        </div><div class="searchTxt"><div class="txt">{{this.search}}</div></div></a><hr class="_1HvHQ6Xs"><a class="searchLink" href="/HotelsList-Hawaii-All-Inclusive-Resorts-zfp41237.html"><div class="searchSt "><svg viewBox="0 0 24 24" width="24px" height="24px" class="_2HBN-k68 ">
+        </div><div class="searchTxt"><div class="txt">{{searchInput.value}}</div></div></a><hr class="_1HvHQ6Xs">
+        <a class="searchLink" href="/HotelsList-Hawaii-All-Inclusive-Resorts-zfp41237.html"><div class="searchSt "><svg viewBox="0 0 24 24" width="24px" height="24px" class="_2HBN-k68 ">
             <path d="M20.587 12.139V4.144H3.424v7.986A3.805 3.805 0 002 15.097v4.755h1.906v-1.905h16.188v1.91H22v-4.76a3.804 3.804 0 00-1.413-2.958zm-1.906-6.09V8.83a5.048 5.048 0 00-2.865-.876c-1.565 0-2.952.69-3.816 1.749-.864-1.059-2.252-1.749-3.818-1.749-1.07 0-2.056.324-2.851.866V6.049h13.35zm-.258 5.248c-.077-.005-.155-.012-.234-.012h-4.971c.438-.838 1.437-1.426 2.598-1.426 1.168 0 2.173.593 2.607 1.438zm-7.643-.012H5.812c-.081 0-.159.007-.238.012.434-.844 1.438-1.438 2.606-1.438 1.163 0 2.163.588 2.6 1.426zM3.906 16.04v-.943c0-1.051.855-1.905 1.906-1.905h12.376c1.051 0 1.905.854 1.905 1.905v.943H3.906z"></path></svg></div>
         <div class="searchTxt"><div class="txt">hawaii all inclusive resorts</div><div><div class=" _1AZDEEAe">United States, North America</div></div></div></a>
-        </div>
+        </div> -->
+      <div *ngIf="this.search?.length>0 || searchInput.touched" class="searchCont" data-test-attribute="typeahead-results">
+               <div class="row">   
+                <a class="searchLink m-0 pl-3">
+                    <div class="col-4">
+                    <div class="searchSt ">
+                        <svg viewBox="0 0 24 24" width="24px" height="24px" class="_2HBN-k68 ">
+                            <path d="M20.587 12.139V4.144H3.424v7.986A3.805 3.805 0 002 15.097v4.755h1.906v-1.905h16.188v1.91H22v-4.76a3.804 3.804 0 00-1.413-2.958zm-1.906-6.09V8.83a5.048 5.048 0 00-2.865-.876c-1.565 0-2.952.69-3.816 1.749-.864-1.059-2.252-1.749-3.818-1.749-1.07 0-2.056.324-2.851.866V6.049h13.35zm-.258 5.248c-.077-.005-.155-.012-.234-.012h-4.971c.438-.838 1.437-1.426 2.598-1.426 1.168 0 2.173.593 2.607 1.438zm-7.643-.012H5.812c-.081 0-.159.007-.238.012.434-.844 1.438-1.438 2.606-1.438 1.163 0 2.163.588 2.6 1.426zM3.906 16.04v-.943c0-1.051.855-1.905 1.906-1.905h12.376c1.051 0 1.905.854 1.905 1.905v.943H3.906z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div class="searchTxt">
+                    <div class="txt">{{searchInput.value}} Hotels</div>
+                </div>
+            </div>
+                    </a>
+                </div>
+                    <hr>
+                    <div class="row"> <a class="searchLink m-0 pl-3">
+                            <div class="col-4">
+                            <div class="searchSt ">
+                                <svg viewBox="0 0 24 24" width="24px" height="24px" class="_2HBN-k68 ">
+                                    <path d="M20.587 12.139V4.144H3.424v7.986A3.805 3.805 0 002 15.097v4.755h1.906v-1.905h16.188v1.91H22v-4.76a3.804 3.804 0 00-1.413-2.958zm-1.906-6.09V8.83a5.048 5.048 0 00-2.865-.876c-1.565 0-2.952.69-3.816 1.749-.864-1.059-2.252-1.749-3.818-1.749-1.07 0-2.056.324-2.851.866V6.049h13.35zm-.258 5.248c-.077-.005-.155-.012-.234-.012h-4.971c.438-.838 1.437-1.426 2.598-1.426 1.168 0 2.173.593 2.607 1.438zm-7.643-.012H5.812c-.081 0-.159.007-.238.012.434-.844 1.438-1.438 2.606-1.438 1.163 0 2.163.588 2.6 1.426zM3.906 16.04v-.943c0-1.051.855-1.905 1.906-1.905h12.376c1.051 0 1.905.854 1.905 1.905v.943H3.906z">
+                                    </path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <div class="searchTxt">
+                            <div class="txt">{{searchInput.value}} Restaurants</div>
+                        </div>
+                    </div>
+                            </a>
+                        </div>
+                    <hr>
+                    <a class="searchLink">
+                        <div class="searchSt ">
+                            <svg viewBox="0 0 24 24" width="24px" height="24px" class="_2HBN-k68 ">
+                                <path d="M20.587 12.139V4.144H3.424v7.986A3.805 3.805 0 002 15.097v4.755h1.906v-1.905h16.188v1.91H22v-4.76a3.804 3.804 0 00-1.413-2.958zm-1.906-6.09V8.83a5.048 5.048 0 00-2.865-.876c-1.565 0-2.952.69-3.816 1.749-.864-1.059-2.252-1.749-3.818-1.749-1.07 0-2.056.324-2.851.866V6.049h13.35zm-.258 5.248c-.077-.005-.155-.012-.234-.012h-4.971c.438-.838 1.437-1.426 2.598-1.426 1.168 0 2.173.593 2.607 1.438zm-7.643-.012H5.812c-.081 0-.159.007-.238.012.434-.844 1.438-1.438 2.606-1.438 1.163 0 2.163.588 2.6 1.426zM3.906 16.04v-.943c0-1.051.855-1.905 1.906-1.905h12.376c1.051 0 1.905.854 1.905 1.905v.943H3.906z">
+                                </path>
+                            </svg>
+                        </div>
+                    <div class="searchTxt">
+                        <div class="txt">{{searchInput.value}} Cruises</div>
+                    </div>
+                        </a>
+                </div> 
+
        </form>
       </div>
     </div>
@@ -126,15 +176,17 @@
 
 
   <!--Section Separator -->
-<div style="margin-bottom: 42px;text-align: center;">
+<!-- <div style="margin-bottom: 42px;text-align: center;">
   <h2 class="h" style="font-size: 1.5em;font-weight: bold;">
       Keep Planning
   </h2>
-</div>
+</div> -->
+<hr class="mx-4">
+<h1 class="mt-2 ml-4 font-weight-bold">Keep Planning</h1>
 
 
   <!-- Buttons -->
-  <app-button></app-button>
+  <app-button [search]="search"></app-button>
 
   <!-- Add container 1 -->
   <div class="container" style="margin-top: 40px;margin-bottom: 50px;">
@@ -250,11 +302,13 @@
 
 
 <!-- Dream Destination -->
-<div style="margin-bottom: 42px;text-align: center;">
+<!-- <div style="margin-bottom: 42px;text-align: center;">
   <h2 class="h" style="font-size: 1.5em;font-weight: bold;">
       Dream Your Next Trip
   </h2>
-</div>
+</div> -->
+<hr class="mx-4">
+<h1 class="mt-2 ml-4 font-weight-bold">Dream Your Next Trip</h1>
 
  <div class="container">
   <div class="col-sm col-xs-12 pt-3">
