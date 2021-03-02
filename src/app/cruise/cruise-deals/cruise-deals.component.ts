@@ -39,6 +39,14 @@ export class CruiseDealsComponent implements OnInit {
   //   this.able = true;
   // }
 
+
+  showState() {
+    return this.able;
+  }
+  cruiseModal() {
+    // console.log(this.cruise);
+    this.openModal = true;
+  }
   cruiseModal() {
     // console.log(this.cruise);
     this.cruiseService.BoxModal.emit(this.cruise);

@@ -45,6 +45,7 @@ import { CruiseModalComponent } from './cruise/cruise-modal/cruise-modal.compone
 import { CruiseBookingComponent } from './cruise/cruise-booking/cruise-booking.component';
 import { CommonModule } from '@angular/common';
 import { ResturantDetailsComponent } from './restaurants/resturant-details/resturant-details.component';
+import { SingupComponent } from './profile/singup/singup.component';
 import { MediaCenterComponent } from './media-center/media-center.component';
 import { HelpCenterComponent } from './help-center/help-center.component';
 
@@ -79,6 +80,7 @@ import { HelpCenterComponent } from './help-center/help-center.component';
     CruiseModalComponent,
     CruiseBookingComponent,
     ResturantDetailsComponent,
+    SingupComponent,
     MediaCenterComponent,
     HelpCenterComponent,
   ],

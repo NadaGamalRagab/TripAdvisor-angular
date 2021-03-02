@@ -69,7 +69,7 @@
     <h2 class="d-inline-block mb-3">Cuisine </h2>
 
     <form class="mb-4">
-      <div class="custom-checkbox" *ngFor='let cuisine of categories.cuisine'>
+      <div class="custom-checkbox" *ngFor='let cuisine of sliceCuisine()'>
         <div class="form-check">
           <label>
             <input type="checkbox" name={{cuisine.name}} id={{cuisine._id}} (change)='Filter($event)' />
@@ -77,6 +77,8 @@
           </label>
         </div>
       </div>
+      <a  id="cuisine" role="button" (click)="getMore($event)"  class="font-weight-bold text-body small dropdown-toggle"
+        >Show {{ moreCuisine ? "Less" : "More" }}</a>
     </form>
   </div>
   <hr />
@@ -85,7 +87,7 @@
     <h2 class="d-inline-block mb-3">Dishes </h2>
 
     <form class="mb-4">
-      <div class="custom-checkbox" *ngFor='let dish of categories.dishes'>
+      <div class="custom-checkbox" *ngFor='let dish of sliceDishes()'>
         <div class="form-check">
           <label>
             <input type="checkbox" name={{dish.name}} id={{dish._id}} (change)='Filter($event)' />
@@ -93,6 +95,8 @@
           </label>
         </div>
       </div>
+      <a  id="dishes" role="button" (click)="getMore($event)"  class="font-weight-bold text-body small dropdown-toggle"
+        >Show {{ moreCuisine ? "Less" : "More" }}</a>
     </form>
   </div>
 
