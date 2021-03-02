@@ -38,11 +38,14 @@ export class CruiseDealsComponent implements OnInit {
   //   this.cruiseService.viewDetails.emit(this.cruise);
   //   this.able = true;
   // }
+
+  cruiseModal() {
+    // console.log(this.cruise);
+    this.cruiseService.BoxModal.emit(this.cruise);
+    this.able = true;
+  }
   showState() {
     return this.able;
   }
-  cruiseModal() {
-    // console.log(this.cruise);
-    this.openModal = true;
-  }
+  
 }
