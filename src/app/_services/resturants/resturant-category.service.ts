@@ -6,7 +6,7 @@ import { AllCategory } from 'src/app/_model/resturant/AllCategory';
   providedIn: 'root',
 })
 export class ResturantCategoryService {
-  baseUrl = 'https://sleepy-basin-52383.herokuapp.com/resturants/';
+  baseUrl = 'https://sleepy-basin-52383.herokuapp.com/';
   categoryList: AllCategory;
   // categoryList: AllCategory = {
   //   _id: '1000',
@@ -96,7 +96,7 @@ export class ResturantCategoryService {
   // };
 
   getAllCategories() {
-    return this.httpClient.get(`${this.baseUrl}Category`);
+    return this.httpClient.get(`${this.baseUrl}resturantscategory`);
   }
 
   constructor(private httpClient: HttpClient) {
