@@ -4,7 +4,7 @@ import { AllCategory } from './../../_model/hotels/AllCategory';
 import { ThisReceiver } from '@angular/compiler';
 import { HotelService } from 'src/app/_services/hotels/hotel.service';
 import { HotelsFilteringService } from './../../_services/hotels/hotels-filtering.service';
-
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',

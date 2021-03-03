@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Restaurant } from 'src/app/_model/resturant/restaurant';
 import { ResturantService } from 'src/app/_services/resturants/resturant.service';
 import { ResturantCategoryService } from './../../_services/resturants/resturant-category.service';
-
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-resturant-details',
   templateUrl: './resturant-details.component.html',

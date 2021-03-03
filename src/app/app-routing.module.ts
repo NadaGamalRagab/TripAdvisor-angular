@@ -11,15 +11,6 @@ import { RestaurantListingComponent } from './restaurants/restaurant-listing/res
 import { ShoppingPageComponent } from './shopping/shopping-page/shopping-page.component';
 
 const routes: Routes = [
-
-  {path:'',redirectTo:'home', pathMatch: 'full' },
-  {path:'home',component : HomeListingComponent},
-   {path:'hotels',component : HotelsListingComponent},
-   {path:'cruises',component : CruisesComponent},
-   {path:'resturants',component : RestaurantListingComponent}, 
-   {path:'shopping',component : ShoppingPageComponent}, 
-   {path:'profile',component : ProfileComponent},
-   {path:'signup',component : SingupComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeListingComponent },
   { path: 'hotels', component: HotelsListingComponent },
@@ -27,9 +18,9 @@ const routes: Routes = [
   { path: 'resturants', component: RestaurantListingComponent },
   { path: 'shopping', component: ShoppingPageComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'signup', component: SingupComponent },
   { path: 'mediaCenter', component: MediaCenterComponent },
   { path: 'helpCenter', component: HelpCenterComponent },
-
   //  {path:'**', component :PageNotFoundComponent }
 ];
 

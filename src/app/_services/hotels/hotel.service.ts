@@ -1,6 +1,7 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { Hotel } from '../../_model/hotels/hotel';
 import { HttpClient } from '@angular/common/http';
+import { HomeService } from './../home/home.service';
 
 @Injectable({
   providedIn: 'root',
@@ -523,7 +524,6 @@ export class HotelService {
   //     likes: ['252', '4575'],
   //   },
   // ];
-
   hotels: Hotel[] = [];
   baseUrl = 'https://sleepy-basin-52383.herokuapp.com/';
 
@@ -534,7 +534,10 @@ export class HotelService {
     //return this.hotels.slice();
   }
 
-  constructor(private httpClient: HttpClient) {
+  constructor(
+    private httpClient: HttpClient,
+    private homeService: HomeService
+  ) {
     this.getAllHotels().subscribe((resp) => {
       Object.values(resp).map((res) => {
         //console.log(res);

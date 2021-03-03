@@ -4,7 +4,7 @@ import { Hotel } from './../../_model/hotels/hotel';
 import { Cruise } from './../../_model/criuses/cruise';
 import { PriceDeals } from './../../_model/hotels/PriceDeals';
 import { CruiseService } from 'src/app/_services/cruise/cruise.service';
-
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.component.html',

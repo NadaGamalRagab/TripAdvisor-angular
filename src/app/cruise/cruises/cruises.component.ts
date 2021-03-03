@@ -6,7 +6,7 @@ import { CruiseService } from '../../_services/cruise/cruise.service';
 import { FormControl } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import { Cruise } from './../../_model/criuses/cruise';
-
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-cruises',
   templateUrl: './cruises.component.html',

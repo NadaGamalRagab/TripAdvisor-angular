@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Cruise } from 'src/app/_model/criuses/cruise';
-
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-cruise-booking',
   templateUrl: './cruise-booking.component.html',

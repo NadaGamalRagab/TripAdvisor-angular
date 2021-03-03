@@ -5,7 +5,7 @@ import { Cruise } from '../../_model/criuses/cruise';
 // import { CruiseService } from '../_services/cruise.service';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { CruiseService } from 'src/app/_services/cruise/cruise.service';
-
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-cruise-deals',
   templateUrl: './cruise-deals.component.html',
@@ -39,14 +39,6 @@ export class CruiseDealsComponent implements OnInit {
   //   this.able = true;
   // }
 
-
-  showState() {
-    return this.able;
-  }
-  cruiseModal() {
-    // console.log(this.cruise);
-    this.openModal = true;
-  }
   cruiseModal() {
     // console.log(this.cruise);
     this.cruiseService.BoxModal.emit(this.cruise);
@@ -55,5 +47,4 @@ export class CruiseDealsComponent implements OnInit {
   showState() {
     return this.able;
   }
-  
 }

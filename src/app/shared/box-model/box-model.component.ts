@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Hotel } from 'src/app/_model/hotels/hotel';
 import { HotelCategoryService } from './../../_services/hotels/hotel-category.service';
 import { HotelService } from 'src/app/_services/hotels/hotel.service';
-
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-box-model',
   templateUrl: './box-model.component.html',

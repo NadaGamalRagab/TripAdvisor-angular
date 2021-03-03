@@ -1,8 +1,9 @@
-export interface City{
-    _id:number;
-    name:string;
-    hotels:string[];
-    restaurant:string[];
-    crusie:string[];
-    shopping:string[];
-    }
+export interface City {
+  _id: string;
+  name?: string;
+  mapUrl: string;
+  hotelsId: string[];
+  resturantsId: string[];
+  cruisesId: string[];
+  shoppingId?: string[];
+}

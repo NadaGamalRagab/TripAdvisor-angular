@@ -3,6 +3,7 @@ import { Restaurant } from 'src/app/_model/resturant/restaurant';
 import { getTestBed } from '@angular/core/testing';
 import { ResturantCategoryService } from 'src/app/_services/resturants/resturant-category.service';
 import { ResturantService } from 'src/app/_services/resturants/resturant.service';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-top-restaurant',
   templateUrl: './top-restaurant.component.html',

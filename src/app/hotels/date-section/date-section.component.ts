@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 // import { type } from 'os';
 import { HotelService } from 'src/app/_services/hotels/hotel.service';
-
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-date-section',
   templateUrl: './date-section.component.html',

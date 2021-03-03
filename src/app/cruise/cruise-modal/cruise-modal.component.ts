@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Cruise } from 'src/app/_model/criuses/cruise';
 import { CruiseService } from 'src/app/_services/cruise/cruise.service';
-
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-cruise-modal',
   templateUrl: './cruise-modal.component.html',

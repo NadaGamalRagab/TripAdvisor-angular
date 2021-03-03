@@ -6,6 +6,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root',
 })
 export class ResturantService {
+  resturantsId = new EventEmitter<string>();
+
   resturant: Restaurant[] = [];
 
   baseUrl = 'https://sleepy-basin-52383.herokuapp.com/';
@@ -17,7 +19,6 @@ export class ResturantService {
         this.resturant.push(res);
       });
     });
-    
   }
 
   getAllResturants() {

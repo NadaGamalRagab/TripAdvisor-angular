@@ -5,7 +5,7 @@ import { ResturantFilteringService } from 'src/app/_services/resturants/resturan
 import { ResturantService } from 'src/app/_services/resturants/resturant.service';
 import { Restaurant } from 'src/app/_model/resturant/restaurant';
 import { category } from 'src/app/_model/resturant/category';
-
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-restaurant-listing',
   templateUrl: './restaurant-listing.component.html',

@@ -9,7 +9,6 @@ import {
   NgModule,
   Renderer2,
 } from '@angular/core';
-import { Home } from '../../_model/home/home';
 import { HomeService } from '../../_services/home/home.service';
 import { DreamTripService } from '../../_services/home/dream-trip.service';
 import { DreamTripCards } from '../../_model/home/dreamTrip';
@@ -17,6 +16,8 @@ import { MoreExploreService } from '../../_services/home/more-explore.service';
 import { MoreToExplore } from '../../_model/home/more-explore';
 import { HotelService } from 'src/app/_services/hotels/hotel.service';
 import { Hotel } from 'src/app/_model/hotels/hotel';
+import { CommonModule } from '@angular/common';
+import { City } from './../../_model/home/city';
 
 @Component({
   selector: 'app-home-listing',
@@ -24,32 +25,39 @@ import { Hotel } from 'src/app/_model/hotels/hotel';
   styleUrls: ['./home-listing.component.scss'],
 })
 export class HomeListingComponent implements OnInit {
+  cities: City[] = [];
+  city: string;
+
   dataset = ['MDB', 'Angular', 'Bootstrap', 'Framework', 'SPA', 'React', 'Vue'];
 
   top: DreamTripCards[];
   headlines: MoreToExplore[];
-  cards: Home[];
   isToggel = false;
   search: string[] = [];
   current: 0;
   size: 2;
   slides: any = [[]];
-
-  hotels : Hotel[]=[];
+  hotels: Hotel[] = [];
 
   constructor(
     private renderer: Renderer2,
     private dreamTripSerivce: DreamTripService,
     private moreExploreSerivce: MoreExploreService,
     private homeService: HomeService,
-    private hotelService :HotelService,
+    private hotelService: HotelService
   ) {}
 
   ngOnInit() {
     this.top = this.dreamTripSerivce.getTop();
     this.headlines = this.moreExploreSerivce.getHeadline();
-    this.cards = this.homeService.getCard();
-    this.slides = this.chunk(this.cards, 4);
+
+    this.homeService.getAllCities().subscribe((resp) => {
+      Object.values(resp).map((res) => {
+        this.cities.push(res);
+      });
+      console.log(this.cities);
+    });
+    // this.cards = this.homeService.getCard();
   }
 
   myFunction() {
@@ -80,8 +88,16 @@ export class HomeListingComponent implements OnInit {
     this.timeout = setTimeout(function () {
       if (event.keyCode == 13) {
         $this.executeListing(event.target.value);
+        this.city = event.target.value.toLowerCase();
       }
     }, 1);
+
+    // console.log(this.city);
+    // for (let targetCity of this.cities) {
+    //   if (this.city == targetCity.name) {
+    //     console.log('match', targetCity.name);
+    //   }
+    // }
   }
 
   executeListing(value: string) {
@@ -89,6 +105,13 @@ export class HomeListingComponent implements OnInit {
     console.log(value);
     if (value !== '') {
       this.search.push(value);
+      for (let targetCity of this.cities) {
+        console.log(targetCity.name);
+        if (value == targetCity.name) {
+          console.log('match', targetCity.name);
+          this.homeService.hotelsId.emit(targetCity.hotelsId);
+        }
+      }
     }
   }
 
@@ -108,16 +131,16 @@ export class HomeListingComponent implements OnInit {
     });
   }
 
-  city : string;
   getSearchHotels(hotelValue) {
     this.city = hotelValue.toLowerCase();
     console.log(this.city);
-  //  this.hotelService.getAllHotels().subscribe((resp) => {
-  //   Object.values(resp).map((res) => {
-  //     console.log(res);
-  //     this.hotels.push(res);
-  //   });
-  //    console.log(this.hotels);
-  // });
+
+    //  this.hotelService.getAllHotels().subscribe((resp) => {
+    //   Object.values(resp).map((res) => {
+    //     console.log(res);
+    //     this.hotels.push(res);
+    //   });
+    //    console.log(this.hotels);
+    // });
   }
 }

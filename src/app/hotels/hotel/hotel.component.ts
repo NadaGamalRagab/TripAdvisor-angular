@@ -3,7 +3,7 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Hotel } from 'src/app/_model/hotels/hotel';
 import { HotelService } from 'src/app/_services/hotels/hotel.service';
 import { HotelCategoryService } from './../../_services/hotels/hotel-category.service';
-
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-hotel',
   templateUrl: './hotel.component.html',

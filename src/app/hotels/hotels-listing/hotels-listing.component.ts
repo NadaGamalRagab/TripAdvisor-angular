@@ -3,7 +3,8 @@ import { Hotel } from 'src/app/_model/hotels/hotel';
 import { HotelService } from 'src/app/_services/hotels/hotel.service';
 import { resolveTypeReferenceDirective } from 'typescript';
 import { HotelsFilteringService } from './../../_services/hotels/hotels-filtering.service';
-
+import { CommonModule } from '@angular/common';
+import { HomeService } from './../../_services/home/home.service';
 @Component({
   selector: 'app-hotels-listing',
   templateUrl: './hotels-listing.component.html',
@@ -14,11 +15,24 @@ export class HotelsListingComponent implements OnInit, OnChanges {
   pageNumbers: number[] = [];
   pageSize: number = 2;
   currentPage: number = 0;
+  hotelsId: string[] = [];
 
   constructor(
     private hotelService: HotelService,
-    private HotelsFilteringService: HotelsFilteringService
-  ) {}
+    private HotelsFilteringService: HotelsFilteringService,
+    private homeService: HomeService
+  ) {
+    // this.homeService.hotelsId.subscribe(
+    //   (resp) => {
+    //     this.hotelsId = resp;
+    //     console.log(this.hotelsId);
+    //   },
+    //   (error) => {
+    //     console.log(error);
+    //   },
+    //   () => {}
+    // );
+  }
 
   ngOnInit(): void {
     //this.hotels = this.hotelService.getAllHotels();
