@@ -6,12 +6,12 @@
   
     <img width="400" [src]="product.img">
   
-  </div>
-   -->
+  </div> -->
+  
   <div *ngIf=paidFor>
     <h1>Payment is Seccesful!</h1>
   </div>
-  <div [hidden]="paidFor" ></div>
+  <div [hidden]="paidFor" #paypal></div>
   
   
   

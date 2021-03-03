@@ -14,11 +14,11 @@ export class PaymentComponent implements OnInit {
   constructor() { }
   @ViewChild('paypal', { static: true }) paypalElement: ElementRef;
 
-  // product = {
-  //   price: 777.77,
-  //   description: 'used couch, decent condition',
-  //   img: 'assets/img/couch.jpg'
-  // };
+  product = {
+    price: 777.77,
+    description: 'used couch, decent condition',
+    img: 'assets/img/couch.jpg'
+  };
 
   paidFor = false;
 
@@ -29,11 +29,11 @@ export class PaymentComponent implements OnInit {
           return actions.order.create({
             purchase_units: [
               {
-                // description: this.product.description,
-                // amount: {
-                //   currency_code: 'USD',
-                //   value: this.product.price
-                // }
+                description: this.product.description,
+                amount: {
+                  currency_code: 'USD',
+                  value: this.product.price
+                }
               }
             ]
           });
