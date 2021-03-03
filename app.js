@@ -6,16 +6,16 @@ const ResturantRoutes = require("./routes/restaurant_route");
 const cruiseRoutes = require("./routes/cruise_route");
 const hotelcategoryRoutes = require("./routes/hotelcategory_route");
 const resturantCategoryRoutes = require("./routes/resturantCategory_route");
+const ShoppingCategoryRoutes = require("./routes/ShoppingCategory_route");
 const app = express();
 var cors = require("cors");
 // // 4 make mongo connected
 const mongoose = require("mongoose");
 mongoose.connect(
-  "mongodb+srv://mohamed:mohamed5@tripadvisorcluster.g48e8.mongodb.net/TripAdvisor?retryWrites=true&w=majority",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }
+    "mongodb+srv://mohamed:mohamed5@tripadvisorcluster.g48e8.mongodb.net/TripAdvisor?retryWrites=true&w=majority", {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    }
 );
 // // //
 // //
@@ -33,13 +33,13 @@ cruiseRoutes(app);
 hotelcategoryRoutes(app);
 UserRoutes(app);
 resturantCategoryRoutes(app);
-
+ShoppingCategoryRoutes(app);
 app.use((err, req, res, next) => {
-  // any error should return from response
-  console.log(err.message);
-  res.status(422).send({
-    err: err.message,
-  });
+    // any error should return from response
+    console.log(err.message);
+    res.status(422).send({
+        err: err.message,
+    });
 });
 // for index
 module.exports = app;
