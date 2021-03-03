@@ -4,9 +4,8 @@ var hotelController = require('../controllers/hotel_controller'); // post => cre
 
 
 module.exports = function (app) {
-  app.get('/hotels', hotelController.all); // app.get('/hotels/:id',
-  //     hotelController.getbyid);
-
+  app.get('/hotels', hotelController.all);
+  app.get('/hotels/:id', hotelController.getbyid);
   app.post('/hotels', hotelController.create);
   app.put('/hotels/:id', hotelController.edit);
   app["delete"]('/hotels/:id', hotelController["delete"]);
