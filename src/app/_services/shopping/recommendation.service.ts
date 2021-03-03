@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Recommendation } from '../../_model/shopping/recommendation';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class RecommendationService {
   recommendation: Recommendation[] = [
     { id: 1, name: "Free Entry" },

@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Types } from '../../_model/shopping/types';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class TypesService {
 
   constructor() { }
