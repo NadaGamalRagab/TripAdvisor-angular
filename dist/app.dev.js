@@ -16,6 +16,8 @@ var hotelcategoryRoutes = require("./routes/hotelcategory_route");
 
 var resturantCategoryRoutes = require("./routes/resturantCategory_route");
 
+var citiesRoute = require("./routes/cities_route");
+
 var ShoppingCategoryRoutes = require("./routes/ShoppingCategory_route");
 
 var app = express();
@@ -47,6 +49,7 @@ hotelcategoryRoutes(app);
 UserRoutes(app);
 resturantCategoryRoutes(app);
 ShoppingCategoryRoutes(app);
+citiesRoute(app);
 app.use(function (err, req, res, next) {
   // any error should return from response
   console.log(err.message);
